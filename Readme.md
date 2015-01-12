@@ -67,7 +67,9 @@ The parametrisation should not only provide direct access to these properties, b
 4. Implementations
 ------------------
 
-…
+A [JavaScript implementation][on-npm] is currently being worked on.
+
+[on-npm]: https://www.npmjs.com/package/parametric.svg
 
 
 
