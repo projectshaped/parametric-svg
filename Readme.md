@@ -1,15 +1,13 @@
- [![Latest GitHub release](https://img.shields.io/github/tag/tomekwi/parametric.svg?style=flat-square)](https://github.com/tomekwi/parametric.svg/releases)
  [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)][license]
- [![No implementations yet](https://img.shields.io/badge/implementations-0-blue.svg?style=flat-square)](#implementations)
+ [![Latest GitHub release](https://img.shields.io/github/tag/tomekwi/parametric.svg?style=flat-square)](https://github.com/tomekwi/parametric.svg/releases)
+ [![No implementations yet](https://img.shields.io/badge/implementations-0-blue.svg?style=flat-square)](#implementations)
 
 
 Parametric.svg
 ==============
 
-**…**
-
-
-…
+**A specification for full-fledged parametric SVG graphics.**  
+**A simple XML namespace – fully compatible with SVG 2.0.**
 
 
 
@@ -48,8 +46,20 @@ Parametric.svg is designed as a complete set of tools to describe relationships 
 
 
 
+Abstract
+--------
+
+The purpose of this document is to outline and specify an XML namespace extending the capabilities of Scalable Vector Graphics. The described namespace provides a complete set of tools to parametrise the position, geometry and number of elements in the graphic, in a declarative way.
+
+The parametrisation should not only provide direct access to these properties, but also allow the author to declare logical and arithmetic relationships between parameters and elements.
+
+
+
+
 Specification
 -------------
+
+…
 
 
 
@@ -59,4 +69,5 @@ License
 
 [MIT][license] © [Tomek Wiszniewski][].
 
+[license]: ./License.md
 [Tomek Wiszniewski]: https://github.com/tomekwi
