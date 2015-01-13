@@ -7,10 +7,13 @@
   <img alt="parametric.svg" src="https://raw.githubusercontent.com/tomekwi/parametric.svg/master/assets/logo.png" />
 </h1>
 
+ 
+
 **A specification for full-fledged parametric SVG graphics.**  
 **A simple XML namespace – fully compatible with SVG 2.0.**
 
-
+   
+ 
 
 
 
