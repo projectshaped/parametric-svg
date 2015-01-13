@@ -10,7 +10,7 @@
  
 
 **A specification for full-fledged parametric SVG graphics.**  
-**A simple XML namespace – fully compatible with SVG 2.0.**
+**A simple XML namespace – fully compatible with SVG 1.1 and SVG 2.0.**
 
    
  
