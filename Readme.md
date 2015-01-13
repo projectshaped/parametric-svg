@@ -1,3 +1,8 @@
+<p align="right">
+ <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
+ <img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-blue.svg?style=flat-square">
+</p>
+
 <h1 align="center">
   <img alt="parametric.svg" src="https://raw.githubusercontent.com/tomekwi/parametric.svg/master/assets/logo.png" />
 </h1>
@@ -5,8 +10,6 @@
 **A specification for full-fledged parametric SVG graphics.**  
 **A simple XML namespace – fully compatible with SVG 2.0.**
 
- [![MIT License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)][license]
- [![No implementations yet](https://img.shields.io/badge/implementations-0-blue.svg?style=flat-square)](#implementations)
 
 
 
