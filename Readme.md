@@ -1,6 +1,6 @@
 <p align="right">
- <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square">
- <img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-blue.svg?style=flat-square">
+ <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-92a913.svg?style=flat-square">
+ <img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-92a913.svg?style=flat-square">
 </p>
 
 <h1 align="center">
