@@ -23,9 +23,9 @@
 
 ##### ✓ Fully compatible with SVG specs.
 
-You can view parametric.svg graphics directly in the browser or a simple SVG viewer. You can edit or even author them in Inkscape, Adobe Illustrator or any other favourite program of yours.
+parametric.svg graphics can be viewed directly in the browser or in a simple SVG viewer. They can be edited – or even authored – in Inkscape, Adobe Illustrator, or any other program of choice.
 
-How is that? Parametric.svg is a regular XML namespace. We don't reinvent the wheel – instead, we extend the impressive capabilities of SVG, which are already built in.
+How is that? parametric.svg is a regular XML namespace. We don't reinvent the wheel – instead, we extend the impressive capabilities of SVG, which already are built in.
 
 
 ##### ✓ Language-agnostic.
@@ -35,18 +35,16 @@ Tailor-cut to web technologies, but easy to implement in any programming languag
 
 ##### ✓ Ready for the future.
 
-There already is [a specification for dynamic parameters in SVG 2.0][svg-params] coming up. It is a great idea – but it's not implemented in most web browsers yet.
+There already is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. It's not implemented in most web browsers yet – parametric.svg can be used today, as it's built upon existing technologies.
 
-Parametric.svg is fully compatible with the native specification – and brings even more to you. We not only support dynamic parameters and dynamic geometry, but also dynamic relationships between them.
-
-When the implementation comes to web browsers, your parametric.svg drawings will profit from all the goodness of native SVG Parameters – like the ability to set your parameters through the URL's query string.
+parametric.svg is fully compatible with the native SVG 2.0 specification – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters and dynamic geometry, but also logical and arithmetic relationships between them.
 
 [svg-params]: http://www.w3.org/TR/SVGParamPrimer/ "SVG Parameters 1.0"
 
 
 ##### ✓ Full-fledged.
 
-Parametric.svg is designed as a complete set of tools to describe relationships between parameters and elements. For the web it could become what Grasshopper is for CAD.
+parametric.svg is designed as a complete set of tools to describe relationships between parameters and elements. For the web it could become what Grasshopper is for CAD.
 
 
 
