@@ -62,6 +62,32 @@ The parametrisation should not only provide direct access to these properties, b
 3. Usage
 --------
 
+parametric.svg is a regular XML namespace. In order to be used on an element, the namespace must be specified on the element or any of its ancestors by the following url: `http://github.com/parametric-svg/parametric.svg/tree/0.1.0`.
+
+For example, the following declaration will allow using the namespace in the scope of the whole SVG document:
+
+```xml
+<?xml version="1.0"?>
+<svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:parametric="http://github.com/parametric-svg/parametric.svg/tree/0.1.0"
+  >
+  ...
+</svg>
+```
+
+Once the reference is specified, the namespace can be used on all elements within the scope, like in the following example:
+
+```xml
+  <defs>
+    <parametric:ref param="factor" default="5" />
+  </defs>
+
+  <circle cx="100" cy="100" r="50"
+    parametric:r="10 * factor"
+    />
+```
+
 
 
 

@@ -64,19 +64,21 @@ The parametrisation should not only provide direct access to these properties, b
 3. Usage
 --------
 
+parametric.svg is an XML namespace. In order to use it in your document, 
+
 
 
 
 4. Specification
 ----------------
 
-### 3.1 Definitions
+### 4.1 Definitions
 
 
-### 3.2 Attributes
+### 4.2 Attributes
 
 
-### 3.3 Elements
+### 4.3 Elements
 
 
 
