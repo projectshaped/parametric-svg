@@ -1,6 +1,5 @@
 <p align="right">
- <img alt="MIT License" src="https://img.shields.io/badge/license-MIT-92a913.svg?style=flat-square">
- <img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-92a913.svg?style=flat-square">
+  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-92a913.svg?style=flat-square"></a> <a href="#4-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-92a913.svg?style=flat-square"></a>
 </p>
 
 <h1 align="center">
@@ -9,7 +8,8 @@
 
  
 
-**A specification for full-fledged parametric SVG graphics.**  
+**A specification for full-fledged parametric SVG graphics.**
+
 **A simple XML namespace – fully compatible with SVG 1.1 and SVG 2.0.**
 
    
@@ -35,7 +35,7 @@ Tailor-cut to web technologies, but easy to implement in any programming languag
 
 ##### ✓ Ready for the future.
 
-There already is [a specification for dynamic parameters in SVG 2.0][svg-params] out there. It is a great idea – but it's not implemented in most web browsers yet.
+There already is [a specification for dynamic parameters in SVG 2.0][svg-params] coming up. It is a great idea – but it's not implemented in most web browsers yet.
 
 Parametric.svg is fully compatible with the native specification – and brings even more to you. We not only support dynamic parameters and dynamic geometry, but also dynamic relationships between them.
 
