@@ -4,6 +4,9 @@
 # - All files and directories starting with "#",
 \#*
 
+# - Temporary files,
+*~
+
 # - Editor files.
 *.sublime-project
 *.sublime-workspace
