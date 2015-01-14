@@ -67,7 +67,6 @@ parametric.svg is a regular XML namespace. In order to be used on an element, th
 For example, the following declaration will allow using the namespace in the scope of the whole SVG document:
 
 ```xml
-<?xml version="1.0"?>
 <svg version="1.1"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:parametric="http://github.com/parametric-svg/parametric.svg/tree/0.1.0"
@@ -80,7 +79,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 ```xml
   <defs>
-    <parametric:ref param="factor" default="5" />
+    <parametric:ref param="factor" default="[1, 3, 5]" />
   </defs>
 
   <circle cx="100" cy="100" r="50"
@@ -94,21 +93,88 @@ Once the reference is specified, the namespace can be used on all elements withi
 4. Specification
 ----------------
 
-### 4.1 Definitions
+
+### 4.1 Attributes
+
+Any attribute valid for a given SVG element has its counterpart attribute in the [parametric namespace][]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
+
+A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
+
+[svg-attributes]: http://www.w3.org/TR/SVG/propidx.html
+
+
+##### Attribute value
+
+The value of a [parametric attribute][parametric] value should be a valid [expression][]. The [expression][] can contain [primitives][primitive], [operators][operator] and [parameter references][parameter reference].
+
+
+##### Evaluation of parametric attributes
+
+The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][]. If the [counterpart attribute][] doesn't exist, it should be created.
+
+If an error occurs during evaluation of the [expression][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] was present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the error message may be logged.
+
+If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
+
+
+
+
+### 4.2 Elements
+
+...
+
+
+
+
+### 4.3 Definitions
+
+##### expression
+
+...
+
+[expression]: #expression
+
+
+##### null
+
+An empty value, such as `null` or `undefined` in EcmaScript.
+
+[null]: #null
+
+
+##### operator
+
+...
+
+[operator]: #operator
+
+
+##### parameter reference
+
+...
+
+[parameter reference]: #parameter-reference
+
+
+##### parametric
+
+An attribute or element in the [parametric namespace][] is referred to as a parametric attribute or element.
+
+[parametric]: #parametric
+
 
 ##### parametric namespace
 
 The parametric namespace is the XML namespace identified by the URI `http://github.com/parametric-svg/parametric.svg/tree/0.1.0`.
 
-
-### 4.2 Attributes
-
-Any valid property for a given SVG element has its counterpart in the [parametric namespace][].
-
 [parametric namespace]: #parametric-namespace
 
 
-### 4.3 Elements
+##### primitive
+
+...
+
+[primitive]: #primitive
 
 
 
