@@ -116,7 +116,7 @@ If an [error][] is thrown during evaluation of the [expression][], the value of 
 
 If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
 
-If evaluation of the [expression][] results in an array, the element should be copied once for every element in the array.
+If evaluation of the [expression][] results in an array, the element should be cloned once for every element in the array.
 
 If evaluation of more than one [parametric attribute][parametric] of an element results in an array, each evaluation other than the first should result in an [error][].
 
