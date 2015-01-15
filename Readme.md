@@ -129,11 +129,12 @@ The order of evaluating [parametric attributes][parametric] is not defined.
 
 ##### `<parametric:ref>`
 
-The only element defined by this specification is `<parametric:ref>`. It's designed as a polyfill for the `<ref>` element defined in a working draft of SVG 2.0. It accepts two attributes:
+The only element defined by this specification is `<parametric:ref>`. It's designed as a polyfill for the [`<ref>`][ref] element defined in a working draft of SVG 2.0. It accepts two attributes:
 
 - `param` – the name of a [parameter][];
 - `default` – (a valid [literal][]) the default value of the [parameter][] referenced by `param`.
 
+[ref]: http://www.w3.org/TR/2009/WD-SVGParam-20090430/#ref-element
 [parametric-ref]: #parametric-ref
 
 
