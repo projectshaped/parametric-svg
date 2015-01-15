@@ -25,7 +25,7 @@
 
 parametric.svg graphics can be viewed directly in the browser or in a simple SVG viewer. They can be edited – or even authored – in Inkscape, Adobe Illustrator, or any other program of choice.
 
-How is that? parametric.svg is a regular XML namespace. We don't reinvent the wheel – instead, we extend the impressive capabilities of SVG, which already are built in.
+How is that? parametric.svg is a regular XML namespace. We don't reinvent the wheel – instead, we extend the impressive capabilities of SVG, which are already built in.
 
 
 ##### ✓ Language-agnostic.
@@ -35,9 +35,9 @@ Tailor-cut to web technologies, but easy to implement in any programming languag
 
 ##### ✓ Ready for the future.
 
-There already is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. It's not implemented in most web browsers yet – parametric.svg can be used today, as it's built upon existing technologies.
+There already is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. parametric.svg is fully compatible with it – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters and dynamic geometry, but also logical and arithmetic relationships between them.
 
-parametric.svg is fully compatible with the native SVG 2.0 specification – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters and dynamic geometry, but also logical and arithmetic relationships between them.
+And although SVG 2.0 isn't available in most web browsers yet – parametric.svg can be used today, as it's built upon existing technologies.
 
 [svg-params]: http://www.w3.org/TR/SVGParamPrimer/ "SVG Parameters 1.0"
 
