@@ -105,7 +105,7 @@ A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
 
 ##### Attribute value
 
-The value of a [parametric attribute][parametric] value should be a valid [expression][]. The [expression][] can contain [primitives][primitive], [operators][operator] and [parameter references][parameter reference].
+The value of a [parametric attribute][parametric] should be a valid [expression][].
 
 
 ##### Evaluation of parametric attributes
@@ -128,30 +128,120 @@ If evaluation of the [expression][] results in [null][], the [counterpart attrib
 
 ### 4.3 Definitions
 
+##### array method call
+
+An array method call is the invocation of an ECMAScript 6 array method, preceeded by a dot. The following methods are supported:
+
+- `map`
+- `filter`
+- `reduce`
+
+The method should be invoked with exactly one parameter. The parameter should be an [arrow function expression][].
+
+An informative reference of array methods can be found on [MDN][mdn-array-methods]. 
+
+[mdn-array-methods]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+[array method call]: #array-method-call
+
+
+##### arrow function expression
+
+An ECMAScript 6 arrow function expression, with the following limitations:
+
+- the function's arguments should always be enclosed in parentheses;
+- the function's body should consist of one [expression][] and shouldn't be enclosed in braces.
+
+An informative description of arrow function expressions can be found on [MDN][mdn-arrow-functions].
+
+[mdn-arrow-functions]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+[arrow function expression]: #arrow-function-expression
+
+
+
+##### counterpart attribute
+
+The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same name in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
+
+[counterpart attribute]: #counterpart-attribute
+
+
 ##### expression
 
-...
+A valid ECMAScript 6 expression consisting only of the [literals][literal], [operators][operator], [array methods][array method] and [parameter references][parameter reference] allowed by this specification.
+
+When an expression is invalid, an [error][] should be thrown upon its evaluation.
+
+Evaluating an expression shouldn't require type conversion. The result of type conversion within an expression is outside the scope of this specification.
 
 [expression]: #expression
 
 
+##### literal
+
+A valid ECMAScript 6 global object, constructed by the literal form – without invoking a constructor function (for example `"abc"` in contrast to the invalid `new String("abc")`). Only the following objects are supported:
+
+- `Number`
+- `Boolean`
+- `String`
+- `null`
+- `undefined`
+- `Array`
+
+An `Array` literal may be followed by one or more [array method calls][array method call], each preceeded by a dot.
+
+An informative reference of global objects can be found on [MDN][mdn-literals].
+
+[mdn-literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
+[literal]: #literal
+
+
 ##### null
 
-An empty value, such as `null` or `undefined` in EcmaScript.
+An empty value, such as `null` or `undefined` in ECMAScript.
 
 [null]: #null
 
 
 ##### operator
 
-...
+A valid ECMAScript operator. Only the following operators are supported:
 
+- Arithmetic operators:
+    - Addition operator (`+`)
+    - Substraction operator (`-`)
+    - Division operator (`/`)
+    - Multiplication operator (`*`)
+    - Remainder operator (`%`)
+- Unary operators:
+    - Unary plus operator (`+`)
+    - Unary minus operator (`-`)
+- Relational operators:
+    - Less than operator (`<`)
+    - Greater than operator (`>`)
+    - Less than or equal operator (`<=`)
+    - Greater than or equal operator (`>=`)
+- Equality operators:
+    - Identity operator (`===`)
+    - Nonidentity operator (`!==`)
+- Binary logical operators:
+    - Logical AND (`&&`)
+    - Logical OR (`||`)
+- Other:
+    - Conditional (ternary) operator (`condition ? ifTrue : ifFalse`)
+
+An informative reference of operators can be found on [MDN][mdn-operators].
+
+[mdn-operators]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
 [operator]: #operator
 
 
 ##### parameter reference
 
-...
+A parameter reference is like an ECMAScript variable, as far as syntax is concerned. It represents the value of the parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
+
+If the passed value or default value is invalid, or none of them is found, an [error][] should be thrown.
+
+For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference.
 
 [parameter reference]: #parameter-reference
 
@@ -168,13 +258,6 @@ An attribute or element in the [parametric namespace][] is referred to as a para
 The parametric namespace is the XML namespace identified by the URI `http://github.com/parametric-svg/parametric.svg/tree/0.1.0`.
 
 [parametric namespace]: #parametric-namespace
-
-
-##### primitive
-
-...
-
-[primitive]: #primitive
 
 
 
