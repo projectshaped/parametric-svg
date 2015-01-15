@@ -112,7 +112,7 @@ The value of a [parametric attribute][parametric] should be a valid [expression]
 
 The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][]. If the [counterpart attribute][] doesn't exist, it should be created.
 
-If an error occurs during evaluation of the [expression][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] was present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the error message may be logged.
+If an [error][] is thrown during evaluation of the [expression][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] was present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the [error][] message may be logged.
 
 If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
 
@@ -127,7 +127,14 @@ The order of evaluating [parametric attributes][parametric] is not defined.
 
 ### 4.2 Elements
 
-...
+##### `<parametric:ref>`
+
+The only element defined by this specification is `<parametric:ref>`. It's designed as a polyfill for the `<ref>` element defined in a working draft of SVG 2.0. It accepts two attributes:
+
+- `param` – the name of a [parameter][];
+- `default` – (a valid [literal][]) the default value of the [parameter][] referenced by `param`.
+
+[parametric-ref]: #parametric-ref
 
 
 
@@ -163,12 +170,18 @@ An informative description of arrow function expressions can be found on [MDN][m
 [arrow function expression]: #arrow-function-expression
 
 
-
 ##### counterpart attribute
 
 The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same name in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
 
 [counterpart attribute]: #counterpart-attribute
+
+
+##### error
+
+> This definition needs work.
+
+[error]: #error
 
 
 ##### expression
@@ -184,7 +197,7 @@ Evaluating an expression shouldn't require type conversion. The result of type c
 
 ##### literal
 
-A valid ECMAScript 6 global object, constructed by the literal form – without invoking a constructor function (for example `"abc"` in contrast to the invalid `new String("abc")`). Only the following objects are supported:
+A valid ECMAScript 6 global object, constructed by the literal form – without invoking a constructor function (for example `"abc"` in contrast to the invalid `new String("abc")`). Only the following object types are supported:
 
 - `Number`
 - `Boolean`
