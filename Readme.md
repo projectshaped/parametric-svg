@@ -152,6 +152,12 @@ An array method call is the invocation of an ECMAScript 6 array method, preceede
 
 The method should be invoked with exactly one parameter. The parameter should be an [arrow function expression][].
 
+Following is an example of a valid array method call. It duplicates every element in an `Array` of `Number`s:
+
+```js
+.map((x) => 2 * x)
+```
+
 An informative reference of array methods can be found on [MDN][mdn-array-methods]. 
 
 [mdn-array-methods]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
