@@ -1,9 +1,9 @@
 <p align="right">
-  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-92a913.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-92a913.svg?style=flat-square"></a>
+  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-9eab05.svg?style=flat-square"></a>
 </p>
 
 <h1 align="center">
-  <img alt="parametric.svg" src="https://raw.githubusercontent.com/tomekwi/parametric.svg/master/assets/logo.png" />
+  <img alt="parametric.svg" src="https://rawgit.com/tomekwi/parametric.svg/master/assets/logo.png" />
 </h1>
 
  
