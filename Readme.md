@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-  <img alt="parametric.svg" src="https://rawgit.com/tomekwi/parametric.svg/master/assets/logo.png" />
+  <img alt="parametric.svg" src="https://rawgit.com/parametric-svg/parametric.svg/master/assets/logo.svg" />
 </h1>
 
  
