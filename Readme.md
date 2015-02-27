@@ -79,7 +79,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 ```xml
   <defs>
-    <parametric:ref param="factor" default="[1, 3, 5]" />
+    <parametric:ref param="factor" default="7" />
   </defs>
 
   <circle cx="100" cy="100" r="50"
