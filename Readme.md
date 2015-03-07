@@ -171,7 +171,7 @@ A valid ECMAScript 6 expression consisting only of the [literals][literal], [ope
 
 If an expression is invalid, it should result in an [error][] upon evaluation.
 
-If evaluating part of an expression or a whole expression type conversion, any value should be cast to a `String`. The result of casting should keep in line with the specification of ECMAScript 6.
+If evaluating part of an expression or a whole expression requires type conversion, any value should be cast to a `String`. The result of casting should keep in line with the specification of ECMAScript 6.
 
 [expression]: #expression
 
