@@ -23,19 +23,19 @@
 <p align="right"><sup>This section is informative.</sup></p>
 
 
-##### ✓ Fully compatible with SVG specs.
+####  ✓ Fully compatible with SVG specs.  ####
 
 _parametric.svg_ graphics can be viewed directly in the browser or in a simple SVG viewer. They can be edited and authored in your favorite program – be it Inkscape, Adobe Illustrator, VIM or any other.
 
 How is that? _parametric.svg_ is a regular XML namespace. We don't reinvent the wheel – instead, we extend the impressive capabilities of SVG, which are already built in.
 
 
-##### ✓ Language-agnostic.
+####  ✓ Language-agnostic.  ####
 
 Tailor-cut for the web, but easy to implement in any programming language.
 
 
-##### ✓ Ready for the future.
+####  ✓ Ready for the future.  ####
 
 There already is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. _parametric.svg_ is fully compatible with it – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters – but also logical and arithmetic relationships between them and geometry.
 
@@ -44,7 +44,7 @@ SVG 2.0 isn't yet fully standardized and implemented. But _parametric.svg_ is bu
 [svg-params]: http://www.w3.org/TR/SVGParamPrimer/ "SVG Parameters 1.0"
 
 
-##### ✓ Full-fledged.
+####  ✓ Full-fledged.  ####
 
 _parametric.svg_ is a complete set of tools to describe relationships between parameters and elements. For the web it could become what Grasshopper is for CAD.
 
@@ -104,7 +104,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 <p align="right"><sup>This section is normative.</sup></p>
 
 
-### 4.1 Attributes
+###  4.1 Attributes  ###
 
 Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][parametric-namespace]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
 
@@ -113,12 +113,12 @@ A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
 [svg-attributes]: http://www.w3.org/TR/SVG/propidx.html
 
 
-##### Attribute value
+####  Attribute value  ####
 
 The value of a [parametric attribute][parametric] should be a valid [expression][].
 
 
-##### Evaluation of parametric attributes
+####  Evaluation of parametric attributes  ####
 
 The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][counterpart-attribute]. If the [counterpart attribute][counterpart-attribute] doesn't exist, it should be created.
 
@@ -131,9 +131,9 @@ The order of evaluating [parametric attributes][parametric] is not defined.
 
 
 
-### 4.2 Elements
+###  4.2 Elements  ###
 
-##### `<parametric:ref>`
+####  `<parametric:ref>`  ####
 
 The only element defined by this specification is `<parametric:ref>`. It's designed as a polyfill for the [`<ref>`][ref] element defined in a working draft of SVG 2.0. It accepts two attributes:
 
@@ -146,17 +146,17 @@ The only element defined by this specification is `<parametric:ref>`. It's desig
 
 
 
-### 4.3 Definitions
+###  4.3 Definitions  ###
 
 
-##### counterpart attribute
+####  counterpart attribute  ####
 
 The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same `localName` in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
 
 [counterpart-attribute]: #counterpart-attribute
 
 
-##### error
+####  error  ####
 
 An exception encountered while parsing or evaluating of an expression. It may result from incorrect syntax – and from abuse of rules outlined or referenced by this specification.
 
@@ -165,7 +165,7 @@ Whenever an error is encountered, it shouldn't block parsing, evaluation or rend
 [error]: #error
 
 
-##### expression
+####  expression  ####
 
 A valid ECMAScript 6 expression consisting only of the [literals][literal], [operators][operator] and [parameter references][parameter reference] allowed by this specification.
 
@@ -176,7 +176,7 @@ If evaluating part of an expression or a whole expression requires type conversi
 [expression]: #expression
 
 
-##### literal
+####  literal  ####
 
 A valid ECMAScript 6 global object, constructed through the literal form – without invoking a constructor function – for example `"abc"` in contrast to the invalid `new String("abc")`. Only the following object types are supported:
 
@@ -191,14 +191,14 @@ An informative reference of global objects and their literal forms can be found 
 [literal]: #literal
 
 
-##### null
+####  null  ####
 
 A value which is valid, but explicitly empty – in contrast to an [error][].
 
 [null]: #null
 
 
-##### operator
+####  operator  ####
 
 A valid ECMAScript 6 operator. Only the following operators are supported:
 
@@ -232,7 +232,7 @@ An informative reference of operators in ECMAScript can be found on [MDN][mdn-op
 [operator]: #operator
 
 
-##### parameter reference
+####  parameter reference  ####
 
 A parameter reference is an equivalent of an ECMAScript variable identifier – both in syntax and in meaning. It represents the value of a parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
 
@@ -243,14 +243,14 @@ For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor
 [parameter reference]: #parameter-reference
 
 
-##### parametric
+####  parametric  ####
 
 An attribute or element in the [parametric namespace][parametric-namespace] is referred to as a parametric attribute or element.
 
 [parametric]: #parametric
 
 
-##### parametric namespace
+####  parametric namespace  ####
 
 The parametric namespace is the XML namespace identified by the URI `https://parametric-svg.github.io/v0.2`.
 
