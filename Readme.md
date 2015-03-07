@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square"></a>
+  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <img alt="version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="1 implementation" src="https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square"></a>
 </p>
 
 <h1 align="center">
