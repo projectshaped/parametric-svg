@@ -106,7 +106,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 ### 4.1 Attributes
 
-Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
+Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][parametric-namespace]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
 
 A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
 
@@ -120,11 +120,11 @@ The value of a [parametric attribute][parametric] should be a valid [expression]
 
 ##### Evaluation of parametric attributes
 
-The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][]. If the [counterpart attribute][] doesn't exist, it should be created.
+The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][counterpart-attribute]. If the [counterpart attribute][counterpart-attribute] doesn't exist, it should be created.
 
-If evaluation of an [expression][] results in an [error][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] is present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the [error][] message may be logged.
+If evaluation of an [expression][] results in an [error][], the value of the [counterpart attribute][counterpart-attribute] should be left unchanged. If no [counterpart attribute][counterpart-attribute] is present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the [error][] message may be logged.
 
-If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
+If evaluation of the [expression][] results in [null][], the [counterpart attribute][counterpart-attribute] should be removed.
 
 The order of evaluating [parametric attributes][parametric] is not defined.
 
@@ -153,7 +153,7 @@ The only element defined by this specification is `<parametric:ref>`. It's desig
 
 The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same `localName` in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
 
-[counterpart attribute]: #counterpart-attribute
+[counterpart-attribute]: #counterpart-attribute
 
 
 ##### error
@@ -245,7 +245,7 @@ For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor
 
 ##### parametric
 
-An attribute or element in the [parametric namespace][] is referred to as a parametric attribute or element.
+An attribute or element in the [parametric namespace][parametric-namespace] is referred to as a parametric attribute or element.
 
 [parametric]: #parametric
 
@@ -254,7 +254,7 @@ An attribute or element in the [parametric namespace][] is referred to as a para
 
 The parametric namespace is the XML namespace identified by the URI `https://parametric-svg.github.io/v0.2`.
 
-[parametric namespace]: #parametric-namespace
+[parametric-namespace]: #parametric-namespace
 
 
 
@@ -280,7 +280,7 @@ A [JavaScript implementation][on-npm] is currently being worked on.
 <small align="right">This section is informative.</small>
 
 
-[MIT][license] © [Tomek Wiszniewski][].
+[MIT][license] © [Tomek Wiszniewski][tomekwi].
 
 [license]: ./License.md
-[Tomek Wiszniewski]: https://github.com/tomekwi
+[tomekwi]: https://github.com/tomekwi
