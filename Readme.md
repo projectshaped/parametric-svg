@@ -122,7 +122,7 @@ The value of a [parametric attribute][parametric] should be a valid [expression]
 
 The [expression][] declared in the [parametric][] attribute should be evaluated upon loading the SVG document, and upon any change in parameter values. The resulting value should be cast to a string and replace the value of the [counterpart attribute][]. If the [counterpart attribute][] doesn't exist, it should be created.
 
-If an [error][] is thrown during evaluation of the [expression][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] was present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the [error][] message may be logged.
+If evaluation of an [expression][] results in an [error][], the value of the [counterpart attribute][] should be left unchanged. If no [counterpart attribute][] is present at the time of evaluation, it shouldn't be created. The rendering of the SVG document should proceed normally, but the [error][] message may be logged.
 
 If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
 
@@ -158,7 +158,9 @@ The counterpart attribute of a [parametric attribute][parametric] is an attribut
 
 ##### error
 
-> This definition needs work.
+An exception encountered while parsing or evaluating of an expression. It may result from incorrect syntax – and from abuse of rules outlined or referenced by this specification.
+
+Whenever an error is encountered, it shouldn't block parsing, evaluation or rendering of the rest of the document. A desctription of the error may be logged.
 
 [error]: #error
 
@@ -167,7 +169,7 @@ The counterpart attribute of a [parametric attribute][parametric] is an attribut
 
 A valid ECMAScript 6 expression consisting only of the [literals][literal], [operators][operator] and [parameter references][parameter reference] allowed by this specification.
 
-When an expression is invalid, an [error][] should be thrown upon its evaluation.
+If an expression is invalid, it should result in an [error][] upon evaluation.
 
 If evaluating part of an expression or a whole expression type conversion, any value should be cast to a `String`. The result of casting should keep in line with the specification of ECMAScript 6.
 
@@ -234,7 +236,7 @@ An informative reference of operators in ECMAScript can be found on [MDN][mdn-op
 
 A parameter reference is an equivalent of an ECMAScript variable identifier – both in syntax and in meaning. It represents the value of a parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
 
-If the passed value or default value is invalid, or none of them is found, an [error][] should be thrown.
+If the referenced value is invalid or undefined, the expression containing the reference should result in an [error][].
 
 For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference. If the parameter `factor` is assigned a value of `5`, the expression `10 * factor` will evalute to `50`.
 
