@@ -20,7 +20,7 @@
 1. Goals
 --------
 
-<small align="right">This section is informative.</small>
+<p align="right"><sup>This section is informative.</sup></p>
 
 
 ##### ✓ Fully compatible with SVG specs.
@@ -54,7 +54,7 @@ _parametric.svg_ is a complete set of tools to describe relationships between pa
 2. Abstract
 -----------
 
-<small align="right">This section is informative.</small>
+<p align="right"><sup>This section is informative.</sup></p>
 
 
 The purpose of this document is to outline and specify an XML namespace extending the capabilities of Scalable Vector Graphics. The described namespace provides a complete set of tools to parametrize the position, geometry and number of elements in the graphic, in a declarative way.
@@ -67,7 +67,7 @@ The parametrization should not only provide direct access to these properties, b
 3. Usage
 --------
 
-<small align="right">This section is normative.</small>
+<p align="right"><sup>This section is normative.</sup></p>
 
 
 _parametric.svg_ is a regular XML namespace. In order to be used on an element, the namespace must be declared on the element or any of its ancestors by the following URI: `https://parametric-svg.github.io/v0.2`.
@@ -101,7 +101,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 4. Specification
 ----------------
 
-<small align="right">This section is normative.</small>
+<p align="right"><sup>This section is normative.</sup></p>
 
 
 ### 4.1 Attributes
@@ -264,7 +264,7 @@ The parametric namespace is the XML namespace identified by the URI `https://par
 5. Implementations
 ------------------
 
-<small align="right">This section is informative.</small>
+<p align="right"><sup>This section is informative.</sup></p>
 
 
 A [JavaScript implementation][on-npm] is currently being worked on.
@@ -277,7 +277,7 @@ A [JavaScript implementation][on-npm] is currently being worked on.
 5. License
 ----------
 
-<small align="right">This section is informative.</small>
+<p align="right"><sup>This section is informative.</sup></p>
 
 
 [MIT][license] © [Tomek Wiszniewski][tomekwi].
