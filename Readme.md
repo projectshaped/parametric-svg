@@ -106,7 +106,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 ###  4.1 Attributes  ###
 
-Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][parametric-namespace]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
+Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][parametric-namespace]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is a valid paremetric attribute for it.
 
 A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
 
@@ -158,9 +158,9 @@ The counterpart attribute of a [parametric attribute][parametric] is an attribut
 
 ####  error  ####
 
-An exception encountered while parsing or evaluating of an expression. It may result from incorrect syntax – and from abuse of rules outlined or referenced by this specification.
+An exception encountered while parsing or evaluating an [expression][]. It may result from incorrect syntax – and from abuse of rules outlined or referenced by this specification.
 
-Whenever an error is encountered, it shouldn't block parsing, evaluation or rendering of the rest of the document. A desctription of the error may be logged.
+Whenever an error is encountered, it shouldn't block parsing, evaluation or rendering of the rest of the document. A description of the error may be logged.
 
 [error]: #error
 
