@@ -126,10 +126,6 @@ If an [error][] is thrown during evaluation of the [expression][], the value of 
 
 If evaluation of the [expression][] results in [null][], the [counterpart attribute][] should be removed.
 
-If evaluation of the [expression][] results in an array, the element should be cloned once for every element in the array.
-
-If evaluation of more than one [parametric attribute][parametric] of an element results in an array, each evaluation other than the first should result in an [error][].
-
 The order of evaluating [parametric attributes][parametric] is not defined.
 
 
@@ -152,40 +148,6 @@ The only element defined by this specification is `<parametric:ref>`. It's desig
 
 ### 4.3 Definitions
 
-##### array method call
-
-An array method call is the invocation of an ECMAScript 6 array method, preceeded by a dot. The following methods are supported:
-
-- `map`
-- `filter`
-- `reduce`
-
-The method should be invoked with exactly one parameter. The parameter should be an [arrow function expression][].
-
-Following is an example of a valid array method call. It duplicates every element in an `Array` of `Number`s:
-
-```js
-.map((x) => 2 * x)
-```
-
-An informative reference of array methods can be found on [MDN][mdn-array-methods]. 
-
-[mdn-array-methods]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
-[array method call]: #array-method-call
-
-
-##### arrow function expression
-
-An ECMAScript 6 arrow function expression, with the following limitations:
-
-- the function's arguments should always be enclosed in parentheses;
-- the function's body should consist of one [expression][] and shouldn't be enclosed in braces.
-
-An informative description of arrow function expressions can be found on [MDN][mdn-arrow-functions].
-
-[mdn-arrow-functions]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
-[arrow function expression]: #arrow-function-expression
-
 
 ##### counterpart attribute
 
@@ -203,7 +165,7 @@ The counterpart attribute of a [parametric attribute][parametric] is an attribut
 
 ##### expression
 
-A valid ECMAScript 6 expression consisting only of the [literals][literal], [operators][operator], [array methods][array method] and [parameter references][parameter reference] allowed by this specification.
+A valid ECMAScript 6 expression consisting only of the [literals][literal], [operators][operator] and [parameter references][parameter reference] allowed by this specification.
 
 When an expression is invalid, an [error][] should be thrown upon its evaluation.
 
@@ -220,10 +182,6 @@ A valid ECMAScript 6 global object, constructed by the literal form – without 
 - `Boolean`
 - `String`
 - `null`
-- `undefined`
-- `Array`
-
-An `Array` literal may be followed by one or more [array method calls][array method call], each preceeded by a dot.
 
 An informative reference of global objects can be found on [MDN][mdn-literals].
 
