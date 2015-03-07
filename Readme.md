@@ -106,7 +106,7 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 ### 4.1 Attributes
 
-Any attribute valid for a given SVG element has its counterpart in the [parametric namespace][]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
+Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is also valid for it.
 
 A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
 
@@ -151,7 +151,7 @@ The only element defined by this specification is `<parametric:ref>`. It's desig
 
 ##### counterpart attribute
 
-The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same name in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
+The counterpart attribute of a [parametric attribute][parametric] is an attribute of the same `localName` in the SVG namespace. For example, in the SVG element `<circle fill="red" parametric:fill="green" />` the counterpart attribute of `parametric:fill` is the attribute `fill`.
 
 [counterpart attribute]: #counterpart-attribute
 
@@ -176,14 +176,14 @@ Evaluating an expression shouldn't require type conversion. The result of type c
 
 ##### literal
 
-A valid ECMAScript 6 global object, constructed by the literal form – without invoking a constructor function (for example `"abc"` in contrast to the invalid `new String("abc")`). Only the following object types are supported:
+A valid ECMAScript 6 global object, constructed through the literal form – without invoking a constructor function – for example `"abc"` in contrast to the invalid `new String("abc")`. Only the following object types are supported:
 
 - `Number`
 - `Boolean`
 - `String`
 - `null`
 
-An informative reference of global objects can be found on [MDN][mdn-literals].
+An informative reference of global objects and their literal forms can be found on [MDN][mdn-literals].
 
 [mdn-literals]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 [literal]: #literal
@@ -191,14 +191,14 @@ An informative reference of global objects can be found on [MDN][mdn-literals].
 
 ##### null
 
-An empty value, such as `null` or `undefined` in ECMAScript.
+A value which is valid, but explicitly empty – in contrast to an [error][].
 
 [null]: #null
 
 
 ##### operator
 
-A valid ECMAScript operator. Only the following operators are supported:
+A valid ECMAScript 6 operator. Only the following operators are supported:
 
 - Arithmetic operators:
     - Addition operator (`+`)
@@ -223,7 +223,7 @@ A valid ECMAScript operator. Only the following operators are supported:
 - Other:
     - Conditional (ternary) operator (`condition ? ifTrue : ifFalse`)
 
-An informative reference of operators can be found on [MDN][mdn-operators].
+An informative reference of operators in ECMAScript can be found on [MDN][mdn-operators].
 
 [mdn-operators]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
 [operator]: #operator
@@ -231,11 +231,11 @@ An informative reference of operators can be found on [MDN][mdn-operators].
 
 ##### parameter reference
 
-A parameter reference is like an ECMAScript variable, as far as syntax is concerned. It represents the value of the parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
+A parameter reference is an equivalent of an ECMAScript variable identifier – both in syntax and in meaning. It represents the value of a parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
 
 If the passed value or default value is invalid, or none of them is found, an [error][] should be thrown.
 
-For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference.
+For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference. If the parameter `factor` is assigned a value of `5`, the expression `10 * factor` will evalute to `50`.
 
 [parameter reference]: #parameter-reference
 
