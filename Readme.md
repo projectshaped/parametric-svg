@@ -70,14 +70,14 @@ The parametrization should not only provide direct access to these properties, b
 <small align="right">This section is normative.</small>
 
 
-_parametric.svg_ is a regular XML namespace. In order to be used on an element, the namespace must be declared on the element or any of its ancestors by the following URI: `https://parametric-svg.github.io/v0.x`.
+_parametric.svg_ is a regular XML namespace. In order to be used on an element, the namespace must be declared on the element or any of its ancestors by the following URI: `https://parametric-svg.github.io/v0.2`.
 
 For example, the following declaration will allow using the namespace in the scope of the whole SVG document:
 
 ```xml
 <svg version="1.1"
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:parametric="https://parametric-svg.github.io/v0.x"
+  xmlns:parametric="https://parametric-svg.github.io/v0.2"
   >
   ...
 </svg>
@@ -252,7 +252,7 @@ An attribute or element in the [parametric namespace][] is referred to as a para
 
 ##### parametric namespace
 
-The parametric namespace is the XML namespace identified by the URI `http://github.com/parametric-svg/parametric.svg/tree/0.1`.
+The parametric namespace is the XML namespace identified by the URI `https://parametric-svg.github.io/v0.2`.
 
 [parametric namespace]: #parametric-namespace
 
