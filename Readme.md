@@ -169,7 +169,7 @@ A valid ECMAScript 6 expression consisting only of the [literals][literal], [ope
 
 When an expression is invalid, an [error][] should be thrown upon its evaluation.
 
-Evaluating an expression shouldn't require type conversion. The result of type conversion within an expression is outside the scope of this specification.
+If evaluating part of an expression or a whole expression type conversion, any value should be cast to a `String`. The result of casting should keep in line with the specification of ECMAScript 6.
 
 [expression]: #expression
 
@@ -221,6 +221,7 @@ A valid ECMAScript 6 operator. Only the following operators are supported:
     - Logical AND (`&&`)
     - Logical OR (`||`)
 - Other:
+    - String concatenation operator (`+`)
     - Conditional (ternary) operator (`condition ? ifTrue : ifFalse`)
 
 An informative reference of operators in ECMAScript can be found on [MDN][mdn-operators].
