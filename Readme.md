@@ -232,13 +232,26 @@ An informative reference of operators in ECMAScript can be found on [MDN][mdn-op
 [operator]: #operator
 
 
+####  parameter  ####
+
+A parameter is a unique name associated with a dynamic value. It is a semantic equivalent of an ECMAScript variable. The value assigned to the parameter can be referred to through a [parameter reference][parameter-reference].
+
+The way of assigning a value to a parameter is implementation-specific. A common way, also supported in SVG 2.0, is passing parameters through a URL query string. Thus, if we wanted to assign the value `10` to a parameter named `factor` within a graphic located at `http://example.com/circle.svg`, we could retrieve it through the following URL: `http://example.com/circle.svg?factor=10`.
+
+A parameter may have a default value declared through the [`<ref>`][] or [`<parametric:ref>`][parametric-ref] element with its attribute `param` matching the parameter's name. The [literal][] declared in the attribute `default` should then be used as a fallback value in case no value is assigned to the parameter. For example, if a document contains the element `<parametric:ref param="factor" value="20">` and the parameter named `factor` has no value assigned, `20` should be used as its fallback value.
+
+Both the string describing a default value of a parameter – and that describing a value being assigned to it – should be valid [literals][literal]. If it's not valid, parsing the value should result in an [error][] and the value should be marked as not defined.
+
+[parameter]: #parameter
+
+
 ####  parameter reference  ####
 
-A parameter reference is an equivalent of an ECMAScript variable identifier – both in syntax and in meaning. It represents the value of a parameter of the same name. If no parameter is passed, it falls back to the default value delared in the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element.
+A parameter reference is an equivalent of an ECMAScript variable identifier – both syntactically and semantically. It represents the value of a [parameter][] of the same name.
 
-If the referenced value is invalid or undefined, the expression containing the reference should result in an [error][].
+If no value is assigned to the referenced [parameter][], the default value should be used as a fallback. If the [parameter][] has neither a value assigned nor a default value declared, evaluation of its reference should result in an [error][].
 
-For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference. If the parameter `factor` is assigned a value of `5`, the expression `10 * factor` will evalute to `50`.
+For example, in the declaration `<circle parametric:r="10 * factor" />`, `factor` is a parameter reference. If the [parameter][] `factor` is assigned a value of `5`, the [expression][] `10 * factor` will evalute to `50`.
 
 [parameter reference]: #parameter-reference
 
