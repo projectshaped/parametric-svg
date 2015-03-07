@@ -1,5 +1,5 @@
 <p align="right">
-  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-0-9eab05.svg?style=flat-square"></a>
+  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="No implementations yet" src="https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square"></a>
 </p>
 
 <h1 align="center">
@@ -269,7 +269,7 @@ The parametric namespace is the XML namespace identified by the URI `https://par
 
 A [JavaScript implementation][on-npm] is currently being worked on.
 
-[on-npm]: https://www.npmjs.com/package/parametric.svg
+[on-npm]: http://npm.im/parametric-svg
 
 
 
