@@ -238,7 +238,7 @@ A parameter is a unique name associated with a dynamic value. It is a semantic e
 
 The way of assigning a value to a parameter is implementation-specific. A common way, also supported in SVG 2.0, is passing parameters through a URL query string. Thus, if we wanted to assign the value `10` to a parameter named `factor` within a graphic located at `http://example.com/circle.svg`, we could retrieve it through the following URL: `http://example.com/circle.svg?factor=10`.
 
-A parameter may have a default value declared through the [`<ref>`][] or [`<parametric:ref>`][parametric-ref] element with its attribute `param` matching the parameter's name. The [literal][] declared in the attribute `default` should then be used as a fallback value in case no value is assigned to the parameter. For example, if a document contains the element `<parametric:ref param="factor" value="20">` and the parameter named `factor` has no value assigned, `20` should be used as its fallback value.
+A parameter may have a default value declared through the [`<ref>`][ref] or [`<parametric:ref>`][parametric-ref] element with its attribute `param` matching the parameter's name. The [literal][] declared in the attribute `default` should then be used as a fallback value in case no value is assigned to the parameter. For example, if a document contains the element `<parametric:ref param="factor" value="20">` and the parameter named `factor` has no value assigned, `20` should be used as its fallback value.
 
 Both the string describing a default value of a parameter – and that describing a value being assigned to it – should be valid [literals][literal]. If it's not valid, parsing the value should result in an [error][] and the value should be marked as not defined.
 
