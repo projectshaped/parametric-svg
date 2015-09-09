@@ -38,8 +38,6 @@ Tailor-cut for the web, but easy to implement in any programming language.
 
 There is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. *parametric.svg* is backwards compatible with it – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters – but also logical and arithmetic relationships between them and geometry.
 
-What does “backwards compatible” mean? In case someone views your graphic without a *parametric.svg* script or plugin, you can fall back to native SVG 2.0 parameters with pretty much the same markup.
-
 SVG 2.0 isn't yet fully standardized and implemented. But *parametric.svg* is built upon existing, stable technologies – ready to be used today.
 
 [svg-params]: http://www.w3.org/TR/SVGParamPrimer/ "SVG Parameters 1.0"
@@ -66,21 +64,13 @@ Usage
 </svg>
 ```
 
-Once you’ve set the `xmlns:parametric` attribute, you can use the namespace on attributes:
+Once you’ve set the `xmlns:parametric` thing, you can use the namespace on attributes:
 
 ```xml
 <circle
   parametric:r="10 * factor"
-  r="50"
+             r="50"
 />
-```
-
-…and on elements:
-
-```xml
-<defs>
-  <parametric:ref param="factor" default="7" />
-</defs>
 ```
 
 ###  A note about HTML5  ###
