@@ -12,7 +12,7 @@
 
 **A simple XML namespace – fully compatible with SVG 1.1 and SVG 2.0.**
 
-See it in action on <http://parametric-svg.github.io>!
+See it in action at [parametric-svg.js.org](http://parametric-svg.js.org)!
 
    
  
