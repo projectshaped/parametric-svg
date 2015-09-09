@@ -1,0 +1,44 @@
+overview: |
+  HTML5 is not namespace-aware. `parametric:…` as an attribute or element name
+  is treated like any other name. Setting the `xmlns` in an HTML5 document
+  is not needed and shouldn’t have any effect on the output.
+
+  This set of tests is only valid in an XML document. SVG embedded in HTML5
+  should pass `./html5.yml` tests instead.
+
+tests:
+  - description: Parametric attributes should work when no namespace is set.
+    document: |
+      <!DOCYPE html>
+      <html>
+        <svg version="1.1">
+          <circle r="5" parametric:r="10" />
+        </svg>
+      </html>
+    expected: |
+      <!DOCTYPE html>
+      <html>
+        <svg version="1.1">
+          <circle r="10" parametric:r="10" />
+        </svg>
+      </html>
+
+  - description: Setting the namespace to something else should have no effect.
+    document: |
+      <!DOCYPE html>
+      <html>
+        <svg version="1.1"
+          xmlns:parametric="(dummy)"
+          >
+          <circle r="5" parametric:r="10" />
+        </svg>
+      </html>
+    expected: |
+      <!DOCTYPE html>
+      <html>
+        <svg version="1.1"
+          xmlns:parametric="(dummy)"
+          >
+          <circle r="10" parametric:r="10" />
+        </svg>
+      </html>
