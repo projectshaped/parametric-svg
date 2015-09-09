@@ -52,33 +52,42 @@ SVG 2.0 isn't yet fully standardized and implemented. But *parametric.svg* is bu
 
 
 
-3. Usage
---------
+Usage
+-----
 
-_parametric.svg_ is a regular XML namespace. In order to be used on an element, the namespace must be declared on the element or any of its ancestors by the following URI: `https://parametric-svg.github.io/v0.2`.
-
-For example, the following declaration will allow using the namespace in the scope of the whole SVG document:
+*parametric.svg* is a regular XML namespace. To use it on an element, first set the attribute `xmlns:parametric="//parametric-svg.js.org/v1"` on the element or any of its ancestors. It’s often most convenient to set that on the whole SVG document:
 
 ```xml
 <svg version="1.1"
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:parametric="https://parametric-svg.github.io/v0.2"
+  xmlns:parametric="//parametric-svg.github.io/v1"
   >
   ...
 </svg>
 ```
 
-Once the reference is specified, the namespace can be used on all elements within the scope, like in the following example:
+Once you’ve set the `xmlns:parametric` attribute, you can use the namespace on attributes:
 
 ```xml
-  <defs>
-    <parametric:ref param="factor" default="7" />
-  </defs>
-
-  <circle cx="100" cy="100" r="50"
-    parametric:r="10 * factor"
-    />
+<circle
+  parametric:r="10 * factor"
+  r="50"
+/>
 ```
+
+…and on elements:
+
+```xml
+<defs>
+  <parametric:ref param="factor" default="7" />
+</defs>
+```
+
+###  A note about HTML5  ###
+
+HTML5 is not namespace-aware. Prefixing your parametric attribute or element with `parametric:` is enough – you don’t need to declare the `xmlns:parametric` thing beforehand.
+
+Just keep in mind that while XML will allow you to bind our namespace to another prefix like `p:` (through `xmlns:p="//parametric-…"`), you’ll have to stick with `parametric:` in HTML5.
 
 
 
