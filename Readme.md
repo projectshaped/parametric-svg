@@ -22,9 +22,6 @@ See it in action at [parametric-svg.js.org](http://parametric-svg.js.org)!
 1. Goals
 --------
 
-<div align="right"><sup>This section is informative.</sup></div>
-
-
 ####  ✓ Fully compatible with SVG specs.  ####
 
 _parametric.svg_ graphics can be viewed directly in the browser or in a simple SVG viewer. They can be edited and authored in your favorite program – be it Inkscape, Adobe Illustrator, VIM or any other.
@@ -56,9 +53,6 @@ _parametric.svg_ is a complete set of tools to describe relationships between pa
 2. Abstract
 -----------
 
-<div align="right"><sup>This section is informative.</sup></div>
-
-
 The purpose of this document is to outline and specify an XML namespace extending the capabilities of Scalable Vector Graphics. The described namespace provides a complete set of tools to parametrize the position, geometry and number of elements in the graphic, in a declarative way.
 
 The parametrization should not only provide direct access to these properties, but also allow the author to declare logical and arithmetic relationships between parameters and elements.
@@ -68,9 +62,6 @@ The parametrization should not only provide direct access to these properties, b
 
 3. Usage
 --------
-
-<div align="right"><sup>This section is normative.</sup></div>
-
 
 _parametric.svg_ is a regular XML namespace. In order to be used on an element, the namespace must be declared on the element or any of its ancestors by the following URI: `https://parametric-svg.github.io/v0.2`.
 
@@ -102,9 +93,6 @@ Once the reference is specified, the namespace can be used on all elements withi
 
 4. Specification
 ----------------
-
-<div align="right"><sup>This section is normative.</sup></div>
-
 
 ###  4.1 Attributes  ###
 
@@ -279,9 +267,6 @@ The parametric namespace is the XML namespace identified by the URI `https://par
 5. Implementations
 ------------------
 
-<div align="right"><sup>This section is informative.</sup></div>
-
-
 A [JavaScript implementation][on-npm] is currently being worked on.
 
 [on-npm]: http://npm.im/parametric-svg
@@ -289,11 +274,8 @@ A [JavaScript implementation][on-npm] is currently being worked on.
 
 
 
-5. License
+6. License
 ----------
-
-<div align="right"><sup>This section is informative.</sup></div>
-
 
 [MIT][license] © [Tomek Wiszniewski][tomekwi].
 
