@@ -50,16 +50,6 @@ _parametric.svg_ is a complete set of tools to describe relationships between pa
 
 
 
-2. Abstract
------------
-
-The purpose of this document is to outline and specify an XML namespace extending the capabilities of Scalable Vector Graphics. The described namespace provides a complete set of tools to parametrize the position, geometry and number of elements in the graphic, in a declarative way.
-
-The parametrization should not only provide direct access to these properties, but also allow the author to declare logical and arithmetic relationships between parameters and elements.
-
-
-
-
 3. Usage
 --------
 
