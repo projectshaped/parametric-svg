@@ -1,0 +1,87 @@
+overview: |
+  parametric.svg is a regular XML namespace. Any attribute in our namespace
+  should be associated with an attribute with the same name and no namespace.
+
+  This set of tests is only valid in an XML document. SVG embedded in HTML5
+  should pass `./html5.yml` tests instead.
+
+tests:
+  - description: Our namespace can be set on the root element.
+    document: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:parametric="//parametric-svg.github.io/v1"
+        >
+        <circle r="5" parametric:r="10" />
+      </svg>
+    expected: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:parametric="//parametric-svg.github.io/v1"
+        >
+        <circle r="10" parametric:r="10" />
+      </svg>
+
+  - description: Our namespace can be set on a single element.
+    document: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <circle
+          xmlns:parametric="//parametric-svg.github.io/v1"
+          r="5" parametric:r="10"
+        />
+      </svg>
+    expected: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <circle
+          xmlns:parametric="//parametric-svg.github.io/v1"
+          r="10" parametric:r="10"
+        />
+      </svg>
+
+  - description: Our namespace can be set on any ancestor.
+    document: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <g xmlns:parametric="//parametric-svg.github.io/v1">
+          <circle r="5" parametric:r="10" />
+        </g>
+      </svg>
+    expected: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        >
+        <g xmlns:parametric="//parametric-svg.github.io/v1">
+          <circle r="10" parametric:r="10" />
+        </g>
+      </svg>
+
+  - description: Our namespace can be associated with any prefix.
+    document: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:p="//parametric-svg.github.io/v1"
+        xmlns:parametric="(dummy)"
+        >
+        <circle r="5" p:r="10" parametric:r="20" />
+      </svg>
+    expected: |
+      <svg
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:p="//parametric-svg.github.io/v1"
+        xmlns:parametric="(dummy)"
+        >
+        <circle r="10" p:r="10" parametric:r="20" />
+      </svg>
