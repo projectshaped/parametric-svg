@@ -2,17 +2,15 @@
   <img alt="parametric.svg" src="https://cdn.rawgit.com/parametric-svg/identity/v1.0.0/logo/basic.svg" />
 </h1>
 
-[![SEE IT IN ACTION! ➔
-](https://img.shields.io/badge/SEE%20IT%20IN%20ACTION!-%E2%9E%94-9eab05.svg?style=flat-square)
-](http://parametric-svg.js.org)
+[![Version: 0.2.0
+](https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square)
+](https://www.npmjs.com/package/parametric-svg-spec)
  [![Implementations: 1
 ](https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square)
 ](#/implementations)
- [![Version: 0.2.0
-](https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square)
-](https://www.npmjs.com/package/parametric-svg-spec)
-
-&nbsp;
+ [![SEE IT IN ACTION! ➔
+](https://img.shields.io/badge/SEE%20IT%20IN%20ACTION!-%E2%9E%94-555555.svg?style=flat-square)
+](http://parametric-svg.js.org)
 
 **A specification for full-fledged parametric graphics. In pure SVG.**
 
