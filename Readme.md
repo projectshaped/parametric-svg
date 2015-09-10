@@ -17,7 +17,7 @@
 
 
 
-<div                                                    id="/goals">&nbsp;</div>
+<a                                                        id="/goals"></a>&nbsp;
 
 Goals
 -----
@@ -50,7 +50,7 @@ SVG 2.0 isn't yet fully standardized and implemented. But *parametric.svg* is bu
 
 
 
-<div                                                    id="/usage">&nbsp;</div>
+<a                                                        id="/usage"></a>&nbsp;
 
 Usage
 -----
@@ -84,7 +84,7 @@ Just keep in mind that while XML will allow you to bind our namespace to another
 
 
 
-<div                                    id="/parametric-attributes">&nbsp;</div>
+<a                                        id="/parametric-attributes"></a>&nbsp;
 
 Parametric attributes
 ---------------------
@@ -262,7 +262,7 @@ The parametric namespace is the XML namespace identified by the URI `https://par
 
 
 
-<div                                          id="/implementations">&nbsp;</div>
+<a                                              id="/implementations"></a>&nbsp;
 
 Implementations
 ---------------
@@ -274,7 +274,7 @@ A [JavaScript implementation][] is currently being worked on.
 
 
 
-<div                                                  id="/license">&nbsp;</div>
+<a                                                      id="/license"></a>&nbsp;
 
 License
 -------
