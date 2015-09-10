@@ -84,10 +84,10 @@ Just keep in mind that while XML will allow you to bind our namespace to another
 
 
 
-<div                                                   id="/syntax">&nbsp;</div>
+<div                                    id="/parametric-attributes">&nbsp;</div>
 
-Syntax
-------
+Parametric attributes
+---------------------
 
 Whenever you set an attribute with the prefix `parametric:` on an element, we’ll bind it to a regular attribute of the same name, without the prefix. For example, the attribute `parametric:height` will be bound to `height`. We’ll call `parametric:height` a *parametric attribute* and `height` its *bound attribute*.
 
