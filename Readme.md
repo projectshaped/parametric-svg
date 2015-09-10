@@ -79,7 +79,7 @@ Once you’ve set the `xmlns:parametric` thing, you can use the namespace on att
 
 HTML5 is not namespace-aware. Prefixing your parametric attribute or element with `parametric:` is enough – you don’t need to declare the `xmlns:parametric` thing beforehand.
 
-Just keep in mind that while XML will allow you to bind our namespace to another prefix like `p:` (through `xmlns:p="//parametric-…"`), you’ll have to stick with `parametric:` in HTML5.
+While XML will allow you to bind our namespace to another prefix like `p:` (through `xmlns:p="//parametric-…"`), only `parametric:` will work if your SVG is part of a HTML5 document. Don’t bind our namespace to any other prefix to make sure your parametric SVG will work in a HTML5 website.
 
 
 
