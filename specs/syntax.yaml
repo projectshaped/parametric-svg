@@ -2,6 +2,9 @@ overview: |
   Every attribute with the prefix `parametric:` on an element has its bound
   attribute – same name, no prefix.
 
+mode: xml
+root: document
+
 template: |
   <svg
     version="1.1"

@@ -6,6 +6,9 @@ overview: |
   This set of tests is only valid in an HTML5 document. SVG embedded in XML
   should pass `./usage-xml.yml` tests instead.
 
+mode: html5
+root: document
+
 tests:
   - description: Parametric attributes should work when no namespace is set.
     document: |

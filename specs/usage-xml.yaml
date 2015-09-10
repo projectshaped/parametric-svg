@@ -5,6 +5,9 @@ overview: |
   This set of tests is only valid in an XML document. SVG embedded in HTML5
   should pass `./html5.yml` tests instead.
 
+mode: xml
+root: document
+
 tests:
   - description: Our namespace can be set on the root element.
     document: |
