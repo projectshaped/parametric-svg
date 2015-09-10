@@ -1,0 +1,93 @@
+overview: |
+  Every attribute with the prefix `parametric:` on an element has its bound
+  attribute – same name, no prefix.
+
+template: |
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:parametric="//parametric-svg.github.io/v1"
+    >
+    <!-- @content-goes-here -->
+  </svg>
+
+tests:
+  - description: A parametric attribute is bound to an existing attribute.
+    content: <circle r="5" parametric:r="10" />
+    expected: <circle r="10" parametric:r="10" />
+    ast:
+      - address: [0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
+
+  - description: A parametric attribute creates a non-existent attribute.
+    content: <circle parametric:r="10" />
+    expected: <circle r="10" parametric:r="10" />
+    ast:
+      - address: [0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
+
+  - description: Parametric attributes can live alongside other attributes.
+    content: |
+      <rect
+        x="1"
+        parametric:y="20"
+                   y="2"
+        parametric:height="20"
+                   height="2"
+      />
+    expected: |
+      <rect
+        x="1"
+        parametric:y="20"
+                   y="20"
+        parametric:height="30"
+                   height="30"
+      />
+    ast:
+      - address: [0]
+        name: y
+        dependencies: []
+        relation:
+          - input: []
+            output: 20
+      - address: [0]
+        name: height
+        dependencies: []
+        relation:
+          - input: []
+            output: 30
+
+  - description: A parametric element can live alongside other elements.
+    content: |
+      <rect x="1" />
+      <circle r="2" parametric:r="20" />
+      <g>
+        <rect y="3" parametric:y="30" />
+      </g>
+    expected: |
+      <rect x="1" />
+      <circle r="20" parametric:r="20" />
+      <g>
+        <rect y="3" parametric:y="30" />
+      </g>
+    ast:
+      - address: [1]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 20
+      - address: [2, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 30
