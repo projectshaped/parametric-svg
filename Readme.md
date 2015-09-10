@@ -1,23 +1,27 @@
-<p align="right">
-  <a href="./License.md"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square"></a> <img alt="version 0.2.0" src="https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square"></a> <a href="#5-implementations"><img alt="1 implementation" src="https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square"></a>
-</p>
-
 <h1 align="center">
   <img alt="parametric.svg" src="https://cdn.rawgit.com/parametric-svg/identity/v1.0.0/logo/basic.svg" />
 </h1>
 
- 
+[![License: MIT
+](https://img.shields.io/badge/license-MIT-9eab05.svg?style=flat-square)
+](./License.md)
+ [![Version: 0.2.0
+](https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square)
+](https://www.npmjs.com/package/parametric-svg-spec)
+ [![Implementations: 1
+](https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square)
+](#/implementations)
+
+&nbsp;
 
 **A specification for full-fledged parametric graphics. In pure SVG.**
 
-**A simple XML namespace – fully compatible with SVG 1.1 and SVG 2.0.**
-
-See it in action at [parametric-svg.js.org](http://parametric-svg.js.org)!
-
-   
- 
+[SEE IT IN ACTION ➔](http://parametric-svg.js.org)
 
 
+
+
+<div                                                    id="/goals">&nbsp;</div>
 
 Goals
 -----
@@ -262,20 +266,22 @@ The parametric namespace is the XML namespace identified by the URI `https://par
 
 
 
+<div                                          id="/implementations">&nbsp;</div>
+
+Implementations
+---------------
+
+A [JavaScript implementation][] is currently being worked on.
+
+[JavaScript implementation]: https://www.npmjs.com/package/parametric-svg
 
 
-5. Implementations
-------------------
-
-A [JavaScript implementation][on-npm] is currently being worked on.
-
-[on-npm]: http://npm.im/parametric-svg
 
 
+<div                                                  id="/license">&nbsp;</div>
 
-
-6. License
-----------
+License
+-------
 
 [MIT][license] © [Tomek Wiszniewski][tomekwi].
 
