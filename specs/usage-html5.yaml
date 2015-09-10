@@ -9,19 +9,25 @@ tests:
     document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1">
-          <circle r="5" parametric:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1">
+            <circle r="5" parametric:r="10" />
+          </svg>
+        </body>
       </html>
     expected_document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1">
-          <circle r="10" parametric:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1">
+            <circle r="10" parametric:r="10" />
+          </svg>
+        </body>
       </html>
     ast:
-      - address: [0, 0]
+      - address: [1, 0, 0]
         name: r
         dependencies: []
         relation:
@@ -32,23 +38,29 @@ tests:
     document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1"
-          xmlns:parametric="(dummy)"
-          >
-          <circle r="5" parametric:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:parametric="(dummy)"
+            >
+            <circle r="5" parametric:r="10" />
+          </svg>
+        </body>
       </html>
     expected_document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1"
-          xmlns:parametric="(dummy)"
-          >
-          <circle r="10" parametric:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:parametric="(dummy)"
+            >
+            <circle r="10" parametric:r="10" />
+          </svg>
+        </body>
       </html>
     ast:
-      - address: [0, 0]
+      - address: [1, 0, 0]
         name: r
         dependencies: []
         relation:
@@ -59,19 +71,25 @@ tests:
     document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1"
-          xmlns:p="//parametric-svg.js.org/v1"
-          >
-          <circle r="5" p:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:p="//parametric-svg.js.org/v1"
+            >
+            <circle r="5" p:r="10" />
+          </svg>
+        </body>
       </html>
     expected_document: |
       <!DOCTYPE html>
       <html>
-        <svg version="1.1"
-          xmlns:p="//parametric-svg.js.org/v1"
-          >
-          <circle r="5" p:r="10" />
-        </svg>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:p="//parametric-svg.js.org/v1"
+            >
+            <circle r="5" p:r="10" />
+          </svg>
+        </body>
       </html>
     ast: []
