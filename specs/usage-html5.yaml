@@ -7,7 +7,7 @@ root: document
 tests:
   - description: Parametric attributes should work when no namespace is set.
     document: |
-      <!DOCYPE html>
+      <!DOCTYPE html>
       <html>
         <svg version="1.1">
           <circle r="5" parametric:r="10" />
@@ -30,7 +30,7 @@ tests:
 
   - description: Setting the namespace to something else should have no effect.
     document: |
-      <!DOCYPE html>
+      <!DOCTYPE html>
       <html>
         <svg version="1.1"
           xmlns:parametric="(dummy)"
@@ -57,7 +57,7 @@ tests:
 
   - description: Binding our namespace to another prefix shouldn’t work.
     document: |
-      <!DOCYPE html>
+      <!DOCTYPE html>
       <html>
         <svg version="1.1"
           xmlns:p="//parametric-svg.js.org/v1"
