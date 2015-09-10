@@ -15,7 +15,7 @@ tests:
           <circle r="5" parametric:r="10" />
         </svg>
       </html>
-    expected: |
+    expected_document: |
       <!DOCTYPE html>
       <html>
         <svg version="1.1">
@@ -33,7 +33,7 @@ tests:
           <circle r="5" parametric:r="10" />
         </svg>
       </html>
-    expected: |
+    expected_document: |
       <!DOCTYPE html>
       <html>
         <svg version="1.1"
