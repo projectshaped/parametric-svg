@@ -60,7 +60,7 @@ Usage
 ```xml
 <svg version="1.1"
   xmlns="http://www.w3.org/2000/svg"
-  xmlns:parametric="//parametric-svg.github.io/v1"
+  xmlns:parametric="//parametric-svg.js.org/v1"
   >
   ...
 </svg>

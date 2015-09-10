@@ -10,7 +10,7 @@ tests:
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:parametric="//parametric-svg.github.io/v1"
+        xmlns:parametric="//parametric-svg.js.org/v1"
         >
         <circle r="5" parametric:r="10" />
       </svg>
@@ -18,7 +18,7 @@ tests:
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:parametric="//parametric-svg.github.io/v1"
+        xmlns:parametric="//parametric-svg.js.org/v1"
         >
         <circle r="10" parametric:r="10" />
       </svg>
@@ -37,7 +37,7 @@ tests:
         xmlns="http://www.w3.org/2000/svg"
         >
         <circle
-          xmlns:parametric="//parametric-svg.github.io/v1"
+          xmlns:parametric="//parametric-svg.js.org/v1"
           r="5" parametric:r="10"
         />
       </svg>
@@ -47,7 +47,7 @@ tests:
         xmlns="http://www.w3.org/2000/svg"
         >
         <circle
-          xmlns:parametric="//parametric-svg.github.io/v1"
+          xmlns:parametric="//parametric-svg.js.org/v1"
           r="10" parametric:r="10"
         />
       </svg>
@@ -65,7 +65,7 @@ tests:
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         >
-        <g xmlns:parametric="//parametric-svg.github.io/v1">
+        <g xmlns:parametric="//parametric-svg.js.org/v1">
           <circle r="5" parametric:r="10" />
         </g>
       </svg>
@@ -74,7 +74,7 @@ tests:
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
         >
-        <g xmlns:parametric="//parametric-svg.github.io/v1">
+        <g xmlns:parametric="//parametric-svg.js.org/v1">
           <circle r="10" parametric:r="10" />
         </g>
       </svg>
@@ -91,7 +91,7 @@ tests:
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:p="//parametric-svg.github.io/v1"
+        xmlns:p="//parametric-svg.js.org/v1"
         xmlns:parametric="(dummy)"
         >
         <circle r="5" p:r="10" parametric:r="20" />
@@ -100,7 +100,7 @@ tests:
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
-        xmlns:p="//parametric-svg.github.io/v1"
+        xmlns:p="//parametric-svg.js.org/v1"
         xmlns:parametric="(dummy)"
         >
         <circle r="10" p:r="10" parametric:r="20" />
