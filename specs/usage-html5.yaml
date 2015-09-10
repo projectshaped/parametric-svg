@@ -3,8 +3,8 @@ overview: |
   is treated like any other name. Setting the `xmlns` in an HTML5 document
   is not needed and shouldn’t have any effect on the output.
 
-  This set of tests is only valid in an XML document. SVG embedded in HTML5
-  should pass `./html5.yml` tests instead.
+  This set of tests is only valid in an HTML5 document. SVG embedded in XML
+  should pass `./usage-xml.yml` tests instead.
 
 tests:
   - description: Parametric attributes should work when no namespace is set.
