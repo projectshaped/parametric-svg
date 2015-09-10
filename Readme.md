@@ -84,17 +84,24 @@ Just keep in mind that while XML will allow you to bind our namespace to another
 
 
 
-4. Specification
-----------------
+<div                                                   id="/syntax">&nbsp;</div>
 
-###  4.1 Attributes  ###
+Syntax
+------
 
-Any attribute valid for a given SVG element in the SVG namespace (no prefix) has its counterpart in the [parametric namespace][parametric-namespace]. For example – since the attribute `fill` is valid for a `<circle>` element – the attribute `parametric:fill` is a valid paremetric attribute for it.
+Whenever you set an attribute with the prefix `parametric:` on an element, we’ll bind it to a regular attribute of the same name, without the prefix. For example, the attribute `parametric:height` will be bound to `height`. We’ll call `parametric:height` a *parametric attribute* and `height` its *bound attribute*.
 
-A reference of valid attributes in SVG 1.1 can be found [here][svg-attributes].
+When your parametric attribute gets an [update](#/update), the bound attribute is changed – or created, if it doesn’t exist.
 
-[svg-attributes]: http://www.w3.org/TR/SVG/propidx.html
 
+
+
+&nbsp;
+
+Old stuff
+---------
+
+We’re gradually getting rid of this bullshit.
 
 ####  Attribute value  ####
 
