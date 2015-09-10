@@ -22,6 +22,13 @@ tests:
           <circle r="10" parametric:r="10" />
         </svg>
       </html>
+    ast:
+      - address: [0, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
 
   - description: Setting the namespace to something else should have no effect.
     document: |
@@ -42,3 +49,10 @@ tests:
           <circle r="10" parametric:r="10" />
         </svg>
       </html>
+    ast:
+      - address: [0, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
