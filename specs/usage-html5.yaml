@@ -1,10 +1,5 @@
-overview: |
-  HTML5 is not namespace-aware. `parametric:…` as an attribute or element name
-  is treated like any other name. Setting the `xmlns` in an HTML5 document
-  is not needed and shouldn’t have any effect on the output.
-
-  This set of tests is only valid in an HTML5 document. SVG embedded in XML
-  should pass `./usage-xml.yml` tests instead.
+name: Usage in HTML5
+link: ../Readme.md#/usage/html5
 
 mode: html5
 root: document

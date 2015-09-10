@@ -1,9 +1,5 @@
-overview: |
-  parametric.svg is a regular XML namespace. Any attribute in our namespace
-  should be associated with an attribute with the same name and no namespace.
-
-  This set of tests is only valid in an XML document. SVG embedded in HTML5
-  should pass `./html5.yml` tests instead.
+name: Usage in SVG and XML
+link: ../Readme.md#/usage
 
 mode: xml
 root: document

@@ -75,7 +75,7 @@ Once you’ve set the `xmlns:parametric` thing, you can use the namespace on att
 />
 ```
 
-###  A note about HTML5  ###
+###                                                    <a id="/usage/html5"></a> A note about HTML5                                                               ###
 
 HTML5 is not namespace-aware. Prefixing your parametric attribute or element with `parametric:` is enough – you don’t need to declare the `xmlns:parametric` thing beforehand.
 

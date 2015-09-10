@@ -1,6 +1,5 @@
-overview: |
-  Every attribute with the prefix `parametric:` on an element has its bound
-  attribute – same name, no prefix.
+name: Parametric attributes
+link: ../Readme.md#/parametric-attributes
 
 mode: xml
 root: document
