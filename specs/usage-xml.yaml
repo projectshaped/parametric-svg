@@ -23,6 +23,13 @@ tests:
         >
         <circle r="10" parametric:r="10" />
       </svg>
+    ast:
+      - address: [0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
 
   - description: Our namespace can be set on a single element.
     document: |
@@ -45,6 +52,13 @@ tests:
           r="10" parametric:r="10"
         />
       </svg>
+    ast:
+      - address: [0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
 
   - description: Our namespace can be set on any ancestor.
     document: |
@@ -65,6 +79,13 @@ tests:
           <circle r="10" parametric:r="10" />
         </g>
       </svg>
+    ast:
+      - address: [0, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
 
   - description: Our namespace can be associated with any prefix.
     document: |
@@ -85,3 +106,10 @@ tests:
         >
         <circle r="10" p:r="10" parametric:r="20" />
       </svg>
+    ast:
+      - address: [0]
+        name: r
+        dependencies: []
+        relation:
+          - input: []
+            output: 10
