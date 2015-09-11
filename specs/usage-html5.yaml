@@ -5,7 +5,7 @@ mode: html5
 root: document
 
 tests:
-  - description: Parametric attributes should work when no namespace is set.
+  - description: Parametric attributes work when no namespace is set.
     document: |
       <!DOCTYPE html>
       <html>
@@ -34,7 +34,7 @@ tests:
           - input: []
             output: 10
 
-  - description: Setting the namespace to something else should have no effect.
+  - description: Setting the namespace to something else has no effect.
     document: |
       <!DOCTYPE html>
       <html>
@@ -67,7 +67,7 @@ tests:
           - input: []
             output: 10
 
-  - description: Binding our namespace to another prefix shouldn’t work.
+  - description: Our namespace can’t be bound to another prefix.
     document: |
       <!DOCTYPE html>
       <html>
