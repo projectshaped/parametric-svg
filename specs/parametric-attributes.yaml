@@ -62,26 +62,30 @@ tests:
 
   - description: A parametric element can live alongside other elements.
     original: |
-      <rect x="1" />
-      <circle r="2" parametric:r="20" />
       <g>
-        <rect y="3" parametric:y="30" />
+        <rect x="1" />
+        <circle r="2" parametric:r="20" />
+        <g>
+          <rect y="3" parametric:y="30" />
+        </g>
       </g>
     example_data: {}
     example_output: |
-      <rect x="1" />
-      <circle r="20" parametric:r="20" />
       <g>
-        <rect y="3" parametric:y="30" />
+        <rect x="1" />
+        <circle r="20" parametric:r="20" />
+        <g>
+          <rect y="3" parametric:y="30" />
+        </g>
       </g>
     ast:
-      - address: [1]
+      - address: [0, 1]
         name: r
         dependencies: []
         relation:
           - input: []
             output: 20
-      - address: [2, 0]
+      - address: [0, 2, 0]
         name: r
         dependencies: []
         relation:
