@@ -34,7 +34,7 @@ tests:
         x="1"
         parametric:y="20"
                    y="2"
-        parametric:height="20"
+        parametric:height="30"
                    height="2"
       />
     example_data: {}
