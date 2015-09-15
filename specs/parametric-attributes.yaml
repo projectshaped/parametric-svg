@@ -86,7 +86,7 @@ tests:
           - input: []
             output: 20
       - address: [0, 2, 0]
-        name: r
+        name: y
         dependencies: []
         relation:
           - input: []
