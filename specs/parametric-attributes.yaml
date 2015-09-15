@@ -1,22 +1,13 @@
 name: Parametric attributes
 link: ../Readme.md#/parametric-attributes
 
-mode: xml
-root: document
-
-template: |
-  <svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:parametric="//parametric-svg.js.org/v1"
-    >
-    <!-- @content-goes-here -->
-  </svg>
+mode: Element
 
 tests:
   - description: A parametric attribute is bound to an existing attribute.
-    content: <circle r="5" parametric:r="10" />
-    expected: <circle r="10" parametric:r="10" />
+    original: <circle r="5" parametric:r="10" />
+    example_data: {}
+    example_output: <circle r="10" parametric:r="10" />
     ast:
       - address: [0]
         name: r
@@ -26,8 +17,9 @@ tests:
             output: 10
 
   - description: A parametric attribute creates a non-existent attribute.
-    content: <circle parametric:r="10" />
-    expected: <circle r="10" parametric:r="10" />
+    original: <circle parametric:r="10" />
+    example_data: {}
+    example_output: <circle r="10" parametric:r="10" />
     ast:
       - address: [0]
         name: r
@@ -37,7 +29,7 @@ tests:
             output: 10
 
   - description: Parametric attributes can live alongside other attributes.
-    content: |
+    original: |
       <rect
         x="1"
         parametric:y="20"
@@ -45,7 +37,8 @@ tests:
         parametric:height="20"
                    height="2"
       />
-    expected: |
+    example_data: {}
+    example_output: |
       <rect
         x="1"
         parametric:y="20"
@@ -68,13 +61,14 @@ tests:
             output: 30
 
   - description: A parametric element can live alongside other elements.
-    content: |
+    original: |
       <rect x="1" />
       <circle r="2" parametric:r="20" />
       <g>
         <rect y="3" parametric:y="30" />
       </g>
-    expected: |
+    example_data: {}
+    example_output: |
       <rect x="1" />
       <circle r="20" parametric:r="20" />
       <g>

@@ -1,12 +1,11 @@
 name: Usage in HTML5
 link: ../Readme.md#/usage/html5
 
-mode: html5
-root: document
+mode: HTML5 document
 
 tests:
   - description: Parametric attributes work when no namespace is set.
-    document: |
+    original: |
       <!DOCTYPE html>
       <html>
         <head></head>
@@ -16,7 +15,8 @@ tests:
           </svg>
         </body>
       </html>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <!DOCTYPE html>
       <html>
         <head></head>
@@ -35,7 +35,7 @@ tests:
             output: 10
 
   - description: Setting the namespace to something else has no effect.
-    document: |
+    original: |
       <!DOCTYPE html>
       <html>
         <head></head>
@@ -47,7 +47,8 @@ tests:
           </svg>
         </body>
       </html>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <!DOCTYPE html>
       <html>
         <head></head>
@@ -68,7 +69,7 @@ tests:
             output: 10
 
   - description: Our namespace can’t be bound to another prefix.
-    document: |
+    original: |
       <!DOCTYPE html>
       <html>
         <head></head>
@@ -80,7 +81,8 @@ tests:
           </svg>
         </body>
       </html>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <!DOCTYPE html>
       <html>
         <head></head>

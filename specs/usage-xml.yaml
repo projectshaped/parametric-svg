@@ -1,12 +1,11 @@
 name: Usage in SVG and XML
 link: ../Readme.md#/usage
 
-mode: xml
-root: document
+mode: XML document
 
 tests:
   - description: Our namespace can be set on the root element.
-    document: |
+    original: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +13,8 @@ tests:
         >
         <circle r="5" parametric:r="10" />
       </svg>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -31,7 +31,7 @@ tests:
             output: 10
 
   - description: Our namespace can be set on a single element.
-    document: |
+    original: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -41,7 +41,8 @@ tests:
           r="5" parametric:r="10"
         />
       </svg>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +61,7 @@ tests:
             output: 10
 
   - description: Our namespace can be set on any ancestor.
-    document: |
+    original: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +70,8 @@ tests:
           <circle r="5" parametric:r="10" />
         </g>
       </svg>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +89,7 @@ tests:
             output: 10
 
   - description: Our namespace can be associated with any prefix.
-    document: |
+    original: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +98,8 @@ tests:
         >
         <circle r="5" p:r="10" parametric:r="20" />
       </svg>
-    expected_document: |
+    example_data: {}
+    example_output: |
       <svg
         version="1.1"
         xmlns="http://www.w3.org/2000/svg"
