@@ -9,7 +9,7 @@ tests:
     example_data: {}
     example_output: <circle r="10" parametric:r="10" />
     ast:
-      - address: [0]
+      - address: []
         name: r
         dependencies: []
         relation:
@@ -21,7 +21,7 @@ tests:
     example_data: {}
     example_output: <circle r="10" parametric:r="10" />
     ast:
-      - address: [0]
+      - address: []
         name: r
         dependencies: []
         relation:
@@ -47,13 +47,13 @@ tests:
                    height="30"
       />
     ast:
-      - address: [0]
+      - address: []
         name: y
         dependencies: []
         relation:
           - input: []
             output: 20
-      - address: [0]
+      - address: []
         name: height
         dependencies: []
         relation:
@@ -79,13 +79,13 @@ tests:
         </g>
       </g>
     ast:
-      - address: [0, 1]
+      - address: [1]
         name: r
         dependencies: []
         relation:
           - input: []
             output: 20
-      - address: [0, 2, 0]
+      - address: [2, 0]
         name: y
         dependencies: []
         relation:
