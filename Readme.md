@@ -75,6 +75,7 @@ Once you’ve set the `xmlns:parametric` thing, you can use the namespace on att
 />
 ```
 
+
 ###                                                    <a id="/usage/html5"></a> A note about HTML5                                                               ###
 
 HTML5 is not namespace-aware. Prefixing your parametric attribute or element with `parametric:` is enough – you don’t need to declare the `xmlns:parametric` thing beforehand.
@@ -92,6 +93,93 @@ Parametric attributes
 Whenever you set an attribute with the prefix `parametric:` on an element, we’ll bind it to a regular attribute of the same name, without the prefix. For example, the attribute `parametric:height` will be bound to `height`. We’ll call `parametric:height` a *parametric attribute* and `height` its *bound attribute*.
 
 When your parametric attribute gets an [update](#/update), the bound attribute is changed – or created, if it doesn’t exist.
+
+
+
+
+<a                                                       id="/syntax"></a>&nbsp;
+
+Syntax
+------
+
+A parametric attribute can contain any mathematical expression, as long as it keeps to the rules below.
+
+
+###                                               <a id="/syntax/operators"></a> Operators                                                                        ###
+
+We have operators for all common arithmetic operations such as addition and multiplication. We use conventional infix notation for operators: an operator is placed between its arguments.
+
+```svg
+<circle parametric:r="2 + 3" />
+  <!-- → r="5" -->
+
+<circle parametric:r="2 * 3" />
+  <!-- → r="6" -->
+```
+
+You can use round parentheses to override the default precedence of operators.
+
+```svg
+<circle parametric:r="2 + 3 * 4" />
+  <!-- → r="14" -->
+
+<circle parametric:r="(2 + 3) * 4" />
+  <!-- → r="20" -->
+```
+
+The following operators are available:
+
+Operator    | Name                    | Syntax      | Associativity | Example               | Result
+----------- | ----------------------- | ----------  | ------------- | --------------------- | ---------------
+`(`, `)`    | Parentheses             | `(x)`       | None          | `2 * (3 + 4)`         | `14`
+`[`, `]`    | Matrix, Index           | `[...]`     | None          | `[[1,2],[3,4]]`       | `[[1,2],[3,4]]`
+`,`         | Parameter separator     | `x, y`      | Left to right | `max(2, 1, 5)`        | `5`
+`;`         | Statement separator     | `x; y`      | Left to right | `a=2; b=3; a*b`       | `[6]`
+`;`         | Row separator           | `[x, y]`    | Left to right | `[1,2;3,4]`           | `[[1,2],[3,4]]`
+`\n`        | Statement separator     | `x \n y`    | Left to right | `a=2 \n b=3 \n a*b`   | `[2,3,6]`
+`+`         | Add                     | `x + y`     | Left to right | `4 + 5`               | `9`
+`+`         | Unary plus              | `+y`        | Right to left | `+4`                  | `4`
+`-`         | Subtract                | `x - y`     | Left to right | `7 - 3`               | `4`
+`-`         | Unary minus             | `-y`        | Right to left | `-4`                  | `-4`
+`*`         | Multiply                | `x * y`     | Left to right | `2 * 3`               | `6`
+`.*`        | Element-wise multiply   | `x .* y`    | Left to right | `[1,2,3] .* [1,2,3]`  | `[1,4,9]`
+`/`         | Divide                  | `x / y`     | Left to right | `6 / 2`               | `3`
+`./`        | Element-wise divide     | `x ./ y`    | Left to right | `[9,6,4] ./ [3,2,2]`  | `[3,3,2]`
+`%`, `mod`  | Modulus                 | `x % y`     | Left to right | `8 % 3`               | `2`
+`^`         | Power                   | `x ^ y`     | Right to left | `2 ^ 3`               | `8`
+`.^`        | Element-wise power      | `x .^ y`    | Right to left | `[2,3] .^ [3,3]`      | `[9,27]`
+`'`         | Transpose               | `y'`        | Left to right | `[[1,2],[3,4]]'`      | `[[1,3],[2,4]]`
+`!`         | Factorial               | `y!`        | Left to right | `5!`                  | `120`
+`&`         | Bitwise and             | `x & y`     | Left to right | `5 & 3`               | `1`
+`~`         | Bitwise not             | `~x`        | Right to left | `~2`                  | `-3`
+<code>&#124;</code>  | Bitwise or     | <code>x &#124; y</code>   | Left to right | <code>5 &#124; 3</code>  | `7`
+<code>^&#124;</code> | Bitwise xor    | <code>x ^&#124; y</code>  | Left to right | <code>5 ^&#124; 2</code> | `6`
+`<<`        | Left shift              | `x << y`    | Left to right | `4 << 1`              | `8`
+`>>`        | Right arithmetic shift  | `x >> y`    | Left to right | `8 >> 1`              | `4`
+`>>>`       | Right logical shift     | `x >>> y`   | Left to right | `-8 >>> 1`            | `2147483644`
+`and`       | Logical and             | `x and y`   | Left to right | `true and false`      | `false`
+`not`       | Logical not             | `not y`     | Right to left | `not true`            | `false`
+`or`        | Logical or              | `x or y`    | Left to right | `true or false`       | `true`
+`xor`       | Logical xor             | `x xor y`   | Left to right | `true or true`        | `false`
+`=`         | Assignment              | `x = y`     | Right to left | `a = 5`               | `5`
+`?` `:`     | Conditional expression  | `x ? y : z` | Right to left | `15 > 100 ? 1 : -1`   | `-1`
+`:`         | Range                   | `x : y`     | Right to left | `1:4`                 | `[1,2,3,4]`
+`to`, `in`  | Unit conversion         | `x to y`    | Left to right | `2 inch to cm`        | `5.08 cm`
+`==`        | Equal                   | `x == y`    | Left to right | `2 == 4 - 2`          | `true`
+`!=`        | Unequal                 | `x != y`    | Left to right | `2 != 3`              | `true`
+`<`         | Smaller                 | `x < y`     | Left to right | `2 < 3`               | `true`
+`>`         | Larger                  | `x > y`     | Left to right | `2 > 3`               | `false`
+`<=`        | Smallereq               | `x <= y`    | Left to right | `4 <= 3`              | `false`
+`>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6`          | `true`
+
+
+###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
+
+The original parametric.svg parser uses [mathjs][] under the hood. We’ve ripped a lot of this specification off their specs. All credits go to the fine [developers of mathjs][].
+
+
+[mathjs]:                http://mathjs.org
+[developers of mathjs]:  https://github.com/josdejong/mathjs/graphs/contributors
 
 
 
