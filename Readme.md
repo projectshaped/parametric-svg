@@ -129,29 +129,29 @@ You can use round parentheses to override the default precedence of operators.
 
 The following operators are available:
 
-Operator    | Name                    | Syntax      | Associativity | Example               | Result
------------ | ----------------------- | ----------  | ------------- | --------------------- | ---------------
-`(`, `)`    | Parentheses             | `(x)`       | None          | `2 * (3 + 4)`         | `14`
-`,`         | Parameter separator     | `x, y`      | Left to right | `max(2, 1, 5)`        | `5`
-`+`         | Add                     | `x + y`     | Left to right | `4 + 5`               | `9`
-`-`         | Subtract                | `x - y`     | Left to right | `7 - 3`               | `4`
-`-`         | Unary minus             | `-y`        | Right to left | `-4`                  | `-4`
-`*`         | Multiply                | `x * y`     | Left to right | `2 * 3`               | `6`
-`/`         | Divide                  | `x / y`     | Left to right | `6 / 2`               | `3`
-`%`         | Modulus                 | `x % y`     | Left to right | `8 % 3`               | `2`
-`^`         | Power                   | `x ^ y`     | Right to left | `2 ^ 3`               | `8`
-`!`         | Factorial               | `y!`        | Left to right | `5!`                  | `120`
-`and`       | Logical and             | `x and y`   | Left to right | `true and false`      | `false`
-`not`       | Logical not             | `not y`     | Right to left | `not true`            | `false`
-`or`        | Logical or              | `x or y`    | Left to right | `true or false`       | `true`
-`xor`       | Logical xor             | `x xor y`   | Left to right | `true xor true`       | `false`
-`?` `:`     | Conditional expression  | `x ? y : z` | Right to left | `15 > 100 ? 1 : -1`   | `-1`
-`==`        | Equal                   | `x == y`    | Left to right | `2 == 4 - 2`          | `true`
-`!=`        | Unequal                 | `x != y`    | Left to right | `2 != 3`              | `true`
-`<`         | Smaller                 | `x < y`     | Left to right | `2 < 3`               | `true`
-`>`         | Larger                  | `x > y`     | Left to right | `2 > 3`               | `false`
-`<=`        | Smallereq               | `x <= y`    | Left to right | `4 <= 3`              | `false`
-`>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6`          | `true`
+Operator    | Name                    | Syntax      | Associativity | Example                    | Result
+----------- | ----------------------- | ----------  | ------------- | -------------------------- | ---------------
+`(`, `)`    | Parentheses             | `(x)`       | None          | `2 * (3 + 4)`              | `14`
+`,`         | Parameter separator     | `x, y`      | Left to right | `max(2, 1, 5)`             | `5`
+`+`         | Add                     | `x + y`     | Left to right | `4 + 5`                    | `9`
+`-`         | Subtract                | `x - y`     | Left to right | `7 - 3`                    | `4`
+`-`         | Unary minus             | `-y`        | Right to left | `-4`                       | `-4`
+`*`         | Multiply                | `x * y`     | Left to right | `2 * 3`                    | `6`
+`/`         | Divide                  | `x / y`     | Left to right | `6 / 2`                    | `3`
+`%`         | Modulus                 | `x % y`     | Left to right | `8 % 3`                    | `2`
+`^`         | Power                   | `x ^ y`     | Right to left | `2 ^ 3`                    | `8`
+`!`         | Factorial               | `y!`        | Left to right | `5!`                       | `120`
+`and`       | Logical and             | `x and y`   | Left to right | `true and false  ? 1 : 0`  | `0`
+`not`       | Logical not             | `not y`     | Right to left | `not true        ? 1 : 0`  | `0`
+`or`        | Logical or              | `x or y`    | Left to right | `true or false   ? 1 : 0`  | `1`
+`xor`       | Logical xor             | `x xor y`   | Left to right | `true xor true   ? 1 : 0`  | `0`
+`?` `:`     | Conditional expression  | `x ? y : z` | Right to left | `false ? 1 : -1`           | `-1`
+`==`        | Equal                   | `x == y`    | Left to right | `2 == 4 - 2      ? 1 : 0`  | `1`
+`!=`        | Unequal                 | `x != y`    | Left to right | `2 != 3          ? 1 : 0`  | `1`
+`<`         | Smaller                 | `x < y`     | Left to right | `2 < 3           ? 1 : 0`  | `1`
+`>`         | Larger                  | `x > y`     | Left to right | `2 > 3           ? 1 : 0`  | `0`
+`<=`        | Smallereq               | `x <= y`    | Left to right | `4 <= 3          ? 1 : 0`  | `0`
+`>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6      ? 1 : 0`  | `1`
 
 
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
