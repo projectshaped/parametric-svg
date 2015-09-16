@@ -244,10 +244,10 @@ tests:
 
   - description: Smaller
     original: |
-      <rect parametric:x="2 < 3 ? 1 : 0" />
+      <rect parametric:x="2 &lt; 3 ? 1 : 0" />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 < 3" x="1" />
+      <rect parametric:x="2 &lt; 3" x="1" />
     ast:
       - address: []
         name: x
@@ -258,10 +258,10 @@ tests:
 
   - description: Larger
     original: |
-      <rect parametric:x="2 > 3 ? 1 : 0" />
+      <rect parametric:x="2 &gt; 3 ? 1 : 0" />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 > 3" x="0" />
+      <rect parametric:x="2 &gt; 3" x="0" />
     ast:
       - address: []
         name: x
@@ -272,10 +272,10 @@ tests:
 
   - description: Smallereq
     original: |
-      <rect parametric:x="4 <= 3 ? 1 : 0" />
+      <rect parametric:x="4 &lt;= 3 ? 1 : 0" />
     example_data: {}
     example_output: |
-      <rect parametric:x="4 <= 3" x="0" />
+      <rect parametric:x="4 &lt;= 3" x="0" />
     ast:
       - address: []
         name: x
@@ -286,10 +286,10 @@ tests:
 
   - description: Largereq
     original: |
-      <rect parametric:x="2 + 4 >= 6 ? 1 : 0" />
+      <rect parametric:x="2 + 4 &gt;= 6 ? 1 : 0" />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 + 4 >= 6" x="1" />
+      <rect parametric:x="2 + 4 &gt;= 6" x="1" />
     ast:
       - address: []
         name: x
