@@ -19,7 +19,7 @@ tests:
   - description: A parametric attribute creates a non-existent attribute.
     original: <circle parametric:r="10" />
     example_data: {}
-    example_output: <circle r="10" parametric:r="10" />
+    example_output: <circle parametric:r="10" r="10" />
     ast:
       - address: []
         name: r
