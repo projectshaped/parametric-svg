@@ -75,7 +75,7 @@ tests:
         <rect x="1" />
         <circle r="20" parametric:r="20" />
         <g>
-          <rect y="3" parametric:y="30" />
+          <rect y="30" parametric:y="30" />
         </g>
       </g>
     ast:
