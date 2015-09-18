@@ -31,7 +31,7 @@ tests:
         name: r
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 10
 
   - description: Setting the namespace to something else has no effect.
@@ -65,7 +65,7 @@ tests:
         name: r
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 10
 
   - description: Our namespace can’t be bound to another prefix.

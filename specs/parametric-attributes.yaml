@@ -13,7 +13,7 @@ tests:
         name: r
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 10
 
   - description: A parametric attribute creates a non-existent attribute.
@@ -25,7 +25,7 @@ tests:
         name: r
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 10
 
   - description: Parametric attributes can live alongside other attributes.
@@ -51,13 +51,13 @@ tests:
         name: y
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 20
       - address: []
         name: height
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 30
 
   - description: A parametric element can live alongside other elements.
@@ -83,11 +83,11 @@ tests:
         name: r
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 20
       - address: [2, 0]
         name: y
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 30

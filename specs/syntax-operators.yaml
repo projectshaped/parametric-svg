@@ -15,7 +15,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 14
 
   - description: Parameter separator
@@ -29,7 +29,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 5
 
   - description: Add
@@ -43,7 +43,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 9
 
   - description: Subtract
@@ -57,7 +57,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 4
 
   - description: Unary minus
@@ -71,7 +71,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: -4
 
   - description: Multiply
@@ -85,7 +85,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 6
 
   - description: Divide
@@ -99,7 +99,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 3
 
   - description: Modulus
@@ -113,7 +113,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 2
 
   - description: Power
@@ -127,7 +127,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 8
 
   - description: Factorial
@@ -141,7 +141,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 120
 
   - description: Logical and
@@ -155,7 +155,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 0
 
   - description: Logical not
@@ -169,7 +169,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 0
 
   - description: Logical or
@@ -183,7 +183,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 1
 
   - description: Logical xor
@@ -197,7 +197,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 0
 
   - description: Conditional expression
@@ -211,7 +211,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: -1
 
   - description: Equal
@@ -225,7 +225,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 1
 
   - description: Unequal
@@ -239,7 +239,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 1
 
   - description: Smaller
@@ -253,7 +253,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 1
 
   - description: Larger
@@ -267,7 +267,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 0
 
   - description: Smallereq
@@ -281,7 +281,7 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 0
 
   - description: Largereq
@@ -295,5 +295,5 @@ tests:
         name: x
         dependencies: []
         relation:
-          - input: []
+          - input: {}
             output: 1
