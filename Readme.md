@@ -160,6 +160,8 @@ A variable is like a spreadsheet cell with a static value (without a `=` in fron
 
 There is one difference between a spreadsheet cell and a variable. While a cell has an *address* (like `B1`) – you must give each variable a *name* using lower- and uppercase letters (for example, `baseLength`). You can later use this name to reference a value. This makes your parametric attributes more readable – instead of `(B1 + 3) * 2` you would `(baseLength + 3) * 2`. When you look at the file two weeks later, you’ll still know what’s going on.
 
+If an expression in a parametric attribute contains a variable which doesn’t have any value, the bound attribute won’t be updated.
+
 How you assign values to your variables depends on the implementation you’re using. For example, the [`<parametric-svg>`][] custom element takes variables as attributes:
 
 ```html

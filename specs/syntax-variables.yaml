@@ -52,3 +52,46 @@ tests:
             output: 10
           - input: [10, 0]
             output: 2.5
+
+  - description: Undefined variables
+    original: |
+      <rect
+        parametric:width="a"
+                   width="2"
+        parametric:height="b"
+                   height="11"
+        parametric:y="c"
+      />
+    example_data:
+      a: 9
+    example_output: |
+      <rect
+        parametric:width="a"
+                   width="9"
+        parametric:height="b"
+                   height="11"
+        parametric:y="c"
+      />
+    ast:
+      - address: []
+        name: width
+        dependencies: [a]
+        relation:
+          - input: [12]
+            output: 12
+          - input: 'string'
+            output: 'string'
+          - input: [0]
+            output: 0
+      - address: []
+        name: height
+        dependencies: [b]
+        relation:
+          - input: 'whatever'
+            output: 'whatever'
+      - address: []
+        name: y
+        dependencies: [c]
+        relation:
+          - input: 'whatever'
+            output: 'whatever'
