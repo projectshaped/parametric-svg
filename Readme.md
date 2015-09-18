@@ -154,6 +154,31 @@ Operator    | Name                    | Syntax      | Associativity | Example   
 `>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6      ? 1 : 0`  | `1`
 
 
+###                                               <a id="/syntax/variables"></a> Variables                                                                        ###
+
+A variable is like a spreadsheet cell with a static value (without a `=` in front). You can set your own variables and reference them from parametric attributes – much like you reference a value from a spreadsheet cell.
+
+There is one difference between a spreadsheet cell and a variable. While a cell has an *address* (like `B1`) – you must give each variable a *name* using lower- and uppercase letters (for example, `baseLength`). You can later use this name to reference a value. This makes your parametric attributes more readable – instead of `(B1 + 3) * 2` you would `(baseLength + 3) * 2`. When you look at the file two weeks later, you’ll still know what’s going on.
+
+How you assign values to your variables depends on the implementation you’re using. For example, the [`<parametric-svg>`][] custom element takes variables as attributes:
+
+```html
+<parametric-svg
+  x="5"
+  color="'green'"
+  ><svg>
+  <rect
+    parametric:x="x + 2"
+    parametric:fill="color"
+  />
+</svg></parametric-svg>
+```
+
+[`<parametric-svg>`]:  https://github.com/parametric-svg/element
+
+
+
+
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
 
 The original parametric.svg parser uses [mathjs][] under the hood. We’ve ripped a lot of this specification off their specs. All credits go to the fine [developers of mathjs][].
