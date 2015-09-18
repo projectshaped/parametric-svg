@@ -39,7 +39,7 @@ tests:
     example_output: |
       <rect
         parametric:width="a / 4 + b"
-                   width="11"
+                   width="10"
       />
     ast:
       - address: []
@@ -47,7 +47,7 @@ tests:
         dependencies: [a, b]
         relation:
           - input: {a: 12, b: 7}
-            output: 11
+            output: 10
           - input: {a: 0, b: 10}
             output: 10
           - input: {a: 10, b: 0}
