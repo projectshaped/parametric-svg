@@ -1,0 +1,54 @@
+name: Variables
+link: ../Readme.md#/syntax/operators
+
+mode: Element
+
+tests:
+  - description: One variable in expression
+    original: |
+      <rect
+        parametric:x="2 * a"
+      />
+    example_data:
+      a: 7
+    example_output: |
+      <rect
+        parametric:x="2 * a"
+                   x="14"
+      />
+    ast:
+      - address: []
+        name: x
+        dependencies: [a]
+        relation:
+          - input: [7]
+            output: 14
+          - input: [10]
+            output: 20
+          - input: [0]
+            output: 0
+
+  - description: Two variables in expression
+    original: |
+      <rect
+        parametric:width="a / 4 + b"
+      />
+    example_data:
+      a: 12
+      b: 7
+    example_output: |
+      <rect
+        parametric:width="a / 4 + b"
+                   width="11"
+      />
+    ast:
+      - address: []
+        name: width
+        dependencies: [a, b]
+        relation:
+          - input: [12, 7]
+            output: 11
+          - input: [0, 10]
+            output: 10
+          - input: [10, 0]
+            output: 2.5
