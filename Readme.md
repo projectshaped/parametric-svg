@@ -102,7 +102,7 @@ When your parametric attribute gets an [update](#/update), the bound attribute i
 Syntax
 ------
 
-A parametric attribute can contain any mathematical expression, as long as it keeps to the rules below.
+A parametric attribute works like a calculated spreadsheet cell (one with a `=` in front). It can contain any mathematical expression, as long as it keeps to the rules below.
 
 
 ###                                               <a id="/syntax/operators"></a> Operators                                                                        ###
