@@ -5,8 +5,8 @@
 [![Version: 0.2.0
 ](https://img.shields.io/badge/version-0.2.0-9eab05.svg?style=flat-square)
 ](https://www.npmjs.com/package/parametric-svg-spec)
- [![Implementations: 1
-](https://img.shields.io/badge/implementations-1-9eab05.svg?style=flat-square)
+ [![Implementations: 3
+](https://img.shields.io/badge/implementations-3-9eab05.svg?style=flat-square)
 ](#/implementations)
  [![SEE IT IN ACTION! ➔
 ](https://img.shields.io/badge/SEE%20IT%20IN%20ACTION!-%E2%9E%94-555555.svg?style=flat-square)
@@ -162,7 +162,7 @@ There is one difference between a spreadsheet cell and a variable. While a cell 
 
 If an expression in a parametric attribute contains a variable which doesn’t have any value, the bound attribute won’t be updated.
 
-How you assign values to your variables depends on the implementation you’re using. For example, the [`<parametric-svg>`][] custom element takes variables as attributes:
+How you assign values to your variables depends on the implementation you’re using. For example, the *[&lt;parametric-svg&gt;][]* custom element takes variables as attributes:
 
 ```html
 <parametric-svg
@@ -176,7 +176,7 @@ How you assign values to your variables depends on the implementation you’re u
 </svg></parametric-svg>
 ```
 
-[`<parametric-svg>`]:  https://github.com/parametric-svg/element
+[&lt;parametric-svg&gt;]:  https://github.com/parametric-svg/element
 
 
 
@@ -192,7 +192,39 @@ The original parametric.svg parser uses [mathjs][] under the hood. We’ve rippe
 
 
 
+<a                                              id="/implementations"></a>&nbsp;
+
+Implementations
+---------------
+
+* *[&lt;parametric-svg&gt;][]* – A custom HTML element.
+* *[parametric-svg][]* – A JS library with an easy-to-use API.
+* *[parametric-svg-patch][]* and *[parametric-svg-parse][]* – A tandem of low-level libraries.
+
+[parametric-svg]:         https://www.npmjs.com/package/parametric-svg
+[parametric-svg-patch]:   https://www.npmjs.com/package/parametric-svg-patch
+[parametric-svg-parse]:   https://www.npmjs.com/package/parametric-svg-parse
+
+
+
+
+
+<a                                                      id="/license"></a>&nbsp;
+
+License
+-------
+
+[MIT][] © [Tomek Wiszniewski][].
+
+[MIT]: ./License.md
+[Tomek Wiszniewski]: https://github.com/tomekwi
+
+
+
+
 &nbsp;
+
+***
 
 Old stuff
 ---------
@@ -354,28 +386,3 @@ An attribute or element in the [parametric namespace][parametric-namespace] is r
 The parametric namespace is the XML namespace identified by the URI `https://parametric-svg.github.io/v0.2`.
 
 [parametric-namespace]: #parametric-namespace
-
-
-
-
-<a                                              id="/implementations"></a>&nbsp;
-
-Implementations
----------------
-
-A [JavaScript implementation][] is currently being worked on.
-
-[JavaScript implementation]: https://www.npmjs.com/package/parametric-svg
-
-
-
-
-<a                                                      id="/license"></a>&nbsp;
-
-License
--------
-
-[MIT][license] © [Tomek Wiszniewski][tomekwi].
-
-[license]: ./License.md
-[tomekwi]: https://github.com/tomekwi
