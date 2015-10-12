@@ -59,7 +59,7 @@ tests:
       - address: []
         name: fill
         dependencies: []
-        relation: {input: {}, output: "green"}
+        relation: [{input: {}, output: "green"}]
       - address: []
         name: quotes
         dependencies: []
