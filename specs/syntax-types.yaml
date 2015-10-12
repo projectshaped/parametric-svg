@@ -1,0 +1,63 @@
+name: Data types
+link: ../Readme.md#/syntax/types
+
+mode: Element
+
+tests:
+  - description: Simple numbers
+    original: |
+      <rect
+        parametric:x="2.56"
+        parametric:y="0.3802900"
+        parametric:y="5.0"
+      />
+    example_data: {}
+    example_output: |
+      <rect
+        parametric:x="2.56"
+                   x="2.56"
+        parametric:y="0.3802900"
+                   y="0.38029"
+        parametric:z="5.0"
+                   z="5"
+      />
+    ast:
+      - address: []
+        name: x
+        dependencies: []
+        relation: {input: {}, output: 2.56}
+      - address: []
+        name: y
+        dependencies: []
+        relation: {input: {}, output: 0.38029}
+      - address: []
+        name: z
+        dependencies: []
+        relation: {input: {}, output: 5}
+
+  - description: Simple strings
+    original: |
+      <rect
+        parametric:fill="`green`"
+      />
+    example_data: {}
+    example_output: |
+      <rect
+        parametric:fill="`green`"
+                   fill="green"
+        parametric:whitespace="`ab
+cd   ef`"
+                   whitespace="ab
+cd   ef"
+      />
+    ast:
+      - address: []
+        name: fill
+        dependencies: []
+        relation: {input: {}, output: "green"}
+      - address: []
+        name: whitespace
+        dependencies: []
+        relation:
+          input: {},
+          output: "ab\ncd   ef"

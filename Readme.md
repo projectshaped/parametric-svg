@@ -162,7 +162,7 @@ There is one difference between a spreadsheet cell and a variable. While a cell 
 
 If an expression in a parametric attribute contains a variable which doesn’t have any value, the bound attribute won’t be updated.
 
-How you assign values to your variables depends on the implementation you’re using. For example, the *[&lt;parametric-svg&gt;][]* custom element takes variables as attributes:
+How you assign values to your variables depends on the implementation you’re using. For example, the *[\<parametric-svg\>][]* custom element takes variables as attributes:
 
 ```html
 <parametric-svg
@@ -176,9 +176,20 @@ How you assign values to your variables depends on the implementation you’re u
 </svg></parametric-svg>
 ```
 
-[&lt;parametric-svg&gt;]:  https://github.com/parametric-svg/element
+[\<parametric-svg\>]:  https://github.com/parametric-svg/element
 
 
+###                                                   <a id="/syntax/types"></a> Data types                                                                       ###
+
+A parametric attributes can result in two types of values:
+
+* **number** – A floating-point number like `3` or `29.3`. For example, `parametric:x="3 + 5.4"` will result in `x="8.4"`.
+
+* **string** – A sequence of characters enclosed in backticks (``` `` ```). It can contain whitespace and newlines. For example, ``parametric:fill="`green`"`` will result in `fill="green"`.
+
+In addition, you can use one more type of value internally in your variables and calculations:
+
+* **boolean** – `true` or `false`. For example, `parametric:r="true ? 5 : 10"` will result in `r="5"`. Keep in mind that the result of a parametric attribute can’t be a boolean – so `parametric:r="true"` is invalid.
 
 
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
@@ -197,7 +208,7 @@ The original parametric.svg parser uses [mathjs][] under the hood. We’ve rippe
 Implementations
 ---------------
 
-* *[&lt;parametric-svg&gt;][]* – A custom HTML element.
+* *[\<parametric-svg\>][]* – A custom HTML element.
 * *[parametric-svg][]* – A JS library with an easy-to-use API.
 * *[parametric-svg-patch][]* and *[parametric-svg-parse][]* – A tandem of low-level libraries.
 
