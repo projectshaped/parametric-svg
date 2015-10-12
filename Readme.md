@@ -179,6 +179,17 @@ How you assign values to your variables depends on the implementation you’re u
 [&lt;parametric-svg&gt;]:  https://github.com/parametric-svg/element
 
 
+###                                                   <a id="/syntax/types"></a> Data types                                                                       ###
+
+A parametric attributes can result in two types of values:
+
+* **number** – A floating-point number like `3` or `29.3`. For example, `parametric:x="3 + 5.4"` will result in `x="8.4"`.
+
+* **string** – A sequence of characters enclosed in backticks (``` `` ```). It can contain whitespace and newlines. For example, ``parametric:fill="`green`"`` will result in `fill="green"`.
+
+In addition, you can use one more type of value internally in your variables and calculations:
+
+* **boolean** – `true` or `false`. For example, `parametric:r="true ? 5 : 10"` will result in `r="5"`. Keep in mind that the result of a parametric attribute can’t be a boolean – so `parametric:r="true"` is invalid.
 
 
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
