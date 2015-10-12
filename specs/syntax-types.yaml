@@ -4,7 +4,7 @@ link: ../Readme.md#/syntax/types
 mode: Element
 
 tests:
-  - description: Simple numbers
+  - description: Static number values
     original: |
       <rect
         parametric:x="2.56"
@@ -35,7 +35,7 @@ tests:
         dependencies: []
         relation: [{input: {}, output: 5}]
 
-  - description: Simple strings
+  - description: Static string values
     original: |
       <rect
         parametric:fill="`green`"
