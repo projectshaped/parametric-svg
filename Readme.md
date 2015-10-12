@@ -162,7 +162,7 @@ There is one difference between a spreadsheet cell and a variable. While a cell 
 
 If an expression in a parametric attribute contains a variable which doesn’t have any value, the bound attribute won’t be updated.
 
-How you assign values to your variables depends on the implementation you’re using. For example, the *[&lt;parametric-svg&gt;][]* custom element takes variables as attributes:
+How you assign values to your variables depends on the implementation you’re using. For example, the *[\<parametric-svg\>][]* custom element takes variables as attributes:
 
 ```html
 <parametric-svg
@@ -176,7 +176,7 @@ How you assign values to your variables depends on the implementation you’re u
 </svg></parametric-svg>
 ```
 
-[&lt;parametric-svg&gt;]:  https://github.com/parametric-svg/element
+[\<parametric-svg\>]:  https://github.com/parametric-svg/element
 
 
 ###                                                   <a id="/syntax/types"></a> Data types                                                                       ###
@@ -208,7 +208,7 @@ The original parametric.svg parser uses [mathjs][] under the hood. We’ve rippe
 Implementations
 ---------------
 
-* *[&lt;parametric-svg&gt;][]* – A custom HTML element.
+* *[\<parametric-svg\>][]* – A custom HTML element.
 * *[parametric-svg][]* – A JS library with an easy-to-use API.
 * *[parametric-svg-patch][]* and *[parametric-svg-parse][]* – A tandem of low-level libraries.
 
