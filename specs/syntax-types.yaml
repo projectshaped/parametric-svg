@@ -9,7 +9,7 @@ tests:
       <rect
         parametric:x="2.56"
         parametric:y="0.3802900"
-        parametric:y="5.0"
+        parametric:z="5.0"
       />
     example_data: {}
     example_output: |
