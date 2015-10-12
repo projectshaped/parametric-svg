@@ -39,12 +39,17 @@ tests:
     original: |
       <rect
         parametric:fill="`green`"
+        parametric:quotes="`\"'\"\`'`"
+        parametric:whitespace="`ab
+      cd   ef`"
       />
     example_data: {}
     example_output: |
       <rect
         parametric:fill="`green`"
                    fill="green"
+        parametric:quotes="`\"\\\'\"\`'`"
+                   quotes="\"\\'\"`"
         parametric:whitespace="`ab
       cd   ef`"
                    whitespace="ab
@@ -55,6 +60,10 @@ tests:
         name: fill
         dependencies: []
         relation: {input: {}, output: "green"}
+      - address: []
+        name: quotes
+        dependencies: []
+        relation: {input: {}, output: "\"\\'\"`"}
       - address: []
         name: whitespace
         dependencies: []
