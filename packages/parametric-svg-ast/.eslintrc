@@ -1,6 +1,0 @@
-{
-  "extends": "airbnb",
-  "rules": {
-    "curly": 0
-  }
-}
