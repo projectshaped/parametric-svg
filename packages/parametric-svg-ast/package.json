@@ -17,20 +17,6 @@
     "transpile": "babel module --out-dir .",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
-  "devDependencies": {
-    "babel": "5.8.23",
-    "babel-eslint": "4.1.1",
-    "coveralls": "2.11.4",
-    "eslint": "1.3.1",
-    "eslint-config-airbnb": "0.0.8",
-    "eslint-plugin-react": "3.3.1",
-    "istanbul": "0.3.19",
-    "nodangel": "1.3.8",
-    "opn-cli": "1.0.0",
-    "tap-spec": "2.2.2",
-    "tape": "4.2.0",
-    "tape-catch": "1.0.4"
-  },
   "files": [
     "/*.js",
     "/module/",
