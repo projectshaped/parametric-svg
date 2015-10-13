@@ -137,7 +137,7 @@ How you assign values to your variables depends on the implementation you’re u
 </svg></parametric-svg>
 ```
 
-[\<parametric-svg\>]:  https://github.com/parametric-svg/element
+[\<parametric-svg\>]:  https://www.npmjs.com/package/parametric-svg-element
 
 
 ###                                                   <a id="/syntax/types"></a> Data types                                                                       ###

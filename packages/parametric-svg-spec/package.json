@@ -26,8 +26,5 @@
     "url": "https://github.com/tomekwi"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/parametric-svg/spec/issues"
-  },
   "homepage": "https://parametric-svg.js.org"
 }

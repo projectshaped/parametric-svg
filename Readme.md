@@ -33,7 +33,7 @@ Tailor-cut for the web, but easy to implement in any programming language.
 
 ####  ✓ Ready for the future.  ####
 
-There is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. *parametric.svg* [aims to be](https://github.com/parametric-svg/spec/issues/2) backwards compatible with it – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters – but also logical and arithmetic relationships between them and geometry.
+There is [a specification for dynamic parameters][svg-params] in the upcoming SVG 2.0. *parametric.svg* [aims to be](https://github.com/parametric-svg/-/issues/2) backwards compatible with it – profiting from all its goodness, and bringing even more than that. We not only support dynamic parameters – but also logical and arithmetic relationships between them and geometry.
 
 SVG 2.0 isn't yet fully standardized and implemented. But *parametric.svg* is built upon existing, stable technologies – ready to be used today.
 
@@ -56,6 +56,7 @@ Implementations
 * *[parametric-svg][]* – A JS library with an easy-to-use API.
 * *[parametric-svg-patch][]* and *[parametric-svg-parse][]* – A tandem of low-level libraries.
 
+[\<parametric-svg\>]:     https://www.npmjs.com/package/parametric-svg-element
 [parametric-svg]:         https://www.npmjs.com/package/parametric-svg
 [parametric-svg-patch]:   https://www.npmjs.com/package/parametric-svg-patch
 [parametric-svg-parse]:   https://www.npmjs.com/package/parametric-svg-parse

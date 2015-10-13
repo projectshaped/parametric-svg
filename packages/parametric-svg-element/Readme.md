@@ -104,7 +104,7 @@ See the [example](#/example) to get a general idea what a parametric SVG is. You
 You can define variables by setting attributes on the `<parametric-svg>` element. Any time you update an attribute, your drawing will be updated. Lightening-fast!
 
 [immediately]:  http://devdocs.io/dom/window/setimmediate
-[spec]:         https://github.com/parametric-svg/spec#/
+[spec]:         https://github.com/parametric-svg/-/packages/parametric-svg-spec#/
 
 
 
