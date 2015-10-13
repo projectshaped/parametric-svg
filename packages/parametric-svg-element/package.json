@@ -51,7 +51,7 @@
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:parametric-svg/element"
+    "url": "git+ssh://git@github.com/parametric-svg/-.git"
   },
   "devDependencies": {
     "babel": "5.8.23",
@@ -71,5 +71,6 @@
     "tape": "4.2.0",
     "tape-catch": "1.0.4",
     "testron": "1.2.0"
-  }
+  },
+  "homepage": "https://github.com/parametric-svg/-/packages/parametric-svg-element#/"
 }

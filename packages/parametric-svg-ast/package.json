@@ -45,6 +45,7 @@
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "git@github.com:parametric-svg/ast"
-  }
+    "url": "git+ssh://git@github.com/parametric-svg/-.git"
+  },
+  "homepage": "https://github.com/parametric-svg/-/packages/parametric-svg-ast#/"
 }
