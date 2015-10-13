@@ -96,8 +96,15 @@ tests:
           - input: {}
             output: "orange"
       - address: []
-        name: quotes
+        name: stroke
         dependencies: []
+        relation:
+          - input: {}
+            output: "blue"
+      - address: []
+        name: is-ok
+        dependencies:
+          - ok
         relation:
           - input: {ok: true}
             output: "yup"
