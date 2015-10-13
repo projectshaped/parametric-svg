@@ -70,3 +70,36 @@ tests:
         relation:
           - input: {}
             output: "ab\ncd   ef"
+
+  - description: Boolean calculations
+    original: |
+      <circle
+        parametric:fill="true ? `orange` : `blue`"
+        parametric:stroke="false ? `orange` : `blue`"
+        parametric:is-ok="ok ? `yup` : `nope`"
+      />
+    example_data: {ok: true}
+    example_output: |
+      <circle
+        parametric:fill="true ? `orange` : `blue`"
+                   fill="orange"
+        parametric:stroke="false ? `orange` : `blue`"
+                   stroke="blue"
+        parametric:is-ok="ok and `yup` or `nope`"
+                   is-ok="yup"
+      />
+    ast:
+      - address: []
+        name: fill
+        dependencies: []
+        relation:
+          - input: {}
+            output: "orange"
+      - address: []
+        name: quotes
+        dependencies: []
+        relation:
+          - input: {ok: true}
+            output: "yup"
+          - input: {ok: false}
+            output: "nope"
