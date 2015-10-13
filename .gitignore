@@ -4,25 +4,25 @@
 #
 
 # - Built files
-/*.js
-!/.doxie.render.js
-!/module.js
-!/test.js
-/*/
-!/module/
-!/test/
-!/Readme/
+/packages/*/*.js
+!/packages/*/.doxie.render.js
+!/packages/*/*.config.js
+!/packages/*/module.js
+!/packages/*/test.js
+/packages/*/*/
+!/packages/*/module/
+!/packages/*/test/
+!/packages/*/Readme/
 
-# - All files and directories starting with "#"
-\#*
+!/packages/parametric-svg-spec/specs/
+
+# - All files and directories ending with “~”
+*~
 
 # - NPM stuff
-/node_modules/
-/npm-debug.log
+node_modules/
+npm-debug.log
+npm-debug.log.*
 
 # - Test coverage reports
-/coverage/
-
-# - Editor files
-*.sublime-project
-*.sublime-workspace
+coverage/

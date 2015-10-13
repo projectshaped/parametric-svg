@@ -4,10 +4,14 @@
 #
 
 # - Built files
-./*.js
-!./module.js
-!./test.js
-./*/
-!./module/
-!./test/
-!./Readme/
+ ./packages/*/*.js
+!./packages/*/module.js
+!./packages/*/test.js
+
+ ./packages/*/*/
+!./packages/*/module/
+!./packages/*/test/
+!./packages/*/Readme/
+
+# - npm stuff
+node_modules/
