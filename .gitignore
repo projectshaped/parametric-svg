@@ -3,19 +3,6 @@
 # ====================
 #
 
-# - Built files
-/packages/*/*.js
-!/packages/*/.doxie.render.js
-!/packages/*/*.config.js
-!/packages/*/module.js
-!/packages/*/test.js
-/packages/*/*/
-!/packages/*/module/
-!/packages/*/test/
-!/packages/*/Readme/
-
-!/packages/parametric-svg-spec/specs/
-
 # - All files and directories ending with “~”
 *~
 
