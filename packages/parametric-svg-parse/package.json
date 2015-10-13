@@ -1,0 +1,76 @@
+{
+  "name": "parametric-svg-parse",
+  "version": "1.0.0",
+  "description": "A JS-based parser for parametric.svg graphics",
+  "dependencies": {
+    "array-from": "^2.0.2",
+    "array-includes": "^3.0.1",
+    "mathjs": "^2.2.0",
+    "parametric-svg-ast": "^1.0.1",
+    "starts-with": "^1.0.2"
+  },
+  "scripts": {
+    "browser-test": "npm run --silent browser-test:hint && concurrent 'npm run browser-test:watch' 'npm run browser-test:serve' 'npm run browser-test:open'",
+    "browser-test:hint": "echo \\n'Hold on a sec! We’re serving a freshly-baked bundle of tests at http://localhost:9036 . We’ll dish it up to your browser as soon as it’s ready!'\\n",
+    "browser-test:serve": "mkdirp .webpack && cd .webpack && cpy ../test/runner.html . --rename=index.html && hostr --port=9036",
+    "browser-test:open": "opn http://localhost:9036",
+    "browser-test:watch": "webpack --watch",
+    "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
+    "coverage": "rm -rf coverage && npm run test:transpile && cd .es5 && istanbul cover test.js && mv coverage ..",
+    "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
+    "develop": "nodangel --ignore node_modules --ignore coverage --exec 'npm run --silent test:lite'",
+    "prepublish": "npm run --silent clean && npm run transpile",
+    "test": "eslint . && npm run test:transpile && node .es5/test.js | tap-spec",
+    "test:lite": "babel-node test.js | tap-spec",
+    "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5 && mkdirp .es5/node_modules/parametric-svg-spec/specs && cpy 'node_modules/parametric-svg-spec/specs/*' .es5/node_modules/parametric-svg-spec/specs",
+    "transpile": "babel module --out-dir .",
+    "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
+  },
+  "devDependencies": {
+    "babel": "5.8.23",
+    "babel-core": "5.8.24",
+    "babel-eslint": "4.1.1",
+    "babel-loader": "5.3.2",
+    "concurrently": "0.1.1",
+    "coveralls": "2.11.4",
+    "cpy": "3.4.1",
+    "eslint": "1.3.1",
+    "eslint-config-airbnb": "0.0.8",
+    "eslint-plugin-react": "3.3.1",
+    "hostr": "2.2.7",
+    "isomorphic-ensure": "1.0.1",
+    "istanbul": "0.3.19",
+    "js-yaml": "3.4.2",
+    "jsdom": "6.3.0",
+    "mkdirp": "0.5.1",
+    "nodangel": "1.3.8",
+    "opn-cli": "1.0.0",
+    "ord": "0.1.1",
+    "parametric-svg-spec": "1.1.7",
+    "raw-loader": "0.5.1",
+    "tap-dev-tool": "1.3.0",
+    "tap-spec": "2.2.2",
+    "tape-catch": "1.0.4",
+    "tosource": "1.0.0",
+    "webpack": "1.12.1",
+    "xmldom": "0.1.19"
+  },
+  "files": [
+    "/*.js",
+    "/module/",
+    "/test/",
+    "/Readme.md",
+    "/License.md"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "parametric-svg",
+    "parser",
+    "js"
+  ],
+  "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:parametric-svg/parse"
+  }
+}
