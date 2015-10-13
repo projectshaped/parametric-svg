@@ -1,6 +1,6 @@
 {
   "name": "parametric-svg-spec",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "A specification for full-fledged parametric graphics. In pure SVG.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
