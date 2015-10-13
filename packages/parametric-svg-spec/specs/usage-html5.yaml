@@ -1,0 +1,97 @@
+name: Usage in HTML5
+link: ../Readme.md#/usage/html5
+
+mode: HTML5 document
+
+tests:
+  - description: Parametric attributes work when no namespace is set.
+    original: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1">
+            <circle r="5" parametric:r="10" />
+          </svg>
+        </body>
+      </html>
+    example_data: {}
+    example_output: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1">
+            <circle r="10" parametric:r="10" />
+          </svg>
+        </body>
+      </html>
+    ast:
+      - address: [1, 0, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: {}
+            output: 10
+
+  - description: Setting the namespace to something else has no effect.
+    original: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:parametric="(dummy)"
+            >
+            <circle r="5" parametric:r="10" />
+          </svg>
+        </body>
+      </html>
+    example_data: {}
+    example_output: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:parametric="(dummy)"
+            >
+            <circle r="10" parametric:r="10" />
+          </svg>
+        </body>
+      </html>
+    ast:
+      - address: [1, 0, 0]
+        name: r
+        dependencies: []
+        relation:
+          - input: {}
+            output: 10
+
+  - description: Our namespace can’t be bound to another prefix.
+    original: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:p="//parametric-svg.js.org/v1"
+            >
+            <circle r="5" p:r="10" />
+          </svg>
+        </body>
+      </html>
+    example_data: {}
+    example_output: |
+      <!DOCTYPE html>
+      <html>
+        <head></head>
+        <body>
+          <svg version="1.1"
+            xmlns:p="//parametric-svg.js.org/v1"
+            >
+            <circle r="5" p:r="10" />
+          </svg>
+        </body>
+      </html>
+    ast: []

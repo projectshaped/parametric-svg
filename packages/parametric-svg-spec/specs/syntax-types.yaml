@@ -1,0 +1,112 @@
+name: Data types
+link: ../Readme.md#/syntax/types
+
+mode: Element
+
+tests:
+  - description: Static number values
+    original: |
+      <rect
+        parametric:x="2.56"
+        parametric:y="0.3802900"
+        parametric:z="5.0"
+      />
+    example_data: {}
+    example_output: |
+      <rect
+        parametric:x="2.56"
+                   x="2.56"
+        parametric:y="0.3802900"
+                   y="0.38029"
+        parametric:z="5.0"
+                   z="5"
+      />
+    ast:
+      - address: []
+        name: x
+        dependencies: []
+        relation: [{input: {}, output: 2.56}]
+      - address: []
+        name: y
+        dependencies: []
+        relation: [{input: {}, output: 0.38029}]
+      - address: []
+        name: z
+        dependencies: []
+        relation: [{input: {}, output: 5}]
+
+  - description: Static string values
+    original: |
+      <rect
+        parametric:fill="`green`"
+        parametric:quotes="`&quot;'\``"
+        parametric:whitespace="`ab
+      cd   ef`"
+      />
+    example_data: {}
+    example_output: |
+      <rect
+        parametric:fill="`green`"
+                   fill="green"
+        parametric:quotes="`&quot;'\``"
+                   quotes="&quot;'`"
+        parametric:whitespace="`ab
+      cd   ef`"
+                   whitespace="ab
+      cd   ef"
+      />
+    ast:
+      - address: []
+        name: fill
+        dependencies: []
+        relation: [{input: {}, output: "green"}]
+      - address: []
+        name: quotes
+        dependencies: []
+        relation: [{input: {}, output: "\"'`"}]
+      - address: []
+        name: whitespace
+        dependencies: []
+        relation:
+          - input: {}
+            output: "ab\ncd   ef"
+
+  - description: Boolean calculations
+    original: |
+      <circle
+        parametric:fill="true ? `orange` : `blue`"
+        parametric:stroke="false ? `orange` : `blue`"
+        parametric:is-ok="ok ? `yup` : `nope`"
+      />
+    example_data: {ok: true}
+    example_output: |
+      <circle
+        parametric:fill="true ? `orange` : `blue`"
+                   fill="orange"
+        parametric:stroke="false ? `orange` : `blue`"
+                   stroke="blue"
+        parametric:is-ok="ok and `yup` or `nope`"
+                   is-ok="yup"
+      />
+    ast:
+      - address: []
+        name: fill
+        dependencies: []
+        relation:
+          - input: {}
+            output: "orange"
+      - address: []
+        name: stroke
+        dependencies: []
+        relation:
+          - input: {}
+            output: "blue"
+      - address: []
+        name: is-ok
+        dependencies:
+          - ok
+        relation:
+          - input: {ok: true}
+            output: "yup"
+          - input: {ok: false}
+            output: "nope"

@@ -1,0 +1,93 @@
+name: Parametric attributes
+link: ../Readme.md#/parametric-attributes
+
+mode: Element
+
+tests:
+  - description: A parametric attribute is bound to an existing attribute.
+    original: <circle r="5" parametric:r="10" />
+    example_data: {}
+    example_output: <circle r="10" parametric:r="10" />
+    ast:
+      - address: []
+        name: r
+        dependencies: []
+        relation:
+          - input: {}
+            output: 10
+
+  - description: A parametric attribute creates a non-existent attribute.
+    original: <circle parametric:r="10" />
+    example_data: {}
+    example_output: <circle parametric:r="10" r="10" />
+    ast:
+      - address: []
+        name: r
+        dependencies: []
+        relation:
+          - input: {}
+            output: 10
+
+  - description: Parametric attributes can live alongside other attributes.
+    original: |
+      <rect
+        x="1"
+        parametric:y="20"
+                   y="2"
+        parametric:height="30"
+                   height="2"
+      />
+    example_data: {}
+    example_output: |
+      <rect
+        x="1"
+        parametric:y="20"
+                   y="20"
+        parametric:height="30"
+                   height="30"
+      />
+    ast:
+      - address: []
+        name: y
+        dependencies: []
+        relation:
+          - input: {}
+            output: 20
+      - address: []
+        name: height
+        dependencies: []
+        relation:
+          - input: {}
+            output: 30
+
+  - description: A parametric element can live alongside other elements.
+    original: |
+      <g>
+        <rect x="1" />
+        <circle r="2" parametric:r="20" />
+        <g>
+          <rect y="3" parametric:y="30" />
+        </g>
+      </g>
+    example_data: {}
+    example_output: |
+      <g>
+        <rect x="1" />
+        <circle r="20" parametric:r="20" />
+        <g>
+          <rect y="30" parametric:y="30" />
+        </g>
+      </g>
+    ast:
+      - address: [1]
+        name: r
+        dependencies: []
+        relation:
+          - input: {}
+            output: 20
+      - address: [2, 0]
+        name: y
+        dependencies: []
+        relation:
+          - input: {}
+            output: 30
