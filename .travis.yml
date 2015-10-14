@@ -8,6 +8,8 @@ branches:
 
 before_install:
   git config user.name "Travis CI"
+after_install:
+  npm run bootstrap
 
 language:
   node_js
