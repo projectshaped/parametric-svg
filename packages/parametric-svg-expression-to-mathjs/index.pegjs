@@ -17,11 +17,16 @@ string
     }
 
 rawString
-  = ([^$\\`] / escapeSequence)*
+  = ([^$\\`"] / escapeSequence / doubleQuote)*
 
 escapeSequence
   = sequence:('\\$' / '\\`' / '\\\\')
     { return sequence.charAt(1);
+    }
+
+doubleQuote
+  = '"'
+    { return '\\"';
     }
 
 templateStringExpression
