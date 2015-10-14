@@ -6,7 +6,7 @@ start
   = expression
 
 expression
-  = nonStringCharacters:[^`]+
+  = nonStringCharacters: [^`]+
     { return 'string(' + nonStringCharacters.join('') + ')';
     }
   / string
@@ -14,7 +14,7 @@ expression
 string
   = '`'
     ( singlePart: ( rawString / templateStringExpression )
-    / parts: ( ( rawString / templateStringExpression )+ )
+    / parts: ( rawString / templateStringExpression )+
     )
     '`'
     { return (
@@ -24,12 +24,12 @@ string
     }
 
 rawString
-  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )* )
+  = content: ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )*
     { return '"' + flatten(content).join('') + '"'
     }
 
 escapeSequence
-  = sequence:('\\$' / '\\`' / '\\\\')
+  = sequence: ('\\$' / '\\`' / '\\\\')
     { return sequence.charAt(1);
     }
 
