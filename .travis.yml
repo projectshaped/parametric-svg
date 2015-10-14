@@ -6,12 +6,12 @@ branches:
     - master
     - travis-debug
 
-before_install:
-  git config user.name "Travis CI"
-after_install:
-  npm run bootstrap
-
 language:
   node_js
 node_js:
   - stable
+
+before_install:
+  git config user.name "Travis CI"
+before_script:
+  npm run bootstrap
