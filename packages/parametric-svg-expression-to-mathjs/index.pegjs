@@ -12,12 +12,21 @@ expression
   / string
 
 string
-  = '`' stringContent:(rawString ( templateStringExpression rawString )*) '`'
-    { return '"' + flatten(stringContent).join('') + '"'
+  = '`'
+    ( singlePart: ( rawString / templateStringExpression )
+    / parts: ( ( rawString / templateStringExpression )+ )
+    )
+    '`'
+    { return (
+        singlePart ||
+        'concat(' + flatten(parts).join(', ') + ')'
+      );
     }
 
 rawString
-  = ([^$\\`"\n\r] / escapeSequence / illegalCharacter)*
+  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )* )
+    { return '"' + flatten(content).join('') + '"'
+    }
 
 escapeSequence
   = sequence:('\\$' / '\\`' / '\\\\')
