@@ -14,6 +14,9 @@
     "transpile": "pegjs < index.pegjs > index.js",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "files": [
     "/*.js",
     "/grammar/",
