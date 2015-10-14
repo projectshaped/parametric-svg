@@ -130,3 +130,31 @@ spec('Mathematical expressions', (test) => {
 
   test.end();
 });
+
+spec('Simple strings', (test) => {
+  test.equal(
+    parse('`green`'),
+    '"green"',
+    'Very simple'
+  );
+
+  test.equal(
+    parse('`"\'\\``'),
+    '"\\"\'`"',
+    'Quotes'
+  );
+
+  test.equal(
+    parse('`\\\`\$`'),
+    '"\\`$"',
+    'Escapes'
+  );
+
+  test.equal(
+    parse('`ab\n  cd\t  ef`'),
+    '"ab\\n  cd\\t  ef"',
+    'Whitespace'
+  );
+
+  test.end();
+});
