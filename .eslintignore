@@ -1,0 +1,17 @@
+#
+# Files ignored by ESLint
+# =======================
+#
+
+# - Built files
+ ./packages/*/*.js
+!./packages/*/module.js
+!./packages/*/test.js
+
+ ./packages/*/*/
+!./packages/*/module/
+!./packages/*/test/
+!./packages/*/Readme/
+
+# - npm stuff
+node_modules/

@@ -1,0 +1,15 @@
+sudo:
+  false
+
+branches:
+  only:
+    - master
+    - travis-debug
+
+before_install:
+  git config user.name "Travis CI"
+
+language:
+  node_js
+node_js:
+  - stable
