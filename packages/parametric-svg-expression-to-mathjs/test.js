@@ -5,7 +5,7 @@ spec('Mathematical expressions', (test) => {
   test.equal(
     parse('2 * (3 + 4)'),
     'string(2 * (3 + 4))',
-    'Parentheses	'
+    'Parentheses'
   );
 
   test.equal(
@@ -27,8 +27,8 @@ spec('Mathematical expressions', (test) => {
   );
 
   test.equal(
-    parse('-4	'),
-    'string(-4	)',
+    parse('-4'),
+    'string(-4)',
     'Unary minus'
   );
 
@@ -87,8 +87,8 @@ spec('Mathematical expressions', (test) => {
   );
 
   test.equal(
-    parse('false ? 1 : -1	'),
-    'string(false ? 1 : -1	)',
+    parse('false ? 1 : -1'),
+    'string(false ? 1 : -1)',
     'Conditional expression'
   );
 
