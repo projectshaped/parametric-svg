@@ -1,0 +1,6 @@
+# - Node stuff
+/node_modules
+/npm-debug.*
+
+# - Built files
+/index.js
