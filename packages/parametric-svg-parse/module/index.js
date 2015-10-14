@@ -26,16 +26,30 @@ const getLocalName = (node) => (node.namespaceURI ?
   node.name.replace(new RegExp(`^.*?:`), '')
 );
 
+const string = /^\s*`[^]*`\s*$/;
 const stringDelimiter = /(^|[^\\])`/g;
 const escapedBacktick = /\\`/g;
 const doubleQuote = /"/g;
 const newline = /\n/g;
-const digestValue = (value) => (value
-  .replace(doubleQuote, '\\"')
-  .replace(stringDelimiter, '$1"')
-  .replace(escapedBacktick, '`')
-  .replace(newline, '\\n')
-);
+const templateString = /(^|[^\\])\$\{(.+)\}/g;
+const digestValue = (value) => {
+  if (!string.test(value)) return value;
+
+  const rawString = value
+    .replace(doubleQuote, '\\"')
+    .replace(stringDelimiter, '$1"')
+    .replace(escapedBacktick, '`')
+    .replace(newline, '\\n');
+
+  if (!templateString.test(rawString)) return rawString;
+
+  return (
+    'concat(' +
+    rawString
+      .replace(templateString, '$1", string($2), "') +
+    ')'
+  );
+};
 
 const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
   const address = (indexInParent === null ?
