@@ -151,8 +151,8 @@ spec('Simple strings', (test) => {
   );
 
   test.equal(
-    parse('`ab\n  cd\t  ef`'),
-    '"ab\\n  cd\\t  ef"',
+    parse('`ab\n  cd\t  ef\r`'),
+    '"ab\\n  cd\t  ef\\r"',
     'whitespace'
   );
 
