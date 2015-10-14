@@ -12,17 +12,18 @@ expression
 
 string
   = '`'
-    head: rawString
-    tail: ( templateStringExpression rawString )*
+    parts: ( rawString? ( templateStringExpression rawString? )* )
     '`'
-    { return (tail.length ?
-      'concat(' + flatten([head, tail]).join(', ') + ')' :
-      head
-      );
+    { var flatParts = flatten(parts);
+      return (flatParts.length === 1 ?
+        flatParts[0] :
+        'concat(' + flatParts.join(', ') + ')'
+        )
+      ;
     }
 
 rawString
-  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )* )
+  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )+ )
     { return '"' + flatten(content).join('') + '"'
     }
 
