@@ -1,5 +1,4 @@
 #! /usr/env babel-node
-/* eslint-disable no-console */
 
 const {ls, mkdir, ln} = require('shelljs');
 const {execSync} = require('child_process');

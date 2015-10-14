@@ -1,7 +1,4 @@
-{
-  "extends": "airbnb/base",
-  "rules": {
-    "curly": 0,
-    "no-undef": 2
-  }
-}
+extends: airbnb/base
+
+rules:
+  curly: 0
