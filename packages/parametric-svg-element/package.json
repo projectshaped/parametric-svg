@@ -17,7 +17,7 @@
     "lint": "eslint .",
     "prepublish": "npm run --silent clean && npm run transpile",
     "readme": "dox --raw < module/register.js | doxie --render --inject",
-    "test": "echo 'Please run `./test.sh` instead. More info: https://github.com/shama/testron/issues/2' && exit 1",
+    "test": "browserify --transform=babelify test.js | testron | tap-spec",
     "transpile": "babel --loose es6.modules module --out-dir ."
   },
   "browserify": {
