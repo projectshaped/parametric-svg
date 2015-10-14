@@ -5,7 +5,7 @@ start
   = expression
 
 expression
-  = nonStringCharacters: [^`]+
+  = nonStringCharacters: [^`{}]+
     { return 'string(' + nonStringCharacters.join('') + ')';
     }
   / string
