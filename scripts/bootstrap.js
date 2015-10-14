@@ -1,28 +1,24 @@
 #! /usr/env babel-node
 
-const {cd, ls, exec, pwd} = require('shelljs');
-const originalDirectory = pwd();
+const {ls} = require('shelljs');
+const {execSync} = require('child_process');
 
-const packages = ls(`${__dirname}/../packages/*`).map(location => ({
-  location,
-  manifest: require(`${location}/package.json`),
+const packages = ls(`${__dirname}/../packages/*`).map(cwd => ({
+  cwd,
+  manifest: require(`${cwd}/package.json`),
 }));
 
-packages.forEach(({location}) => {
-  cd(`"${location}"`);
-  exec('npm link');
+packages.forEach(({cwd}) => {
+  execSync('npm link', {cwd});
 });
 
 const isOurPackage = /^parametric-svg-/;
 packages.forEach((
-  {location, manifest: {dependencies = {}, devDependencies = {}}}
+  {cwd, manifest: {dependencies = {}, devDependencies = {}}}
 ) => {
-  cd(`"${location}"`);
-  exec('npm install');
+  execSync('npm install', {cwd});
 
   Object.keys(dependencies).concat(Object.keys(devDependencies))
     .filter(name => isOurPackage.test(name))
-    .forEach(name => exec(`npm link ${name}`));
+    .forEach(name => execSync(`npm link ${name}`, {cwd}));
 });
-
-cd(originalDirectory);
