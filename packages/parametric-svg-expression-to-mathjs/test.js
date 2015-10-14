@@ -192,7 +192,7 @@ spec('Template strings', (test) => {
 
   test.equal(
     parse('`deeply ${`nested ${`template ${100}`}`}`'),
-    'concat("deeply ", concat("nested ", concat("template", 100)))',
+    'concat("deeply ", concat("nested ", concat("template ", string(100))))',
     'deeply nested template string'
   );
 
