@@ -1,12 +1,5 @@
 {
-  function flattenItem (previous, item) {
-    return previous.concat(item);
-  }
-
-  function flatten(value) {
-    if (!(value instanceof Array)) return value;
-    return value.reduce(flattenItem, []);
-  }
+  var flatten = require('flatten');
 }
 
 start
