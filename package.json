@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "babel-node scripts/bootstrap.js"
+    "bootstrap": "babel-node scripts/bootstrap.js",
+    "test": "babel-node scripts/test.js"
   },
   "devDependencies": {
     "as": "0.4.1",
