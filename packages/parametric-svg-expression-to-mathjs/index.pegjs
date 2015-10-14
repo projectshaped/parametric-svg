@@ -1,4 +1,8 @@
 { var flatten = require('flatten');
+  var dropNull = function(array) {
+    return array.filter(function (item) { return item !== null; })
+    }
+  ;
 }
 
 start
@@ -14,7 +18,7 @@ string
   = '`'
     parts: ( rawString? ( templateStringExpression rawString? )* )
     '`'
-    { var flatParts = flatten(parts);
+    { var flatParts = dropNull(flatten(parts));
       return (flatParts.length === 1 ?
         flatParts[0] :
         'concat(' + flatParts.join(', ') + ')'
