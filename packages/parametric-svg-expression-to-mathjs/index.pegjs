@@ -37,4 +37,8 @@ illegalCharacter
   / '\r' { return '\\r'; }
 
 templateStringExpression
-  = '${' '}'
+  = '${'
+    expression: expression
+    '}'
+    { return expression;
+    }
