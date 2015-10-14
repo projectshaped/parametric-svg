@@ -15,7 +15,7 @@
     "prepublish": "npm run --silent clean && npm run transpile",
     "test": "eslint . && npm run test:transpile && node .es5/test.js | tap-spec",
     "test:lite": "babel-node test.js | tap-spec",
-    "test:transpile": "rimraf .es5 && babel test.js module/*.js --out-dir .es5 && mkdirp .es5/node_modules/parametric-svg-spec/specs && cpy 'node_modules/parametric-svg-spec/specs/*' .es5/node_modules/parametric-svg-spec/specs",
+    "test:transpile": "rimraf .es5 && babel test.js module/*.js --out-dir .es5",
     "transpile": "babel --loose es6.modules module --out-dir .",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
