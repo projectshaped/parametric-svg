@@ -150,8 +150,9 @@ A parametric attributes can result in two types of values:
 
 Escape sequence   | Result
 ---               | ---
-`` \` ``          | Backtick (`` ` ``)
-`\$`              | Dollar sign (`$`) (See [Template strings][] for more info.)
+`` \` ``          | `` ` `` – backtick
+`\$`              | `$` – dollar sign (See [Template strings][] for more info.)
+`\\`              | `\` – backslash
 
 In addition, you can use one more type of value internally in your variables and calculations:
 
