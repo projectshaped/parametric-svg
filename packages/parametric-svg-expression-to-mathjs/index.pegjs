@@ -13,8 +13,7 @@ expression
 
 string
   = '`' stringContent:(rawString ( templateStringExpression rawString )*) '`'
-    { console.log(flatten(stringContent));
-      return '"' + flatten(stringContent).join('') + '"'
+    { return '"' + flatten(stringContent).join('') + '"'
     }
 
 rawString
