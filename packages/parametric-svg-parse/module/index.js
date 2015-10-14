@@ -3,6 +3,7 @@ import {NAMESPACE, PREFIX} from './constants';
 const ast = require('parametric-svg-ast');
 const arrayFrom = require('array-from');
 const startsWith = require('starts-with');
+const {parse: digest} = require('parametric-svg-expression-to-mathjs');
 const {parse} = require('mathjs');
 const includes = require('array-includes');
 const {keys} = Object;
@@ -26,31 +27,6 @@ const getLocalName = (node) => (node.namespaceURI ?
   node.name.replace(new RegExp(`^.*?:`), '')
 );
 
-const string = /^\s*`[^]*`\s*$/;
-const stringDelimiter = /(^|[^\\])`/g;
-const escapedBacktick = /\\`/g;
-const doubleQuote = /"/g;
-const newline = /\n/g;
-const templateString = /(^|[^\\])\$\{(.+)\}/g;
-const digestValue = (value) => {
-  if (!string.test(value)) return value;
-
-  const rawString = value
-    .replace(doubleQuote, '\\"')
-    .replace(stringDelimiter, '$1"')
-    .replace(escapedBacktick, '`')
-    .replace(newline, '\\n');
-
-  if (!templateString.test(rawString)) return rawString;
-
-  return (
-    'concat(' +
-    rawString
-      .replace(templateString, '$1", string($2), "') +
-    ')'
-  );
-};
-
 const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
   const address = (indexInParent === null ?
     parentAddress :
@@ -64,7 +40,7 @@ const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
     }, node))
 
     .map((attribute) => {
-      const expressionTree = parse(digestValue(attribute.value));
+      const expressionTree = parse(digest(attribute.value));
 
       const dependencies = [];
       expressionTree.traverse(({isSymbolNode, name}) => {

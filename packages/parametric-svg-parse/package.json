@@ -7,6 +7,7 @@
     "array-includes": "^3.0.1",
     "mathjs": "^2.2.0",
     "parametric-svg-ast": "^1.0.1",
+    "parametric-svg-expression-to-mathjs": "^0.0.0",
     "starts-with": "^1.0.2"
   },
   "scripts": {
