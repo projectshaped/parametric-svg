@@ -8,10 +8,7 @@ const exec = (...args) => {
   process.stdout.write(execSync(...args));
 };
 
-const packages = ls(`${__dirname}/../packages/*`).map(cwd => ({
-  cwd,
-  manifest: require(`${cwd}/package.json`),
-}));
+const packages = require('./utilities/packages');
 
 console.log('\nCreating npm links…');
 packages.forEach(({cwd}) => {
