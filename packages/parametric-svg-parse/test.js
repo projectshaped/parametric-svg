@@ -26,25 +26,25 @@ if (typeof require.ensure !== 'function') require.ensure =
   });
 
 require.ensure([
-  // 'raw!parametric-svg-spec/specs/usage-html5.yaml',
-  // 'raw!parametric-svg-spec/specs/usage-xml.yaml',
-  // 'raw!parametric-svg-spec/specs/parametric-attributes.yaml',
-  // 'raw!parametric-svg-spec/specs/syntax-operators.yaml',
+  'raw!parametric-svg-spec/specs/usage-html5.yaml',
+  'raw!parametric-svg-spec/specs/usage-xml.yaml',
+  'raw!parametric-svg-spec/specs/parametric-attributes.yaml',
+  'raw!parametric-svg-spec/specs/syntax-operators.yaml',
   'raw!parametric-svg-spec/specs/syntax-template-strings.yaml',
-  // 'raw!parametric-svg-spec/specs/syntax-types.yaml',
-  // 'raw!parametric-svg-spec/specs/syntax-variables.yaml',
+  'raw!parametric-svg-spec/specs/syntax-types.yaml',
+  'raw!parametric-svg-spec/specs/syntax-variables.yaml',
     // NOTE: These paths have to be hard-coded in stone – otherwise webpack
     // gets confused. Remember to keep them in sync with the `require`
     // calls below.
 ], (require) => {
   const specs = [
-    // require('raw!parametric-svg-spec/specs/usage-html5.yaml'),
-    // require('raw!parametric-svg-spec/specs/usage-xml.yaml'),
-    // require('raw!parametric-svg-spec/specs/parametric-attributes.yaml'),
-    // require('raw!parametric-svg-spec/specs/syntax-operators.yaml'),
+    require('raw!parametric-svg-spec/specs/usage-html5.yaml'),
+    require('raw!parametric-svg-spec/specs/usage-xml.yaml'),
+    require('raw!parametric-svg-spec/specs/parametric-attributes.yaml'),
+    require('raw!parametric-svg-spec/specs/syntax-operators.yaml'),
     require('raw!parametric-svg-spec/specs/syntax-template-strings.yaml'),
-    // require('raw!parametric-svg-spec/specs/syntax-types.yaml'),
-    // require('raw!parametric-svg-spec/specs/syntax-variables.yaml'),
+    require('raw!parametric-svg-spec/specs/syntax-types.yaml'),
+    require('raw!parametric-svg-spec/specs/syntax-variables.yaml'),
       // NOTE: See above.
   ].map(yaml);
 
