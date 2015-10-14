@@ -6,30 +6,29 @@ start
   = expression
 
 expression
-  = nonStringCharacters: [^`]+
+  = nonStringCharacters:[^`]+
     { return 'string(' + nonStringCharacters.join('') + ')';
     }
   / string
 
 string
   = '`'
-    ( singlePart: ( rawString / templateStringExpression )
-    / parts: ( rawString / templateStringExpression )+
-    )
+    head: rawString
+    tail: ( templateStringExpression rawString )*
     '`'
-    { return (
-        singlePart ||
-        'concat(' + flatten(parts).join(', ') + ')'
+    { return (tail.length ?
+        'concat(' + flatten([head, tail]).join(', ') + ')' :
+        head
       );
     }
 
 rawString
-  = content: ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )*
+  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )* )
     { return '"' + flatten(content).join('') + '"'
     }
 
 escapeSequence
-  = sequence: ('\\$' / '\\`' / '\\\\')
+  = sequence:('\\$' / '\\`' / '\\\\')
     { return sequence.charAt(1);
     }
 
