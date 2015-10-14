@@ -17,7 +17,12 @@ string
     }
 
 rawString
-  = ([^$`] / '\\$' / '\\`')*
+  = ([^$\\`] / escapeSequence)*
+
+escapeSequence
+  = sequence:('\\$' / '\\`' / '\\\\')
+    { return sequence.charAt(1);
+    }
 
 templateStringExpression
   = '${' '}'
