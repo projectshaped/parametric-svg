@@ -1,5 +1,4 @@
-{
-  var flatten = require('flatten');
+{ var flatten = require('flatten');
 }
 
 start
@@ -17,8 +16,8 @@ string
     tail: ( templateStringExpression rawString )*
     '`'
     { return (tail.length ?
-        'concat(' + flatten([head, tail]).join(', ') + ')' :
-        head
+      'concat(' + flatten([head, tail]).join(', ') + ')' :
+      head
       );
     }
 
