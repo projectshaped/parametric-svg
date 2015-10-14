@@ -1,8 +1,9 @@
 #! /usr/env babel-node
 /* eslint-disable no-console */
 
-const {ls} = require('shelljs');
+const {ls, mkdir, ln} = require('shelljs');
 const {execSync} = require('child_process');
+const {basename} = require('path');
 
 const exec = (...args) => {
   process.stdout.write(execSync(...args));
@@ -33,3 +34,18 @@ packages.forEach((
 
   console.log('…done.');
 });
+
+console.log('Linking binaries…');
+const binaries = ls(`${__dirname}/../node_modules/.bin/*`);
+packages.forEach(({cwd: module}) => {
+  const destination = `${module}/node_modules/.bin`;
+  mkdir('-p', destination);
+
+  binaries.forEach(binary => {
+    const target = `${destination}/${basename(binary)}`;
+
+    console.log(`Linking ${binary} to ${target}.`);
+    ln('-sf', binary, `${target}`);
+  });
+});
+console.log('…done.');
