@@ -9,7 +9,7 @@
 ](https://img.shields.io/badge/SEE%20IT%20IN%20ACTION!-%E2%9E%94-555555.svg?style=flat-square)
 ](http://parametric-svg.js.org)
 
-**SVG-compatible rocket fuel.**
+**Parametric drawings in pure SVG.**
 
 
 
