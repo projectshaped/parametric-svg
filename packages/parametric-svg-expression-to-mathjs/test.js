@@ -158,3 +158,49 @@ spec('Simple strings', (test) => {
 
   test.end();
 });
+
+spec('Template strings', (test) => {
+  test.equal(
+    '`1 + 2 = ${3}`',
+    'concat("1 + 2 = ", string(3))',
+    'simple number'
+  );
+
+  test.equal(
+    '`${3} = 1 + 2`',
+    'concat(string(3), " = 1 + 2")',
+    'expression at the beginning'
+  );
+
+  test.equal(
+    '`1 + 2 = ${1 + 2}`',
+    'concat("1 + 2 = ", string(1 + 2))',
+    'simple expression'
+  );
+
+  test.equal(
+    '`(1 + 2) * 3 = ${(1 + 2) * 3}`',
+    'concat("(1 + 2) * 3 = ", string((1 + 2) * 3))',
+    'complex expression'
+  );
+
+  test.equal(
+    '`string ${`string`}`',
+    'concat("string ", "string")',
+    'simple string'
+  );
+
+  test.equal(
+    '`deeply ${`nested ${`template ${100}`}`}`',
+    'concat("deeply ", concat("nested ", concat("template", 100)))',
+    'deeply nested template string'
+  );
+
+  test.equal(
+    '`escaped \\${ template ${`string`} }.`',
+    'concat("escaped ${ template ", "string", " }.")',
+    'escaped template string'
+  );
+
+  test.end();
+});
