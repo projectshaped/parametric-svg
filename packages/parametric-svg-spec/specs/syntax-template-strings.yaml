@@ -19,7 +19,7 @@ tests:
           M 0,0
           l ${1},1
         `"
-                   d="
+        d="
           M 0,0
           l 1,1
         "
@@ -31,3 +31,50 @@ tests:
         relation:
           - input: {}
             output: "\n    M 0,0\n    l 1,1\n  "
+
+  - description: A simple expression
+    original: |
+      <path
+        parametric:equation="`2 + 3 = ${2 + 3}`"
+        parametric:variable="`it’s ${weather} today`"
+        parametric:ternary="`I’ve got ${rich ? 2000000 : 2} dollars!`"
+      />
+    example_data:
+      weather: raining
+      rich: false
+    example_output: |
+      <path
+        parametric:equation="`2 + 3 = ${2 + 3}`"
+                   equation="2 + 3 = 5"
+        parametric:variable="`it’s ${weather} today`"
+                   variable="it’s raining today"
+        parametric:ternary="`I’ve got ${rich ? 2000000 : 2} dollars!`"
+                   ternary="I’ve got 2 dollars!"
+      />
+    ast:
+      - address: []
+        name: equation
+        dependencies: []
+        relation:
+          - input: {}
+            output: '2 + 3 = 5'
+      - address: []
+        name: variable
+        dependencies: [weather]
+        relation:
+          - input:
+              weather: raining
+            output: 'it’s raining today'
+          - input:
+              weather: sunny
+            output: 'it’s sunny today'
+      - address: []
+        name: ternary
+        dependencies: [rich]
+        relation:
+          - input:
+              rich: false
+            output: 'I’ve got 2 dollars!'
+          - input:
+              rich: true
+            output: 'I’ve got 2000000 dollars!'
