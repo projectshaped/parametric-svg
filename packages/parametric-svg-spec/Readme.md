@@ -128,11 +128,13 @@ How you assign values to your variables depends on the implementation you’re u
 ```html
 <parametric-svg
   x="5"
-  color="'green'"
+  color="`green`"
   ><svg>
   <rect
     parametric:x="x + 2"
+               x="7"
     parametric:fill="color"
+               x="green"
   />
 </svg></parametric-svg>
 ```
