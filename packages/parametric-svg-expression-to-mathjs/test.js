@@ -224,5 +224,12 @@ spec('Combining types', (test) => {
     'template strings in logical expression'
   );
 
+  test.equal(
+    parse('`I’m ${`black` == `white` ? `lying` : `telling the truth`}!`'),
+    'concat("I’m ", string("black" == "white" ? "lying" : "telling the ' +
+    'truth"), "!")',
+    'ternary embedded in a template string'
+  );
+
   test.end();
 });
