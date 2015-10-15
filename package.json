@@ -2,6 +2,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "babel-node scripts/bootstrap.js",
+    "release": "babel-node scripts/release.js",
     "test": "babel-node scripts/test.js"
   },
   "devDependencies": {
