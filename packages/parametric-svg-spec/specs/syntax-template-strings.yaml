@@ -117,3 +117,24 @@ tests:
         relation:
           - input: {}
             output: 'I’m telling the truth!'
+
+  - description: Escaping
+    original: |
+      <g
+        parametric:escaped="`escaped \${ template ${`string`} }.`"
+      />
+    example_data:
+      weather: raining
+      rich: false
+    example_output: |
+      <g
+        parametric:escaped="`escaped \${ template ${`string`} }.`"
+                   escaped="escaped ${ template string }."
+      />
+    ast:
+      - address: []
+        name: escaped
+        dependencies: []
+        relation:
+          - input: {}
+            output: 'escaped ${ template string }.'
