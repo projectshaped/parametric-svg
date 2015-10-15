@@ -9,10 +9,10 @@ start
   = castToString
 
 castToString
-  = string
-  / nonStringExpression: ( compoundExpression / nonString )
+  = nonStringExpression: ( compoundExpression / nonString )
     { return 'string(' + nonStringExpression + ')';
     }
+  / string
 
 nonString
   = nonStringCharacters: [^`{}]+
@@ -20,9 +20,12 @@ nonString
     }
 
 compoundExpression
-  = parts: ( nonString? ( string nonString? )* )
-  { return squash(parts).join('');
-  }
+  = parts:
+    ( ( nonString ( string nonString? )+ )
+    / ( string ( nonString string? )+ )
+    )
+    { return squash(parts).join('');
+    }
 
 string
   = '`'
