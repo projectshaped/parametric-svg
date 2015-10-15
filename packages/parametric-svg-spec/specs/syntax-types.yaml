@@ -15,11 +15,11 @@ tests:
     example_output: |
       <rect
         parametric:x="2.56"
-                   x="2.56"
         parametric:y="0.3802900"
-                   y="0.38029"
         parametric:z="5.0"
-                   z="5"
+        x="2.56"
+        y="0.38029"
+        z="5"
       />
     ast:
       - address: []
@@ -54,14 +54,14 @@ tests:
     example_output: |
       <rect
         parametric:fill="`green`"
-                   fill="green"
         parametric:quotes="`&quot;'\``"
-                   quotes="&quot;'`"
         parametric:escapes="`\\\`\$`"
-                   escapes="\`$"
         parametric:whitespace="`ab
       cd   ef`"
-                   whitespace="ab
+        fill="green"
+        quotes="&quot;'`"
+        escapes="\`$"
+        whitespace="ab
       cd   ef"
       />
     ast:
@@ -95,17 +95,17 @@ tests:
       <circle
         parametric:fill="true ? `orange` : `blue`"
         parametric:stroke-width="false ? `orange` : 8"
-        parametric:is-ok="ok ? `yup` : `nope`"
+        parametric:is-ok="ok and true ? `yup` : `nope`"
       />
     example_data: {ok: true}
     example_output: |
       <circle
         parametric:fill="true ? `orange` : `blue`"
-                   fill="orange"
         parametric:stroke-width="false ? `orange` : 8"
-                   stroke-width="8"
-        parametric:is-ok="ok and `yup` or `nope`"
-                   is-ok="yup"
+        parametric:is-ok="ok and true ? `yup` : `nope`"
+        fill="orange"
+        stroke-width="8"
+        is-ok="yup"
       />
     ast:
       - address: []

@@ -14,7 +14,7 @@ tests:
     example_output: |
       <rect
         parametric:x="2 * a"
-                   x="14"
+        x="14"
       />
     ast:
       - address: []
@@ -42,7 +42,7 @@ tests:
     example_output: |
       <rect
         parametric:width="a / 4 + b"
-                   width="10"
+        width="10"
       />
     ast:
       - address: []
@@ -66,20 +66,20 @@ tests:
     original: |
       <rect
         parametric:width="a"
-                   width="2"
         parametric:height="b"
-                   height="11"
         parametric:y="c"
+        width="2"
+        height="11"
       />
     example_data:
       a: 9
     example_output: |
       <rect
         parametric:width="a"
-                   width="9"
         parametric:height="b"
-                   height="11"
         parametric:y="c"
+        width="9"
+        height="11"
       />
     ast:
       - address: []

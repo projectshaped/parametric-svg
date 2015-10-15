@@ -6,10 +6,15 @@ mode: Element
 tests:
   - description: Parentheses
     original: |
-      <rect parametric:x="2 * (3 + 4)" />
+      <rect
+        parametric:x="2 * (3 + 4)"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 * (3 + 4)" x="14" />
+      <rect
+        parametric:x="2 * (3 + 4)"
+        x="14"
+      />
     ast:
       - address: []
         name: x
@@ -20,10 +25,15 @@ tests:
 
   - description: Parameter separator
     original: |
-      <rect parametric:x="max(2, 1, 5)" />
+      <rect
+        parametric:x="max(2, 1, 5)"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="max(2, 1, 5)" x="5" />
+      <rect
+        parametric:x="max(2, 1, 5)"
+        x="5"
+      />
     ast:
       - address: []
         name: x
@@ -34,10 +44,15 @@ tests:
 
   - description: Add
     original: |
-      <rect parametric:x="4 + 5" />
+      <rect
+        parametric:x="4 + 5"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="4 + 5" x="9" />
+      <rect
+        parametric:x="4 + 5"
+        x="9"
+      />
     ast:
       - address: []
         name: x
@@ -48,10 +63,15 @@ tests:
 
   - description: Subtract
     original: |
-      <rect parametric:x="7 - 3" />
+      <rect
+        parametric:x="7 - 3"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="7 - 3" x="4" />
+      <rect
+        parametric:x="7 - 3"
+        x="4"
+      />
     ast:
       - address: []
         name: x
@@ -62,10 +82,15 @@ tests:
 
   - description: Unary minus
     original: |
-      <rect parametric:x="-4" />
+      <rect
+        parametric:x="-4"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="-4" x="-4" />
+      <rect
+        parametric:x="-4"
+        x="-4"
+      />
     ast:
       - address: []
         name: x
@@ -76,10 +101,15 @@ tests:
 
   - description: Multiply
     original: |
-      <rect parametric:x="2 * 3" />
+      <rect
+        parametric:x="2 * 3"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 * 3" x="6" />
+      <rect
+        parametric:x="2 * 3"
+        x="6"
+      />
     ast:
       - address: []
         name: x
@@ -90,10 +120,15 @@ tests:
 
   - description: Divide
     original: |
-      <rect parametric:x="6 / 2" />
+      <rect
+        parametric:x="6 / 2"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="6 / 2" x="3" />
+      <rect
+        parametric:x="6 / 2"
+        x="3"
+      />
     ast:
       - address: []
         name: x
@@ -104,10 +139,15 @@ tests:
 
   - description: Modulus
     original: |
-      <rect parametric:x="8 % 3" />
+      <rect
+        parametric:x="8 % 3"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="8 % 3" x="2" />
+      <rect
+        parametric:x="8 % 3"
+        x="2"
+      />
     ast:
       - address: []
         name: x
@@ -118,10 +158,15 @@ tests:
 
   - description: Power
     original: |
-      <rect parametric:x="2 ^ 3" />
+      <rect
+        parametric:x="2 ^ 3"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 ^ 3" x="8" />
+      <rect
+        parametric:x="2 ^ 3"
+        x="8"
+      />
     ast:
       - address: []
         name: x
@@ -132,10 +177,15 @@ tests:
 
   - description: Factorial
     original: |
-      <rect parametric:x="5!" />
+      <rect
+        parametric:x="5!"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="5!" x="120" />
+      <rect
+        parametric:x="5!"
+        x="120"
+      />
     ast:
       - address: []
         name: x
@@ -146,10 +196,15 @@ tests:
 
   - description: Logical and
     original: |
-      <rect parametric:x="true and false ? 1 : 0" />
+      <rect
+        parametric:x="true and false ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="true and false ? 1 : 0" x="0" />
+      <rect
+        parametric:x="true and false ? 1 : 0"
+        x="0"
+      />
     ast:
       - address: []
         name: x
@@ -160,10 +215,15 @@ tests:
 
   - description: Logical not
     original: |
-      <rect parametric:x="not true ? 1 : 0" />
+      <rect
+        parametric:x="not true ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="not true ? 1 : 0" x="0" />
+      <rect
+        parametric:x="not true ? 1 : 0"
+        x="0"
+      />
     ast:
       - address: []
         name: x
@@ -174,10 +234,15 @@ tests:
 
   - description: Logical or
     original: |
-      <rect parametric:x="true or false ? 1 : 0" />
+      <rect
+        parametric:x="true or false ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="true or false ? 1 : 0" x="1" />
+      <rect
+        parametric:x="true or false ? 1 : 0"
+        x="1"
+      />
     ast:
       - address: []
         name: x
@@ -188,10 +253,15 @@ tests:
 
   - description: Logical xor
     original: |
-      <rect parametric:x="true xor true ? 1 : 0" />
+      <rect
+        parametric:x="true xor true ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="true xor true ? 1 : 0" x="0" />
+      <rect
+        parametric:x="true xor true ? 1 : 0"
+        x="0"
+      />
     ast:
       - address: []
         name: x
@@ -202,10 +272,15 @@ tests:
 
   - description: Conditional expression
     original: |
-      <rect parametric:x="false ? 1 : -1" />
+      <rect
+        parametric:x="false ? 1 : -1"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="false ? 1 : -1" x="-1" />
+      <rect
+        parametric:x="false ? 1 : -1"
+        x="-1"
+      />
     ast:
       - address: []
         name: x
@@ -216,10 +291,15 @@ tests:
 
   - description: Equal
     original: |
-      <rect parametric:x="2 == 4 - 2 ? 1 : 0" />
+      <rect
+        parametric:x="2 == 4 - 2 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 == 4 - 2 ? 1 : 0" x="1" />
+      <rect
+        parametric:x="2 == 4 - 2 ? 1 : 0"
+        x="1"
+      />
     ast:
       - address: []
         name: x
@@ -230,10 +310,15 @@ tests:
 
   - description: Unequal
     original: |
-      <rect parametric:x="2 != 3 ? 1 : 0" />
+      <rect
+        parametric:x="2 != 3 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 != 3 ? 1 : 0" x="1" />
+      <rect
+        parametric:x="2 != 3 ? 1 : 0"
+        x="1"
+      />
     ast:
       - address: []
         name: x
@@ -244,10 +329,15 @@ tests:
 
   - description: Smaller
     original: |
-      <rect parametric:x="2 &lt; 3 ? 1 : 0" />
+      <rect
+        parametric:x="2 &lt; 3 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 &lt; 3 ? 1 : 0" x="1" />
+      <rect
+        parametric:x="2 &lt; 3 ? 1 : 0"
+        x="1"
+      />
     ast:
       - address: []
         name: x
@@ -258,10 +348,15 @@ tests:
 
   - description: Larger
     original: |
-      <rect parametric:x="2 &gt; 3 ? 1 : 0" />
+      <rect
+        parametric:x="2 &gt; 3 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 &gt; 3 ? 1 : 0" x="0" />
+      <rect
+        parametric:x="2 &gt; 3 ? 1 : 0"
+        x="0"
+      />
     ast:
       - address: []
         name: x
@@ -272,10 +367,15 @@ tests:
 
   - description: Smallereq
     original: |
-      <rect parametric:x="4 &lt;= 3 ? 1 : 0" />
+      <rect
+        parametric:x="4 &lt;= 3 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="4 &lt;= 3 ? 1 : 0" x="0" />
+      <rect
+        parametric:x="4 &lt;= 3 ? 1 : 0"
+        x="0"
+      />
     ast:
       - address: []
         name: x
@@ -286,10 +386,15 @@ tests:
 
   - description: Largereq
     original: |
-      <rect parametric:x="2 + 4 &gt;= 6 ? 1 : 0" />
+      <rect
+        parametric:x="2 + 4 &gt;= 6 ? 1 : 0"
+      />
     example_data: {}
     example_output: |
-      <rect parametric:x="2 + 4 &gt;= 6 ? 1 : 0" x="1" />
+      <rect
+        parametric:x="2 + 4 &gt;= 6 ? 1 : 0"
+        x="1"
+      />
     ast:
       - address: []
         name: x

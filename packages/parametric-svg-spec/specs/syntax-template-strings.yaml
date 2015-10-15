@@ -45,11 +45,11 @@ tests:
     example_output: |
       <path
         parametric:equation="`2 + 3 = ${2 + 3}`"
-                   equation="2 + 3 = 5"
         parametric:variable="`it’s ${weather} today`"
-                   variable="it’s raining today"
         parametric:ternary="`I’ve got ${rich ? `zillions of` : 2} dollars!`"
-                   ternary="I’ve got 2 dollars!"
+        equation="2 + 3 = 5"
+        variable="it’s raining today"
+        ternary="I’ve got 2 dollars!"
       />
     ast:
       - address: []
@@ -92,11 +92,11 @@ tests:
     example_output: |
       <g
         parametric:single="`outside ${`inside`}`"
-                   single="outside inside"
         parametric:double="`outside ${`doorway ${`inside`}`}`"
-                   double="outside doorway inside"
-        parametric:ternary=`I’m ${`black` == `white` ? `lying` : `telling the truth`}!`"
-                   ternary="I’m telling the truth!"
+        parametric:ternary="`I’m ${`black` == `white` ? `lying` : `telling the truth`}!`"
+        single="outside inside"
+        double="outside doorway inside"
+        ternary="I’m telling the truth!"
       />
     ast:
       - address: []
@@ -129,7 +129,7 @@ tests:
     example_output: |
       <g
         parametric:escaped="`escaped \${ template ${`string`} }.`"
-                   escaped="escaped ${ template string }."
+        escaped="escaped ${ template string }."
       />
     ast:
       - address: []

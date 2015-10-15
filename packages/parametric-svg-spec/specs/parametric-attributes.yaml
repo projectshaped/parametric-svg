@@ -5,9 +5,17 @@ mode: Element
 
 tests:
   - description: A parametric attribute is bound to an existing attribute.
-    original: <circle r="5" parametric:r="10" />
+    original: |
+      <circle
+        parametric:r="10"
+        r="5"
+      />
     example_data: {}
-    example_output: <circle r="10" parametric:r="10" />
+    example_output: |
+      <circle
+        parametric:r="10"
+        r="10"
+      />
     ast:
       - address: []
         name: r
@@ -17,9 +25,16 @@ tests:
             output: '10'
 
   - description: A parametric attribute creates a non-existent attribute.
-    original: <circle parametric:r="10" />
+    original: |
+      <circle
+        parametric:r="10"
+      />
     example_data: {}
-    example_output: <circle parametric:r="10" r="10" />
+    example_output: |
+      <circle
+        parametric:r="10"
+        r="10"
+      />
     ast:
       - address: []
         name: r
@@ -31,20 +46,20 @@ tests:
   - description: Parametric attributes can live alongside other attributes.
     original: |
       <rect
-        x="1"
-        parametric:y="20"
-                   y="2"
         parametric:height="30"
-                   height="2"
+        parametric:y="20"
+        height="2"
+        x="1"
+        y="2"
       />
     example_data: {}
     example_output: |
       <rect
-        x="1"
-        parametric:y="20"
-                   y="20"
         parametric:height="30"
-                   height="30"
+        parametric:y="20"
+        height="30"
+        x="1"
+        y="20"
       />
     ast:
       - address: []
@@ -64,18 +79,30 @@ tests:
     original: |
       <g>
         <rect x="1" />
-        <circle r="2" parametric:r="20" />
+        <circle
+          parametric:r="20"
+          r="2"
+        />
         <g>
-          <rect y="3" parametric:y="30" />
+          <rect
+            parametric:y="30"
+            y="3"
+          />
         </g>
       </g>
     example_data: {}
     example_output: |
       <g>
         <rect x="1" />
-        <circle r="20" parametric:r="20" />
+        <circle
+          parametric:r="20"
+          r="20"
+        />
         <g>
-          <rect y="30" parametric:y="30" />
+          <rect
+            parametric:y="30"
+            y="30"
+          />
         </g>
       </g>
     ast:
