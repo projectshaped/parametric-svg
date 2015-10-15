@@ -78,3 +78,42 @@ tests:
           - input:
               rich: true
             output: 'I’ve got 2000000 dollars!'
+
+  - description: Multi-level template strings
+    original: |
+      <g
+        parametric:single="`outside ${`inside`}`"
+        parametric:double="`outside ${`doorway ${`inside`}`}`"
+        parametric:ternary="`I’m ${`black` == `white` ? `lying` : `telling the truth`}!`"
+      />
+    example_data:
+      weather: raining
+      rich: false
+    example_output: |
+      <g
+        parametric:single="`outside ${`inside`}`"
+                   single="outside inside"
+        parametric:double="`outside ${`doorway ${`inside`}`}`"
+                   double="outside doorway inside"
+        parametric:ternary=`I’m ${`black` == `white` ? `lying` : `telling the truth`}!`"
+                   ternary="I’m telling the truth!"
+      />
+    ast:
+      - address: []
+        name: single
+        dependencies: []
+        relation:
+          - input: {}
+            output: 'outside inside'
+      - address: []
+        name: double
+        dependencies: []
+        relation:
+          - input: {}
+            output: 'outside doorway inside'
+      - address: []
+        name: ternary
+        dependencies: []
+        relation:
+          - input: {}
+            output: 'I’m telling the truth!'
