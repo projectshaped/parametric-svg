@@ -187,9 +187,9 @@ There are a couple of functions built into *parametric.svg*.
 
 To calculate the result of a function, wrap your arguments with parentheses, separate them by commas and place the bulk right after the function’s identifier. Sounds complicated? How about an example:
 
-Whenever you write `parametric:x="cos(1)"`, we’ll render it as `x="0.54030230586814"`. Of course you can also combine function results with other expressions and use variables as parameters. So if you pass the variable `alpha = 1` to ``parametric:y="`999${7 + cos(alpha)}`"`` you’ll get `y="9997.54030230586814"`.
+Whenever you write `parametric:x="cos(1)"`, we’ll render it as `x="0.54030230586814"`. You can of course combine function results with other expressions and use variables as parameters. So if you pass the variable `alpha = 1` to ``parametric:y="`999${7 + cos(alpha)}`"``, you’ll get `y="9997.54030230586814"`.
 
-At the moment we only include a minimal set of functions. If you need more functionality, you should be able to create a custom function using our [operators][] and the built-in functions we’ve listed above. If you need something that we haven’t covered, don’t hesitate to [open an issue][] though.
+Note that we only ship a minimal set of functions at the moment. If you need more functionality, you should be able to create a custom function using our [operators][] and the built-in functions we’ve listed above. If you need something that we haven’t covered, don’t hesitate to [open an issue][] though.
 
 [operators]:      #/syntax/operators/
 [open an issue]:  https://github.com/parametric-svg/-/issues
