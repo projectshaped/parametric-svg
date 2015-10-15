@@ -163,13 +163,13 @@ In addition, you can use one more type of value internally in your variables and
 
 ###                                        <a id="/syntax/template-strings"></a> Template strings                                                                 ###
 
-You can embed any expression in your string – just like in [ES 2015 template strings][]. All you need to do is put every expression between a `${` and a `}`.
+You can embed any expression in your string. Just put it between a `${` and a `}` – we’ll evaluate it and insert the result into your string. You may know this syntax [from ES 2015][].
 
 For example, if you write ``parametric:d="`M ${1 + 2}, ${3 + 4}`"``, we’ll render it as `d="M 3, 7"`.
 
 If you ever need to display the raw sequence of characters `${` in your string and don’t want that to be treated as the start of an expression, remember to escape the `$` with a backslash: `\${`.
 
-[ES 2015 template strings]:   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
+[from ES 2015]:   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
 
 
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
