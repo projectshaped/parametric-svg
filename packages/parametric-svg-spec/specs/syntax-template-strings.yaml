@@ -37,7 +37,7 @@ tests:
       <path
         parametric:equation="`2 + 3 = ${2 + 3}`"
         parametric:variable="`it’s ${weather} today`"
-        parametric:ternary="`I’ve got ${rich ? 2000000 : 2} dollars!`"
+        parametric:ternary="`I’ve got ${rich ? `zillions of` : 2} dollars!`"
       />
     example_data:
       weather: raining
@@ -48,7 +48,7 @@ tests:
                    equation="2 + 3 = 5"
         parametric:variable="`it’s ${weather} today`"
                    variable="it’s raining today"
-        parametric:ternary="`I’ve got ${rich ? 2000000 : 2} dollars!`"
+        parametric:ternary="`I’ve got ${rich ? `zillions of` : 2} dollars!`"
                    ternary="I’ve got 2 dollars!"
       />
     ast:
@@ -77,7 +77,7 @@ tests:
             output: 'I’ve got 2 dollars!'
           - input:
               rich: true
-            output: 'I’ve got 2000000 dollars!'
+            output: 'I’ve got zillions of dollars!'
 
   - description: Multi-level template strings
     original: |
