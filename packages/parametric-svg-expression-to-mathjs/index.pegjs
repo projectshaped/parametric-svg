@@ -10,7 +10,7 @@ start
 
 castToString
   = string
-  / nonStringExpression: ( nonString / compoundExpression )
+  / nonStringExpression: ( compoundExpression / nonString )
     { return 'string(' + nonStringExpression + ')';
     }
 
