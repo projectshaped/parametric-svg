@@ -5,6 +5,7 @@ const {execSync} = require('child_process');
 const isOurPackage = require('./utilities/is-our-package');
 const {writeFileSync} = require('fs');
 const {assign, keys} = Object;
+const {packages} = require('./utilities/packages');
 
 const exec = (...args) => {
   console.log(`${args[1] && args[1].cwd || ''}$ ${args[0]}`);
@@ -47,7 +48,7 @@ bundle
 console.log('…done!');
 
 console.log('Updating dependency versions…');
-require('./utilities/packages').forEach(({cwd, manifest}) => {
+packages.forEach(({cwd, manifest}) => {
   const {dependencies} = manifest;
 
   if (dependencies) {
@@ -67,5 +68,13 @@ require('./utilities/packages').forEach(({cwd, manifest}) => {
 
     writeFileSync(`${cwd}/package.json`, newManifest);
   }
+});
+console.log('…done!');
+
+console.log('Committing and publishing…');
+exec('git add --patch');
+exec(`git commit --message='${packageName} v${versionNumber}'`);
+bundle.forEach(name => {
+  exec('npm publish', {cwd: `${packagesRoot}/${name}`});
 });
 console.log('…done!');
