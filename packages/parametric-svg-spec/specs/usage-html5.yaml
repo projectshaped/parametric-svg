@@ -32,7 +32,7 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'
 
   - description: Setting the namespace to something else has no effect.
     original: |
@@ -66,7 +66,7 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'
 
   - description: Our namespace can’t be bound to another prefix.
     original: |

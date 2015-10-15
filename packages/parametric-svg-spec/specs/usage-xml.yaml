@@ -28,7 +28,7 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'
 
   - description: Our namespace can be set on a single element.
     original: |
@@ -58,7 +58,7 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'
 
   - description: Our namespace can be set on any ancestor.
     original: |
@@ -86,7 +86,7 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'
 
   - description: Our namespace can be associated with any prefix.
     original: |
@@ -114,4 +114,4 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 10
+            output: '10'

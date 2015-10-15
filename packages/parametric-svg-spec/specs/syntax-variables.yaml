@@ -21,12 +21,15 @@ tests:
         name: x
         dependencies: [a]
         relation:
-          - input: {a: 7}
-            output: 14
-          - input: {a: 10}
-            output: 20
-          - input: {a: 0}
-            output: 0
+          - input:
+              a: 7
+            output: '14'
+          - input:
+              a: 10
+            output: '20'
+          - input:
+              a: 0
+            output: '0'
 
   - description: Two variables in expression
     original: |
@@ -46,12 +49,18 @@ tests:
         name: width
         dependencies: [a, b]
         relation:
-          - input: {a: 12, b: 7}
-            output: 10
-          - input: {a: 0, b: 10}
-            output: 10
-          - input: {a: 10, b: 0}
-            output: 2.5
+          - input:
+              a: 12
+              b: 7
+            output: '10'
+          - input:
+              a: 0
+              b: 10
+            output: '10'
+          - input:
+              a: 10
+              b: 0
+            output: '2.5'
 
   - description: Undefined variables
     original: |
@@ -77,21 +86,26 @@ tests:
         name: width
         dependencies: [a]
         relation:
-          - input: {a: 12}
-            output: 12
-          - input: {a: 'string'}
-            output: 'string'
-          - input: {a: 0}
-            output: 0
+          - input:
+              a: 12
+            output: '12'
+          - input:
+              a: string
+            output: string
+          - input:
+              a: 0
+            output: '0'
       - address: []
         name: height
         dependencies: [b]
         relation:
-          - input: {b: 'whatever'}
-            output: 'whatever'
+          - input:
+              b: whatever
+            output: whatever
       - address: []
         name: y
         dependencies: [c]
         relation:
-          - input: {c: 'whatever'}
-            output: 'whatever'
+          - input:
+              c: whatever
+            output: whatever

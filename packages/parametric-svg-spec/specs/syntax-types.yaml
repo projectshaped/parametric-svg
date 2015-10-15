@@ -25,15 +25,21 @@ tests:
       - address: []
         name: x
         dependencies: []
-        relation: [{input: {}, output: 2.56}]
+        relation:
+          - input: {}
+            output: '2.56'
       - address: []
         name: y
         dependencies: []
-        relation: [{input: {}, output: 0.38029}]
+        relation:
+          - input: {}
+            output: '0.38029'
       - address: []
         name: z
         dependencies: []
-        relation: [{input: {}, output: 5}]
+        relation:
+          - input: {}
+            output: '5'
 
   - description: Static string values
     original: |
@@ -107,19 +113,21 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: "orange"
+            output: orange
       - address: []
         name: stroke
         dependencies: []
         relation:
           - input: {}
-            output: "blue"
+            output: blue
       - address: []
         name: is-ok
         dependencies:
           - ok
         relation:
-          - input: {ok: true}
-            output: "yup"
-          - input: {ok: false}
-            output: "nope"
+          - input:
+              ok: true
+            output: yup
+          - input:
+              ok: false
+            output: nope
