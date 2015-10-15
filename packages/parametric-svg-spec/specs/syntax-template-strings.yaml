@@ -57,27 +57,27 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: '2 + 3 = 5'
+            output: 2 + 3 = 5
       - address: []
         name: variable
         dependencies: [weather]
         relation:
           - input:
               weather: raining
-            output: 'it’s raining today'
+            output: it’s raining today
           - input:
               weather: sunny
-            output: 'it’s sunny today'
+            output: it’s sunny today
       - address: []
         name: ternary
         dependencies: [rich]
         relation:
           - input:
               rich: false
-            output: 'I’ve got 2 dollars!'
+            output: I’ve got 2 dollars!
           - input:
               rich: true
-            output: 'I’ve got zillions of dollars!'
+            output: I’ve got zillions of dollars!
 
   - description: Multi-level template strings
     original: |
@@ -104,19 +104,19 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 'outside inside'
+            output: outside inside
       - address: []
         name: double
         dependencies: []
         relation:
           - input: {}
-            output: 'outside doorway inside'
+            output: outside doorway inside
       - address: []
         name: ternary
         dependencies: []
         relation:
           - input: {}
-            output: 'I’m telling the truth!'
+            output: I’m telling the truth!
 
   - description: Escaping
     original: |
@@ -137,4 +137,4 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: 'escaped ${ template string }.'
+            output: escaped ${ template string }.
