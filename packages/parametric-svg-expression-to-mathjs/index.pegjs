@@ -6,24 +6,34 @@
 }
 
 start
-  = expression
+  = castToString
 
-expression
-  = nonStringCharacters: [^`{}]+
-    { return 'string(' + nonStringCharacters.join('') + ')';
+castToString
+  = string
+  / nonStringExpression: ( nonString / compoundExpression )
+    { return 'string(' + nonStringExpression + ')';
     }
-  / string
+
+nonString
+  = nonStringCharacters: [^`{}]+
+    { return nonStringCharacters.join('');
+    }
+
+compoundExpression
+  = parts: ( nonString? ( string nonString? )* )
+  { return dropNull(flatten(parts)).join('');
+  }
 
 string
   = '`'
     parts: ( rawString? ( templateStringExpression rawString? )* )
     '`'
     { var flatParts = dropNull(flatten(parts));
-      return (flatParts.length === 1 ?
-        flatParts[0] :
-        'concat(' + flatParts.join(', ') + ')'
-        )
-      ;
+      return (
+        ( flatParts.length === 1
+        ? flatParts[0]
+        : 'concat(' + flatParts.join(', ') + ')'
+        ));
     }
 
 rawString
@@ -51,7 +61,7 @@ illegalCharacter
 
 templateStringExpression
   = '${'
-    expression: expression
+    expression: castToString
     '}'
     { return expression;
     }
