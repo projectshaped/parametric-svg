@@ -174,6 +174,27 @@ If you ever need to display the raw sequence of characters `${` in your string a
 [from ES 2015]:   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
 
 
+###                                      <a id="/syntax/built-in-functions"></a> Built-in functions                                                               ###
+
+There are a couple of functions built into *parametric.svg*.
+
+**Trigonometry:**
+- `cos(x: Angle) => Number`
+- `sin(x: Angle) => Number`
+- `tan(x: Angle) => Number`
+
+`Angle` is an angle in radians.
+
+To calculate the result of a function, wrap your arguments with parentheses, separate them by commas and place the bulk right after the function’s identifier. Sounds complicated? How about an example:
+
+Whenever you write `parametric:x="cos(1)"`, we’ll render it as `x="0.54030230586814"`. Of course you can also combine function results with other expressions. So ``parametric:y="`777${1 + cos(1)}`"`` will be displayed as `y="7771.54030230586814"`.
+
+At the moment we only include a minimal set of functions. If you need more functionality, you should be able to create a custom function using our [operators][] and the built-in functions we’ve listed above. If you need something that we haven’t covered, don’t hesitate to [open an issue][] though.
+
+[operators]:      #/syntax/operators/
+[open an issue]:  https://github.com/parametric-svg/-/issues
+
+
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
 
 The original parametric.svg parser uses [mathjs][] under the hood. We’ve ripped a lot of this specification off their specs. All credits go to the fine [developers of mathjs][].
