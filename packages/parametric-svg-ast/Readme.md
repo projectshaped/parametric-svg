@@ -1,13 +1,4 @@
-[![Coveralls – test coverage
-](https://img.shields.io/coveralls/parametric-svg/ast.svg?style=flat-square)
-](https://coveralls.io/r/parametric-svg/ast)
- [![Travis – build status
-](https://img.shields.io/travis/parametric-svg/ast/master.svg?style=flat-square)
-](https://travis-ci.org/parametric-svg/ast)
- [![David – status of dependencies
-](https://img.shields.io/david/parametric-svg/ast.svg?style=flat-square)
-](https://david-dm.org/parametric-svg/ast)
- [![Code style: airbnb
+[![Code style: airbnb
 ](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square)
 ](https://github.com/airbnb/javascript)
 

@@ -1,13 +1,4 @@
-[![Coveralls – test coverage
-](https://img.shields.io/coveralls/parametric-svg/parse.svg?style=flat-square)
-](https://coveralls.io/r/parametric-svg/parse)
- [![Travis – build status
-](https://img.shields.io/travis/parametric-svg/parse/master.svg?style=flat-square)
-](https://travis-ci.org/parametric-svg/parse)
- [![David – status of dependencies
-](https://img.shields.io/david/parametric-svg/parse.svg?style=flat-square)
-](https://david-dm.org/parametric-svg/parse)
- [![Stability: experimental
+[![Stability: experimental
 ](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square)
 ](https://nodejs.org/api/documentation.html#documentation_stability_index)
  [![Code style: airbnb
