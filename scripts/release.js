@@ -74,4 +74,5 @@ exec(`git commit --message='${packageName} v${versionNumber}'`);
 bundle.forEach(name => {
   exec('npm publish', {cwd: `${packagesRoot}/${name}`});
 });
+exec('git push');
 console.log('…done!');
