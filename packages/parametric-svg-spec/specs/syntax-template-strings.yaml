@@ -1,0 +1,33 @@
+name: Template strings
+link: ../Readme.md#/syntax/template-strings
+
+mode: Element
+
+tests:
+  - description: A static value
+    original: |
+      <path
+        parametric:d="`
+          M 0,0
+          l ${1},1
+        `"
+      />
+    example_data: {}
+    example_output: |
+      <path
+        parametric:d="`
+          M 0,0
+          l ${1},1
+        `"
+                   d="
+          M 0,0
+          l 1,1
+        "
+      />
+    ast:
+      - address: []
+        name: d
+        dependencies: []
+        relation:
+          - input: {}
+            output: "\n    M 0,0\n    l 1,1\n  "

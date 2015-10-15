@@ -11,8 +11,9 @@ const exec = (...args) => {
 const packages = require('./utilities/packages');
 
 console.log('\nCreating npm links…');
-packages.forEach(({cwd}) => {
+packages.forEach(({cwd, manifest: {name}}) => {
   exec('npm link', {cwd});
+  exec(`npm link ${name}`, {cwd: `${__dirname}/..`});
 });
 console.log('…done.');
 

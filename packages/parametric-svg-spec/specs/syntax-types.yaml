@@ -25,21 +25,28 @@ tests:
       - address: []
         name: x
         dependencies: []
-        relation: [{input: {}, output: 2.56}]
+        relation:
+          - input: {}
+            output: '2.56'
       - address: []
         name: y
         dependencies: []
-        relation: [{input: {}, output: 0.38029}]
+        relation:
+          - input: {}
+            output: '0.38029'
       - address: []
         name: z
         dependencies: []
-        relation: [{input: {}, output: 5}]
+        relation:
+          - input: {}
+            output: '5'
 
   - description: Static string values
     original: |
       <rect
         parametric:fill="`green`"
         parametric:quotes="`&quot;'\``"
+        parametric:escapes="`\\\`\$`"
         parametric:whitespace="`ab
       cd   ef`"
       />
@@ -50,6 +57,8 @@ tests:
                    fill="green"
         parametric:quotes="`&quot;'\``"
                    quotes="&quot;'`"
+        parametric:escapes="`\\\`\$`"
+                   escapes="\`$"
         parametric:whitespace="`ab
       cd   ef`"
                    whitespace="ab
@@ -59,11 +68,21 @@ tests:
       - address: []
         name: fill
         dependencies: []
-        relation: [{input: {}, output: "green"}]
+        relation:
+          - input: {}
+            output: green
       - address: []
         name: quotes
         dependencies: []
-        relation: [{input: {}, output: "\"'`"}]
+        relation:
+          - input: {}
+            output: "\"'`"
+      - address: []
+        name: escapes
+        dependencies: []
+        relation:
+          - input: {}
+            output: \`$
       - address: []
         name: whitespace
         dependencies: []
@@ -75,7 +94,7 @@ tests:
     original: |
       <circle
         parametric:fill="true ? `orange` : `blue`"
-        parametric:stroke="false ? `orange` : `blue`"
+        parametric:stroke-width="false ? `orange` : 8"
         parametric:is-ok="ok ? `yup` : `nope`"
       />
     example_data: {ok: true}
@@ -83,8 +102,8 @@ tests:
       <circle
         parametric:fill="true ? `orange` : `blue`"
                    fill="orange"
-        parametric:stroke="false ? `orange` : `blue`"
-                   stroke="blue"
+        parametric:stroke-width="false ? `orange` : 8"
+                   stroke-width="8"
         parametric:is-ok="ok and `yup` or `nope`"
                    is-ok="yup"
       />
@@ -94,19 +113,21 @@ tests:
         dependencies: []
         relation:
           - input: {}
-            output: "orange"
+            output: orange
       - address: []
-        name: stroke
+        name: stroke-width
         dependencies: []
         relation:
           - input: {}
-            output: "blue"
+            output: '8'
       - address: []
         name: is-ok
         dependencies:
           - ok
         relation:
-          - input: {ok: true}
-            output: "yup"
-          - input: {ok: false}
-            output: "nope"
+          - input:
+              ok: true
+            output: yup
+          - input:
+              ok: false
+            output: nope

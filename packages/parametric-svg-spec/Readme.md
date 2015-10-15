@@ -146,11 +146,28 @@ A parametric attributes can result in two types of values:
 
 * **number** – A floating-point number like `3` or `29.3`. For example, `parametric:x="3 + 5.4"` will result in `x="8.4"`.
 
-* **string** – A sequence of characters enclosed in backticks (``` `` ```). It can contain whitespace and newlines. For example, ``parametric:fill="`green`"`` will result in `fill="green"`.
+* **string** – A sequence of characters enclosed in backticks (``` `` ```). For example, ``parametric:fill="`green`"`` will result in `fill="green"`. Your string can contain any whitespace inside. There are some characters you may need to escape:
+
+Escape sequence   | Result
+---               | ---
+`` \` ``          | `` ` `` – backtick
+`\$`              | `$` – dollar sign (See [Template strings][] for more info.)
+`\\`              | `\` – backslash
 
 In addition, you can use one more type of value internally in your variables and calculations:
 
 * **boolean** – `true` or `false`. For example, `parametric:r="true ? 5 : 10"` will result in `r="5"`. Keep in mind that the result of a parametric attribute can’t be a boolean – so `parametric:r="true"` is invalid.
+
+[Template strings]:   #/syntax/template-strings
+
+
+###                                        <a id="/syntax/template-strings"></a> Template strings                                                                 ###
+
+Similar to [ES 2015 template strings][] you can embed expressions in your string. Just put every expression between a `${` and a `}`.
+
+If you ever need to display the raw sequence of characters `${` in your string and don’t want that to be treated as the start of a template string, remember to escape the `$` with a backslash: `\${`.
+
+[ES 2015 template strings]:   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
 
 
 ###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###

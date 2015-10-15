@@ -32,6 +32,7 @@
     "ord": "0.1.1",
     "parametric-svg-parse": "1.0.0",
     "parametric-svg-spec": "1.1.7",
+    "pegjs": "0.9.0",
     "raw-loader": "0.5.1",
     "repeat-element": "1.1.2",
     "rimraf": "2.4.3",
