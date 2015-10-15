@@ -204,3 +204,25 @@ spec('Template strings', (test) => {
 
   test.end();
 });
+
+spec('Combining types', (test) => {
+  test.equal(
+    parse('true ? `a` : 3'),
+    'string(true ? "a" : 3)',
+    'string and number in ternary'
+  );
+
+  test.equal(
+    parse('true || false ? `a${5}` : 3'),
+    'string(true || false ? concat("a", string(5)) : 3)',
+    'template string in ternary'
+  );
+
+  test.equal(
+    parse('`55` == `5${5}` or false ? 0 : 1'),
+    'string("55" == concat("5", 5) or false ? 0 : 1)',
+    'template strings in logical expression'
+  );
+
+  test.end();
+});
