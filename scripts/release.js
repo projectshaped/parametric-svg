@@ -59,10 +59,13 @@ require('./utilities/packages').forEach(({cwd, manifest}) => {
       )}
     ), {});
 
-    writeFileSync(
-      `${cwd}/package.json`,
-      JSON.stringify(assign(manifest, {dependencies: newDependencies}), null, 2)
-    );
+    const newManifest = `${
+      JSON.stringify(
+        assign(manifest, {dependencies: newDependencies}), null, 2
+      )
+    }\n`;
+
+    writeFileSync(`${cwd}/package.json`, newManifest);
   }
 });
 console.log('…done!');
