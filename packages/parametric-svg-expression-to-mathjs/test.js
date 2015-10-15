@@ -220,7 +220,7 @@ spec('Combining types', (test) => {
 
   test.equal(
     parse('`55` == `5${5}` or false ? 0 : 1'),
-    'string("55" == concat("5", 5) or false ? 0 : 1)',
+    'string("55" == concat("5", string(5)) or false ? 0 : 1)',
     'template strings in logical expression'
   );
 
