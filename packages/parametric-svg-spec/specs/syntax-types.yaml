@@ -94,7 +94,7 @@ tests:
     original: |
       <circle
         parametric:fill="true ? `orange` : `blue`"
-        parametric:stroke="false ? `orange` : `blue`"
+        parametric:stroke-width="false ? `orange` : 8"
         parametric:is-ok="ok ? `yup` : `nope`"
       />
     example_data: {ok: true}
@@ -102,8 +102,8 @@ tests:
       <circle
         parametric:fill="true ? `orange` : `blue`"
                    fill="orange"
-        parametric:stroke="false ? `orange` : `blue`"
-                   stroke="blue"
+        parametric:stroke-width="false ? `orange` : 8"
+                   stroke-width="8"
         parametric:is-ok="ok and `yup` or `nope`"
                    is-ok="yup"
       />
@@ -115,11 +115,11 @@ tests:
           - input: {}
             output: orange
       - address: []
-        name: stroke
+        name: stroke-width
         dependencies: []
         relation:
           - input: {}
-            output: blue
+            output: '8'
       - address: []
         name: is-ok
         dependencies:
