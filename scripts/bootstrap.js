@@ -3,12 +3,12 @@
 const {ls, mkdir, ln} = require('shelljs');
 const {execSync} = require('child_process');
 const {basename} = require('path');
+const isOurPackage = require('./utilities/is-our-package');
+const packages = require('./utilities/packages');
 
 const exec = (...args) => {
   process.stdout.write(execSync(...args));
 };
-
-const packages = require('./utilities/packages');
 
 console.log('\nCreating npm links…');
 packages.forEach(({cwd, manifest: {name}}) => {
@@ -17,7 +17,6 @@ packages.forEach(({cwd, manifest: {name}}) => {
 });
 console.log('…done.');
 
-const isOurPackage = /^parametric-svg-/;
 packages.forEach((
   {cwd, manifest: {dependencies = {}, devDependencies = {}, name}}
 ) => {
@@ -26,7 +25,7 @@ packages.forEach((
   exec('npm install', {cwd});
 
   Object.keys(dependencies).concat(Object.keys(devDependencies))
-    .filter(module => isOurPackage.test(module))
+    .filter(isOurPackage)
     .forEach(module => exec(`npm link ${module}`, {cwd}));
 
   console.log('…done.');
