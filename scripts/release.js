@@ -1,8 +1,10 @@
 #! /usr/env babel-node
 
-const {ls, exit} = require('shelljs');
+const {exit} = require('shelljs');
 const {execSync} = require('child_process');
-const {basename} = require('path');
+const isOurPackage = require('./utilities/is-our-package');
+const {writeFileSync} = require('fs');
+const {assign, keys} = Object;
 
 const exec = (...args) => {
   console.log(`${args[1] && args[1].cwd || ''}$ ${args[0]}`);
@@ -27,19 +29,40 @@ if (args.length < 2) {
 const [packageName, versionKeyword] = args;
 const bundle = versionBundles[packageName] || [packageName];
 
-const packagePath = (name) => `${__dirname}/../packages/${name}`;
+const packagesRoot = `${__dirname}/../packages`;
 const bumpPackage = ({name, version}) => {
   exec(`npm --no-git-tag-version version ${version}`, {
-    cwd: packagePath(name),
+    cwd: `${packagesRoot}/${name}`,
   });
 };
 
 console.log('\nBumping package versions…');
 bumpPackage({name: packageName, version: versionKeyword});
 const versionNumber = (
-  require(`${packagePath(packageName)}/package.json`).version
+  require(`${packagesRoot}/${packageName}/package.json`).version
 );
 bundle
   .filter(name => name !== packageName)
   .forEach(name => bumpPackage({name, version: versionNumber}));
-console.log('…done.');
+console.log('…done!');
+
+console.log('Updating dependency versions…');
+require('./utilities/packages').forEach(({cwd, manifest}) => {
+  const {dependencies} = manifest;
+
+  if (dependencies) {
+    const newDependencies = keys(dependencies).reduce((target, dep) => assign(
+      {}, target,
+      {[dep]: (isOurPackage(dep) ?
+        versionNumber :
+        dependencies[dep]
+      )}
+    ), {});
+
+    writeFileSync(
+      `${cwd}/package.json`,
+      JSON.stringify(assign(manifest, {dependencies: newDependencies}), null, 2)
+    );
+  }
+});
+console.log('…done!');
