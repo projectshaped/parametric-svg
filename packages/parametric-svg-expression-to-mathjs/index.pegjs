@@ -1,8 +1,8 @@
 { var flatten = require('flatten');
   var dropNull = function(array) {
     return array.filter(function (item) { return item !== null; })
-    }
-  ;
+    };
+  var squash = function(array) { return dropNull(flatten(array)); }
 }
 
 start
@@ -21,14 +21,14 @@ nonString
 
 compoundExpression
   = parts: ( nonString? ( string nonString? )* )
-  { return dropNull(flatten(parts)).join('');
+  { return squash(parts).join('');
   }
 
 string
   = '`'
     parts: ( rawString? ( templateStringExpression rawString? )* )
     '`'
-    { var flatParts = dropNull(flatten(parts));
+    { var flatParts = squash(parts);
       return (
         ( flatParts.length === 1
         ? flatParts[0]
@@ -43,7 +43,7 @@ rawString
     / illegalCharacter
     / escapedBackslash
     )+
-    { return '"' + flatten(content).join('') + '"'
+    { return '"' + squash(content).join('') + '"'
     }
 
 escapeSequence
