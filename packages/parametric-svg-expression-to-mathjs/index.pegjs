@@ -27,14 +27,22 @@ string
     }
 
 rawString
-  = content: ( ( [^$\\`"\n\r] / escapeSequence / illegalCharacter )+ )
+  = content:
+    ( [^$\\`"\n\r]
+    / escapeSequence
+    / illegalCharacter
+    / escapedBackslash
+    )+
     { return '"' + flatten(content).join('') + '"'
     }
 
 escapeSequence
-  = sequence: ('\\$' / '\\`' / '\\\\')
+  = sequence: ('\\$' / '\\`')
     { return sequence.charAt(1);
     }
+
+escapedBackslash
+  = '\\\\'
 
 illegalCharacter
   = '"' { return '\\"'; }

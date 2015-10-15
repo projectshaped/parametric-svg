@@ -146,7 +146,7 @@ spec('Simple strings', (test) => {
 
   test.equal(
     parse('`\\\\\\`\\$`'),
-    '"\\`$"',
+    '"\\\\`$"',
     'escapes'
   );
 
