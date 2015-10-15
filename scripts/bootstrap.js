@@ -1,14 +1,10 @@
 #! /usr/env babel-node
 
 const {ls, mkdir, ln} = require('shelljs');
-const {execSync} = require('child_process');
 const {basename} = require('path');
 const isOurPackage = require('./utilities/is-our-package');
 const packages = require('./utilities/packages');
-
-const exec = (...args) => {
-  process.stdout.write(execSync(...args));
-};
+const exec = require('./utilities/exec');
 
 console.log('\nCreating npm links…');
 packages.forEach(({cwd, manifest: {name}}) => {

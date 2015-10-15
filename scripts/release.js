@@ -1,16 +1,12 @@
 #! /usr/env babel-node
 
 const {exit} = require('shelljs');
-const {execSync} = require('child_process');
 const isOurPackage = require('./utilities/is-our-package');
 const {writeFileSync} = require('fs');
 const {assign, keys} = Object;
 const {packages} = require('./utilities/packages');
+const exec = require('./utilities/exec');
 
-const exec = (...args) => {
-  console.log(`${args[1] && args[1].cwd || ''}$ ${args[0]}`);
-  process.stdout.write(execSync(...args));
-};
 const args = process.argv.slice(2);
 
 const versionBundles = {
