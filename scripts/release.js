@@ -4,7 +4,6 @@ const {exit} = require('shelljs');
 const isOurPackage = require('./utilities/is-our-package');
 const {writeFileSync} = require('fs');
 const {assign, keys} = Object;
-const {packages} = require('./utilities/packages');
 const exec = require('./utilities/exec');
 
 const args = process.argv.slice(2);
@@ -44,7 +43,9 @@ bundle
 console.log('…done!');
 
 console.log('Updating dependency versions…');
-packages.forEach(({cwd, manifest}) => {
+require('./utilities/packages').forEach(({cwd, manifest}) => {
+  // We must require `./utilities/packages` after the bumps.
+
   const {dependencies} = manifest;
 
   if (dependencies) {
