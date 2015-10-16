@@ -67,9 +67,12 @@ require('./utilities/packages').forEach(({cwd, manifest}) => {
 });
 console.log('…done!');
 
-console.log('Committing and publishing…');
+console.log('Committing changes…');
 exec('git add packages/*/package.json');
 exec(`git commit --message='${packageName} v${versionNumber}'`);
+console.log('…done!');
+
+console.log('Publishing packages…');
 bundle.forEach(name => {
   exec('npm publish', {cwd: `${packagesRoot}/${name}`});
 });
