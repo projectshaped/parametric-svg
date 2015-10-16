@@ -1,7 +1,6 @@
 #! /usr/env babel-node
 
 const {exit} = require('shelljs');
-const isOurPackage = require('./utilities/is-our-package');
 const {writeFileSync} = require('fs');
 const {assign, keys} = Object;
 const exec = require('./utilities/exec');
@@ -51,7 +50,7 @@ require('./utilities/packages').forEach(({cwd, manifest}) => {
   if (dependencies) {
     const newDependencies = keys(dependencies).reduce((target, dep) => assign(
       {}, target,
-      {[dep]: (isOurPackage(dep) ?
+      {[dep]: (bundle.includes(dep) ?
         versionNumber :
         dependencies[dep]
       )}
