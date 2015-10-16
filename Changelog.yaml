@@ -1,25 +1,17 @@
 1.2.1:
-  date: 2015-10-16
-
-  summary: Fix broken dependencies.
-
+  date:         2015-10-16
+  summary:      Fix broken dependencies.
 
 1.2.0:
-  date: 2015-10-16
-
-  summary: Welcome, template strings!
-
+  date:         2015-10-16
+  summary:      Welcome, template strings!
   highlights:
     - We’ve ported all official packages to a monorepo at https://github.com/parametric-svg/- .
 
-
 1.1.0:
-  date: 2015-10-12
-
-  summary: We now support data types.
-
+  date:         2015-10-12
+  summary:      We now support data types.
 
 1.0.0:
-  date: 2015-10-12
-
-  summary: Initial release
+  date:         2015-10-12
+  summary:      Initial release
