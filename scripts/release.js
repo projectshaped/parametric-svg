@@ -1,9 +1,10 @@
 #! /usr/env babel-node
 
 const {exit} = require('shelljs');
-const {writeFileSync} = require('fs');
+const {writeFileSync, readFileSync} = require('fs');
 const {assign, keys} = Object;
 const exec = require('./utilities/exec');
+const format = require('format-date');
 
 const args = process.argv.slice(2);
 
@@ -24,7 +25,8 @@ if (args.length < 2) {
 const [packageName, versionKeyword] = args;
 const bundle = versionBundles[packageName] || [packageName];
 
-const packagesRoot = `${__dirname}/../packages`;
+const projectRoot = `${__dirname}/..`;
+const packagesRoot = `${projectRoot}/packages`;
 const bumpPackage = ({name, version}) => {
   exec(`npm --no-git-tag-version version ${version}`, {
     cwd: `${packagesRoot}/${name}`,
@@ -67,8 +69,20 @@ require('./utilities/packages').forEach(({cwd, manifest}) => {
 });
 console.log('…done!');
 
+console.log('Updating the changelog…');
+const changelogPath = `${projectRoot}/Changelog.yaml`;
+const currentChangelog = readFileSync(changelogPath, 'utf8');
+const newChangelog = currentChangelog
+  .replace(/^master:\n/, `${
+    versionNumber
+  }:\n  date:         ${
+    format('{year}-{month}-{day}', new Date())
+  }\n`);
+writeFileSync(changelogPath, newChangelog, 'utf8');
+console.log('…done!');
+
 console.log('Committing changes…');
-exec('git add packages/*/package.json');
+exec(`git add packages/*/package.json Changelog.yaml`);
 exec(`git commit --message='${packageName} v${versionNumber}'`);
 console.log('…done!');
 
