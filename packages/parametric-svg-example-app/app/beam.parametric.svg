@@ -1,0 +1,48 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="1000"
+  height="1000"
+  viewBox="0 0 1000 1000"
+  version="1.1"
+  >
+  <defs>
+    <marker
+      id="arrowhead"
+      orient="auto"
+      refY="0.5"
+      >
+      <path d="M 0.3,0.5 1,0 1,1 Z" />
+    </marker>
+
+    <style><![CDATA[
+      .force {
+        stroke-width: 14;
+        stroke: black;
+        marker-start: url(#arrowhead);
+        stroke-dasharray: 0 13.99 999999999999 0;
+      }
+
+      .beam {
+        stroke-width: 2;
+        stroke: black;
+      }
+    ]]></style>
+  </defs>
+
+  <path
+    class="beam"
+    id="beam"
+    d="m 100,152 476,0"
+  />
+  <path
+    class="force"
+    id="force-b"
+    d="m 410,152 0,-85"
+  />
+  <path
+    class="force"
+    id="force-a"
+    d="m 100,152 0,46"
+  />
+</svg>
