@@ -12,7 +12,14 @@
       orient="auto"
       refY="0.5"
       >
-      <path d="M 0.3,0.5 1,0 1,1 Z" />
+      <path d="
+        M 0.3, 0.5
+          1, 1
+          1.5, 1
+          1.5, 0
+          1, 0
+        Z
+      " />
     </marker>
 
     <style><![CDATA[
@@ -20,7 +27,7 @@
         stroke-width: 14;
         stroke: black;
         marker-start: url(#arrowhead);
-        stroke-dasharray: 0 13.99 999999999999 0;
+        stroke-dasharray: 0 14 999999999999 0;
       }
 
       .beam {
@@ -33,16 +40,25 @@
   <path
     class="beam"
     id="beam"
-    d="m 100,152 476,0"
+    d="
+      m 100, 152
+        476, 0
+    "
   />
   <path
     class="force"
     id="force-b"
-    d="m 410,152 0,-85"
+    d="
+      m 410, 152
+        0, -85
+    "
   />
   <path
     class="force"
     id="force-a"
-    d="m 100,152 0,46"
+    d="
+      m 100, 152
+        0, 46
+    "
   />
 </svg>
