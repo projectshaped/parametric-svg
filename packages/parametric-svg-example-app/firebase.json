@@ -1,0 +1,10 @@
+{
+  "firebase": "parametric-svg-demo",
+  "public": "app",
+  "ignore": [
+    "*.json",
+    "*~",
+    ".*",
+    "node_modules/**"
+  ]
+}
