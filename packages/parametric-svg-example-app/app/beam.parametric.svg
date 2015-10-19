@@ -8,6 +8,7 @@
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+  xmlns:parametric="//parametric-svg.js.org/v1"
   >
   <sodipodi:namedview
     showgrid="true"
@@ -64,6 +65,10 @@
     >
     <path
       inkscape:label="Force B"
+      parametric:d="`
+        m ${a},0
+          0,-85
+      `"
       d="
         m 328,0
           0,-85
@@ -103,6 +108,14 @@
     <path
       inkscape:label="Graph"
       class="graph"
+      paremetric:d="`
+        M 0,0
+          0,-96
+          ${a},-96
+          ${a},40
+          480,40
+          480,0
+      `"
       d="
         M 0,0
           0,-96
@@ -131,6 +144,12 @@
     >
     <path
       inkscape:label="Graph"
+      parametric:d="`
+        M 0,0
+          ${a},104
+          480,56
+          480,0
+      `"
       d="
         M 0,0
           328,104
