@@ -4,7 +4,8 @@ getSvg.onload = function onload() {
   const parametricSvg = document.createElement('parametric-svg');
 
   parametricSvg.innerHTML = this.responseText;
-  document.body.appendChild(parametricSvg);
+  const body = document.body;
+  body.insertBefore(parametricSvg, body.firstChild);
 
   function updateFunction(range, display, parameter) {
     return function update() {
