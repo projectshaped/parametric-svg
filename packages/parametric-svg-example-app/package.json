@@ -4,6 +4,6 @@
   "license": "MIT",
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)",
   "scripts": {
-    "start": "superstatic --live --port 9281"
+    "start": "cd app; superstatic --live --port 9281"
   }
 }
