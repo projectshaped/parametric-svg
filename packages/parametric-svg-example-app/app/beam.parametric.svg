@@ -108,7 +108,7 @@
     <path
       inkscape:label="Graph"
       class="graph"
-      paremetric:d="`
+      parametric:d="`
         M 0,0
           0,-96
           ${a},-96
