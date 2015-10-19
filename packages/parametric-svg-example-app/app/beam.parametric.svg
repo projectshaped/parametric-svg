@@ -2,8 +2,8 @@
 <svg
   version="1.1"
   width="560"
-  height="600"
-  viewBox="0 0 560 600"
+  height="850"
+  viewBox="0 0 560 850"
   xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink"
   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -60,7 +60,7 @@
   </defs>
   <g
     inkscape:label="1"
-    transform="translate(40,120)"
+    transform="translate(40,170)"
     >
     <path
       inkscape:label="Force B"
@@ -98,13 +98,13 @@
   </g>
   <g
     inkscape:label="2"
-    transform="translate(0,16)"
+    transform="translate(40,420)"
     >
     <path
       inkscape:label="Graph"
       class="graph"
       d="
-        m 40,304
+        m 0,0
           0,-96
           328,0
           0,136
@@ -115,28 +115,24 @@
     <path
       inkscape:label="Wall"
       d="
-        m 520,288
+        m 480,-16
           0,72
       "
       class="beam"
     />
     <use
       inkscape:label="Beam"
-      height="100%"
-      width="100%"
-      transform="translate(40,304)"
       xlink:href="#beam"
-      y="0"
-      x="0"
     />
   </g>
   <g
     inkscape:label="3"
+    transform="translate(40,670)"
     >
     <path
       inkscape:label="Graph"
       d="
-        m 40,464
+        m 0,0
           328,104
           152,-48
           0,-56
@@ -146,19 +142,14 @@
     <path
       inkscape:label="Wall"
       d="
-        m 520,448
+        m 480,-16
           0,88
       "
       class="beam"
     />
     <use
       inkscape:label="Beam"
-      x="0"
-      y="0"
       xlink:href="#beam"
-      transform="translate(40,464)"
-      width="100%"
-      height="100%"
     />
   </g>
 </svg>
