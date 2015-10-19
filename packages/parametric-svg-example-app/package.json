@@ -1,6 +1,6 @@
 {
   "name": "parametric-svg-example-app",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "license": "MIT",
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)",
   "scripts": {
