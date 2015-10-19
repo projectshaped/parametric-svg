@@ -67,7 +67,7 @@
       inkscape:label="Force B"
       parametric:d="`
         m ${a},0
-          0,-85
+          0,${-f}
       `"
       d="
         m 328,0
@@ -79,7 +79,7 @@
       inkscape:label="Force A"
       d="
         M 0,0
-          0,46
+          0,40
       "
       class="force"
     />
@@ -110,10 +110,10 @@
       class="graph"
       parametric:d="`
         M 0,0
-          0,-${a / 3}
-          ${a},-${a / 3}
-          ${a},${(480 - a) / 3}
-          480,${(480 - a) / 3}
+          0,${-(f + 40)}
+          ${a},${-(f + 40)}
+          ${a},${(f - 40)}
+          480,${(f - 40)}
           480,0
       `"
       d="
@@ -129,7 +129,7 @@
       inkscape:label="Wall"
       parametric:d="`
         M 480,-16
-          480,${(480 - a) / 3 + 16}
+          480,${(f - 40) + 16}
       `"
       d="
         m 480,-16
@@ -150,23 +150,27 @@
       inkscape:label="Graph"
       parametric:d="`
         M 0,0
-          ${a},104
-          480,56
+          ${a},${f * (60000 - (a - 250) ^ 2) / 50000}
+          480,${f / 3}
           480,0
       `"
       d="
         M 0,0
           328,104
-          480,56
+          480,40
           480,0
       "
       class="graph"
     />
     <path
       inkscape:label="Wall"
+      parametric:d="`
+        M 480,-16
+          480,${f / 3 + 16}
+      `"
       d="
-        m 480,-16
-          0,88
+        M 480,-16
+          480,56
       "
       class="beam"
     />

@@ -15,7 +15,7 @@ getSvg.onload = function onload() {
     };
   }
 
-  ['a'].forEach(function setStuff(variable) {
+  ['a', 'f'].forEach(function setStuff(variable) {
     const range = document.getElementById(variable);
 
     const update = updateFunction(
