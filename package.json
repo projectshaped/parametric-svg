@@ -6,8 +6,8 @@
     "test": "babel-node scripts/test.js"
   },
   "devDependencies": {
-    "@parametric-svg/parse": "1.0.0",
-    "@parametric-svg/spec": "1.1.7",
+    "@parametric-svg/parse": "1.2.2",
+    "@parametric-svg/spec": "1.2.2",
     "as": "^0.4.1",
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
