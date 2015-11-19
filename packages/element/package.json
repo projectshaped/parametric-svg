@@ -7,8 +7,8 @@
     "as": "^0.4.1",
     "babelify": "^6.3.0",
     "object-assign": "^4.0.1",
-    "parametric-svg-parse": "1.2.2",
-    "parametric-svg-patch": "1.2.2",
+    "@parametric-svg/parse": "1.2.2",
+    "@parametric-svg/patch": "1.2.2",
     "set-immediate-shim": "^1.0.1"
   },
   "scripts": {
