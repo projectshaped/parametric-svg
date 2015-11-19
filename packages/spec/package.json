@@ -1,5 +1,5 @@
 {
-  "name": "parametric-svg-spec",
+  "name": "@parametric-svg/spec",
   "version": "1.2.2",
   "description": "A specification for full-fledged parametric graphics. In pure SVG.",
   "scripts": {

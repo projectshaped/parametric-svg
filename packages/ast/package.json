@@ -1,5 +1,5 @@
 {
-  "name": "parametric-svg-ast",
+  "name": "@parametric-svg/ast",
   "version": "1.0.1",
   "description": "The internal format of parametric.svg",
   "dependencies": {

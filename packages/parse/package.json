@@ -1,5 +1,5 @@
 {
-  "name": "parametric-svg-parse",
+  "name": "@parametric-svg/parse",
   "version": "1.2.2",
   "description": "A JS-based parser for parametric.svg graphics",
   "dependencies": {
