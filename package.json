@@ -3,6 +3,7 @@
   "scripts": {
     "bootstrap": "babel-node scripts/bootstrap.js",
     "release": "babel-node scripts/release.js",
+    "reshrinkwrap": "rm -rf node_modules && rm -f packages/*/node_modules && npm install npm@^3.4.1 && npm install && npm shrinkwrap --dev",
     "sync-dependencies": "babel-node scripts/sync-dependencies.js",
     "test": "babel-node scripts/test.js"
   },
@@ -43,6 +44,7 @@
     "jsdom": "^7.0.2",
     "mkdirp": "^0.5.1",
     "nodangel": "^1.3.8",
+    "npm": "^3.4.1",
     "opn-cli": "^1.0.0",
     "ord": "^0.1.1",
     "pegjs": "^0.9.0",
