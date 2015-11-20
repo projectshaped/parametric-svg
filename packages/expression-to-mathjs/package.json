@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "Convert a parametric.svg expression to a mathjs expression",
   "dependencies": {
-    "flatten": "^0.0.1"
+    "flatten": "0.0.1"
   },
   "scripts": {
-    "coverage": "rm -rf coverage && istanbul cover test.js",
+    "coverage": "rm -rf coverage && npm run prepublish && istanbul cover test.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "develop": "nodangel --ignore node_modules --ignore coverage --ignore index.js --ext js,pegjs --exec 'npm run --silent test:lite'",
+    "prepublish": "pegjs < index.pegjs > index.js",
     "test": "eslint . && npm run test:lite",
-    "test:lite": "node test.js | tap-spec",
+    "test:lite": "npm run prepublish && node test.js | tap-spec",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
   "engines": {
