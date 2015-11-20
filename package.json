@@ -3,6 +3,7 @@
   "scripts": {
     "bootstrap": "babel-node scripts/bootstrap.js",
     "release": "babel-node scripts/release.js",
+    "sync-dependencies": "babel-node scripts/sync-dependencies.js",
     "test": "babel-node scripts/test.js"
   },
   "dependencies": {
