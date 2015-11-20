@@ -22,7 +22,7 @@
     "doxie.render": "^0.3.2",
     "electron-prebuilt": "^0.33.7",
     "eslint": "^1.6.0",
-    "eslint-config-airbnb": "^0.1.0",
+    "eslint-config-airbnb": "1.0.0",
     "format-date": "0.0.1",
     "hihat": "^2.4.3",
     "hostr": "^2.2.10",

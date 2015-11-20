@@ -34,5 +34,5 @@
     "type": "git",
     "url": "git+ssh://git@github.com/parametric-svg/-.git"
   },
-  "homepage": "https://github.com/parametric-svg/-/packages/parametric-svg-expression-to-mathjs#/"
+  "homepage": "https://github.com/parametric-svg/-/packages/expression-to-mathjs#/"
 }

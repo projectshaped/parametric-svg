@@ -54,9 +54,9 @@ Implementations
 
 * *[\<parametric-svg\>][]* – A custom HTML element.
 * *[parametric-svg][]* – A JS library with an easy-to-use API.
-* *[parametric-svg-patch][]* and *[parametric-svg-parse][]* – A tandem of low-level libraries.
+* *[@parametric-svg/patch][]* and *[@parametric-svg/parse][]* – A tandem of low-level libraries.
 
-[\<parametric-svg\>]:     https://www.npmjs.com/package/parametric-svg-element
+[\<parametric-svg\>]:     https://www.npmjs.com/package/@parametric-svg/element
 [parametric-svg]:         https://www.npmjs.com/package/parametric-svg
-[parametric-svg-patch]:   https://www.npmjs.com/package/parametric-svg-patch
-[parametric-svg-parse]:   https://www.npmjs.com/package/parametric-svg-parse
+[@parametric-svg/patch]:   https://www.npmjs.com/package/@parametric-svg/patch
+[@parametric-svg/parse]:   https://www.npmjs.com/package/@parametric-svg/parse

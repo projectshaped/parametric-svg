@@ -9,11 +9,11 @@ const format = require('format-date');
 const args = process.argv.slice(2);
 
 const versionBundles = {
-  'parametric-svg-spec': [
-    'parametric-svg-element',
-    'parametric-svg-parse',
-    'parametric-svg-patch',
-    'parametric-svg-spec',
+  'spec': [
+    'element',
+    'parse',
+    'patch',
+    'spec',
   ],
 };
 

@@ -1,7 +1,7 @@
 const Set = require('es6-set');
 
  /**
-  * @module {Function} parametric-svg-ast
+  * @module {Function} @parametric-svg/ast
   *
   * @param {Object} args
   * @param {Object[]} args.attributes

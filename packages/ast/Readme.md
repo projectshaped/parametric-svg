@@ -29,7 +29,7 @@ Install
 -------
 
 ```sh
-npm install parametric-svg-ast
+npm install @parametric-svg/ast
 ```
 
 
@@ -41,7 +41,7 @@ Use
 ---
 
 ```js
-const ast = require('parametric-svg-ast');
+const ast = require('@parametric-svg/ast');
 
 const myAst = ast({
   attributes: [

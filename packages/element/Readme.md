@@ -63,20 +63,20 @@ Getting started
 If you’re building your app with *[webpack][]* or something:
 
 ```sh
-$ npm install parametric-svg-element
+$ npm install @parametric-svg/element
 ```
 
 ```js
-require('parametric-svg-element');
+require('@parametric-svg/element');
 ```
 
 Otherwise you can drop our `<script>` from the fantastic *[wzrd.in][]* CDN anywhere in your HTML document:
 
 ```html
-<script src="https://wzrd.in/standalone/parametric-svg-element@latest"></script>
+<script src="https://wzrd.in/standalone/@parametric-svg/element@latest"></script>
 ```
 
-If you’re going the `<script>` way, remember to swap `latest` with a concrete version number in production. You can also download the script from https://wzrd.in/standalone/parametric-svg-element@latest and serve it yourself.
+If you’re going the `<script>` way, remember to swap `latest` with a concrete version number in production. You can also download the script from https://wzrd.in/standalone/@parametric-svg/element@latest and serve it yourself.
 
 If it still doesn’t work, have a look at our [note about browser support](#/browser-support).
 
@@ -98,7 +98,7 @@ See the [example](#/example) to get a general idea what a parametric SVG is. You
 You can define variables by setting attributes on the `<parametric-svg>` element. Any time you update an attribute, your drawing will be updated. Lightening-fast!
 
 [immediately]:  http://devdocs.io/dom/window/setimmediate
-[spec]:         https://github.com/parametric-svg/-/packages/parametric-svg-spec#/
+[spec]:         https://github.com/parametric-svg/-/packages/spec#/
 
 
 
@@ -137,7 +137,7 @@ register(options: {
 
 In most cases you’ll just import the main module and be fine with the
 default settings (see [getting started](#/getting-started)). But if you want
-fine control, you can `require('parametric-svg-element/register')`. The
+fine control, you can `require('@parametric-svg/element/register')`. The
 function you get back takes a single argument `options` with the following
 properties:
 

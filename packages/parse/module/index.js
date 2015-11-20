@@ -1,9 +1,9 @@
 import {NAMESPACE, PREFIX} from './constants';
 
-const ast = require('parametric-svg-ast');
+const ast = require('@parametric-svg/ast');
 const arrayFrom = require('array-from');
 const startsWith = require('starts-with');
-const {parse: digest} = require('parametric-svg-expression-to-mathjs');
+const {parse: digest} = require('@parametric-svg/expression-to-mathjs');
 const {parse} = require('mathjs');
 const includes = require('array-includes');
 const {keys} = Object;

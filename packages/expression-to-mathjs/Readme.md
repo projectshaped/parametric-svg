@@ -8,7 +8,7 @@
 
 
 
-parametric-svg-expression-to-mathjs
+@parametric-svg/expression-to-mathjs
 ===================================
 
 **Convert a parametric.svg expression to a mathjs expression**
@@ -22,7 +22,7 @@ Install
 -------
 
 ```sh
-$ npm install parametric-svg-expression-to-mathjs
+$ npm install @parametric-svg/expression-to-mathjs
 ```
 
 
@@ -34,7 +34,7 @@ Use
 ---
 
 ```js
-const convert = require('parametric-svg-expression-to-mathjs');
+const convert = require('@parametric-svg/expression-to-mathjs');
 
 convert('`1 + 2 = ${1 + 2}`');
 //» 'concat("1 + 2 = ", string(1 + 2))'

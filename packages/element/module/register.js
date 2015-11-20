@@ -1,5 +1,5 @@
-const parse = require('parametric-svg-parse');
-const patch = require('parametric-svg-patch');
+const parse = require('@parametric-svg/parse');
+const patch = require('@parametric-svg/patch');
 const setImmediate = require('set-immediate-shim');
 const assign = require('object-assign');
 const {create} = Object;
@@ -11,7 +11,7 @@ const arrayFrom = require('array-from');
   *
   * In most cases you’ll just import the main module and be fine with the
   * default settings (see [getting started](#/getting-started)). But if you want
-  * fine control, you can `require('parametric-svg-element/register')`. The
+  * fine control, you can `require('@parametric-svg/element/register')`. The
   * function you get back takes a single argument `options` with the following
   * properties:
   *
