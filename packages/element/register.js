@@ -2,7 +2,6 @@ const parse = require('@parametric-svg/parse');
 const patch = require('@parametric-svg/patch');
 const setImmediate = require('set-immediate-shim');
 const assign = require('object-assign');
-const {create} = Object;
 const asObject = require('as/object');
 const arrayFrom = require('array-from');
 
@@ -47,7 +46,7 @@ export default ({logger, document, HTMLElement}) => {
     (typeof window !== 'undefined' && window.HTMLElement)
   ).prototype;
 
-  const prototype = assign(create(basePrototype), {
+  const prototype = assign(Object.create(basePrototype), {
     createdCallback() {
       const syncSvg = this.querySelector('svg');
       if (syncSvg) this._init(syncSvg);

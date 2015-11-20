@@ -1,7 +1,0 @@
-# - Built files
-/*.js
-!/.doxie.render.js
-!/module.js
-!/test.js
-/*/
-!/module/
