@@ -16,14 +16,10 @@
     "browser-test:serve": "mkdirp .webpack && cd .webpack && cpy ../test/runner.html . --rename=index.html && hostr --port=9036",
     "browser-test:open": "opn http://localhost:9036",
     "browser-test:watch": "webpack --watch",
-    "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
-    "coverage": "rm -rf coverage && npm run test:transpile && cd .es5 && istanbul cover test.js && mv coverage ..",
+    "coverage": "rm -rf coverage && istanbul cover test.js",
     "develop": "nodangel --ignore node_modules --ignore coverage --watch ../parametric-svg-spec/specs --ext js,yaml --exec 'npm run --silent test:lite'",
-    "prepublish": "npm run --silent clean && npm run transpile",
-    "test": "eslint . && npm run test:transpile && node .es5/test.js | tap-spec",
-    "test:lite": "babel-node test.js | tap-spec",
-    "test:transpile": "rm -rf .es5 && babel test.js module/*.js --out-dir .es5",
-    "transpile": "babel module --out-dir .",
+    "test": "eslint . && npm run test:lite",
+    "test:lite": "node test.js | tap-spec",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
   "files": [

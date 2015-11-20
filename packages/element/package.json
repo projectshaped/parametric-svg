@@ -12,13 +12,10 @@
     "set-immediate-shim": "^1.0.1"
   },
   "scripts": {
-    "clean": "git reset && echo '/node_modules/' > .gitignore && git add .gitignore && git stash save --include-untracked --keep-index '`npm run clean` trash can' && git clean --force -d && git reset --hard && echo '\nclean: Uncommitted and ignored files have been moved to git’s stash. To restore them run `git stash pop --quiet; git checkout .gitignore`.'",
     "develop": "hihat test.js -- --plugin=tap-dev-tool",
     "lint": "eslint .",
-    "prepublish": "npm run --silent clean && npm run transpile",
     "readme": "dox --raw < module/register.js | doxie --render --inject",
-    "test": "browserify --transform=babelify test.js | testron | tap-spec",
-    "transpile": "babel --loose es6.modules module --out-dir ."
+    "test": "eslint . && npm run test:lite"
   },
   "browserify": {
     "transform": [
