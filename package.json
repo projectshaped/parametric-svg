@@ -5,9 +5,23 @@
     "release": "babel-node scripts/release.js",
     "test": "babel-node scripts/test.js"
   },
-  "devDependencies": {
+  "dependencies": {
+    "@parametric-svg/ast": "1.0.1",
+    "@parametric-svg/expression-to-mathjs": "1.0.0",
     "@parametric-svg/parse": "1.2.2",
-    "@parametric-svg/spec": "1.2.2",
+    "@parametric-svg/patch": "1.2.2",
+    "array-from": "^2.0.2",
+    "array-includes": "^3.0.1",
+    "as": "^0.4.1",
+    "babelify": "^6.3.0",
+    "es6-set": "^0.1.1",
+    "flatten": "0.0.1",
+    "mathjs": "^2.2.0",
+    "object-assign": "^4.0.1",
+    "set-immediate-shim": "^1.0.1",
+    "starts-with": "^1.0.2"
+  },
+  "devDependencies": {
     "as": "^0.4.1",
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
