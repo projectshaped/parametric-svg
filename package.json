@@ -3,7 +3,7 @@
   "scripts": {
     "bootstrap": "babel-node scripts/bootstrap.js",
     "release": "babel-node scripts/release.js",
-    "reshrinkwrap": "rm -rf node_modules && rm -f packages/*/node_modules && npm install npm@^3.4.1 && npm install && npm shrinkwrap --dev",
+    "reshrinkwrap": "rm -rf node_modules && rm -f npm-shrinkwrap.json packages/*/node_modules && npm install npm@^3.4.1 && npm install && npm shrinkwrap --dev",
     "sync-dependencies": "babel-node scripts/sync-dependencies.js",
     "test": "babel-node scripts/test.js"
   },
