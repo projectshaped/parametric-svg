@@ -7,10 +7,6 @@
     "test": "babel-node scripts/test.js"
   },
   "dependencies": {
-    "@parametric-svg/ast": "1.0.1",
-    "@parametric-svg/expression-to-mathjs": "1.0.0",
-    "@parametric-svg/parse": "1.2.2",
-    "@parametric-svg/patch": "1.2.2",
     "array-from": "^2.0.2",
     "array-includes": "^3.0.1",
     "as": "^0.4.1",
