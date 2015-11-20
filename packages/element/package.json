@@ -53,5 +53,5 @@
     "type": "git",
     "url": "git+ssh://git@github.com/parametric-svg/-.git"
   },
-  "homepage": "https://github.com/parametric-svg/-/packages/element#/"
+  "homepage": "https://github.com/parametric-svg/-/tree/master/packages/element/#/"
 }
