@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Convert a parametric.svg expression to a mathjs expression",
   "dependencies": {
-    "flatten": "0.0.1"
+    "flatten": "^0.0.1"
   },
   "scripts": {
     "coverage": "rm -rf coverage && istanbul cover test.js",

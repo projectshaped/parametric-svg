@@ -5,7 +5,7 @@
   "dependencies": {
     "array-from": "^2.0.2",
     "as": "^0.4.1",
-    "babelify": "^6.3.0",
+    "babelify": "^7.2.0",
     "object-assign": "^4.0.1",
     "@parametric-svg/parse": "1.2.2",
     "@parametric-svg/patch": "1.2.2",
