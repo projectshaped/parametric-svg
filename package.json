@@ -1,11 +1,11 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "babel-node scripts/bootstrap.js",
-    "release": "babel-node scripts/release.js",
+    "bootstrap": "node scripts/bootstrap.js",
+    "release": "node scripts/release.js",
     "reshrinkwrap": "rm -rf node_modules && rm -f npm-shrinkwrap.json packages/*/node_modules && npm install npm@^3.4.1 && npm install && npm shrinkwrap --dev",
-    "sync-dependencies": "babel-node scripts/sync-dependencies.js",
-    "test": "babel-node scripts/test.js"
+    "sync-dependencies": "node scripts/sync-dependencies.js",
+    "test": "node scripts/test.js"
   },
   "dependencies": {
     "array-from": "^2.0.2",
@@ -64,5 +64,8 @@
     "tosource": "^1.0.0",
     "webpack": "^1.12.2",
     "xmldom": "^0.1.19"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
