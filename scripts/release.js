@@ -108,7 +108,7 @@ if (!args.publish) exit(0);
 
 console.log('Publishing packages…');
 bundle.forEach(name => {
-  exec('npm publish', {cwd: `${packagesRoot}/${name}`});
+  exec('npm publish --access=public', {cwd: `${packagesRoot}/${name}`});
 });
 exec('git push --follow-tags');
 console.log('…done!');
