@@ -7,7 +7,9 @@ const exec = require('./utilities/exec');
 const format = require('format-date');
 const includes = require('array-includes');
 
-const args = require('minimist')(process.argv.slice(2));
+const args = require('minimist')(process.argv.slice(2), {
+  boolean: true,
+});
 
 if (args._.length !== 1) {
   process.stderr.write(
