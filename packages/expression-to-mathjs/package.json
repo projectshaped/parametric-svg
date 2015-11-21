@@ -6,12 +6,14 @@
     "flatten": "0.0.1"
   },
   "scripts": {
-    "coverage": "rm -rf coverage && npm run prepublish && istanbul cover test.js",
+    "clean": "rm -f index.js",
+    "coverage": "rm -rf coverage && npm run transpile && istanbul cover test.js",
     "coveralls": "npm run coverage && cat ./coverage/lcov.info | coveralls",
     "develop": "nodangel --ignore node_modules --ignore coverage --ignore index.js --ext js,pegjs --exec 'npm run --silent test:lite'",
-    "prepublish": "pegjs < index.pegjs > index.js",
+    "prepublish": "npm run clean && npm run transpile",
     "test": "eslint . && npm run test:lite",
-    "test:lite": "npm run prepublish && node test.js | tap-spec",
+    "test:lite": "npm run transpile && node test.js | tap-spec",
+    "transpile": "pegjs < index.pegjs > index.js",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
   },
   "engines": {
