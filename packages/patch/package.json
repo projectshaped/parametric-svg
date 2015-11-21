@@ -8,7 +8,7 @@
   },
   "scripts": {
     "coverage": "rm -rf coverage && istanbul cover test.js",
-    "develop": "nodangel --ignore node_modules --ignore coverage --watch ../parametric-svg-spec/specs --ext js,yaml --exec 'npm run --silent test:lite'",
+    "develop": "nodangel --ignore node_modules --ignore coverage --watch ../spec/specs --watch . --ext js,yaml --exec 'npm run --silent test:lite'",
     "readme": "dox --raw < module/index.js | doxie --render --inject",
     "test": "eslint . && npm run test:lite",
     "test:lite": "node test.js | tap-spec",

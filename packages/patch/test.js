@@ -1,10 +1,10 @@
-import patch from './module';
+const patch = require('.');
 
-const parse = require('parametric-svg-parse');
-const test = require('tape-catch');
-const {safeLoad: yaml} = require('js-yaml');
-const {jsdom} = require('jsdom');
-const {DOMParser: XmldomParser} = require('xmldom');
+const parse = require('@parametric-svg/parse');
+const tape = require('tape-catch');
+const yaml = require('js-yaml').safeLoad;
+const jsdom = require('jsdom').jsdom;
+const XmlDomParser = require('xmldom').DOMParser;
 const asObject = require('as/object');
 const asArray = require('as/array');
 
@@ -25,44 +25,39 @@ if (typeof require.ensure !== 'function') require.ensure =
   });
 
 require.ensure([
-  'raw!parametric-svg-spec/specs/usage-html5.yaml',
-  'raw!parametric-svg-spec/specs/usage-xml.yaml',
-  'raw!parametric-svg-spec/specs/parametric-attributes.yaml',
-  'raw!parametric-svg-spec/specs/syntax-operators.yaml',
-  'raw!parametric-svg-spec/specs/syntax-template-strings.yaml',
-  'raw!parametric-svg-spec/specs/syntax-types.yaml',
-  'raw!parametric-svg-spec/specs/syntax-variables.yaml',
+  'raw!@parametric-svg/spec/specs/usage-html5.yaml',
+  'raw!@parametric-svg/spec/specs/usage-xml.yaml',
+  'raw!@parametric-svg/spec/specs/parametric-attributes.yaml',
+  'raw!@parametric-svg/spec/specs/syntax-operators.yaml',
+  'raw!@parametric-svg/spec/specs/syntax-template-strings.yaml',
+  'raw!@parametric-svg/spec/specs/syntax-types.yaml',
+  'raw!@parametric-svg/spec/specs/syntax-variables.yaml',
     // NOTE: These paths have to be hard-coded in stone – otherwise webpack
     // gets confused. Remember to keep them in sync with the `require`
     // calls below.
 ], (require) => {
   const specs = [
-    require('raw!parametric-svg-spec/specs/usage-html5.yaml'),
-    require('raw!parametric-svg-spec/specs/usage-xml.yaml'),
-    require('raw!parametric-svg-spec/specs/parametric-attributes.yaml'),
-    require('raw!parametric-svg-spec/specs/syntax-operators.yaml'),
-    require('raw!parametric-svg-spec/specs/syntax-template-strings.yaml'),
-    require('raw!parametric-svg-spec/specs/syntax-types.yaml'),
-    require('raw!parametric-svg-spec/specs/syntax-variables.yaml'),
+    require('raw!@parametric-svg/spec/specs/usage-html5.yaml'),
+    require('raw!@parametric-svg/spec/specs/usage-xml.yaml'),
+    require('raw!@parametric-svg/spec/specs/parametric-attributes.yaml'),
+    require('raw!@parametric-svg/spec/specs/syntax-operators.yaml'),
+    require('raw!@parametric-svg/spec/specs/syntax-template-strings.yaml'),
+    require('raw!@parametric-svg/spec/specs/syntax-types.yaml'),
+    require('raw!@parametric-svg/spec/specs/syntax-variables.yaml'),
       // NOTE: See above.
   ].map(yaml);
 
-  specs.forEach(({
-    name,
-    tests,
-    mode,
-  }) => tests.forEach(({
-    description,
-    original,
-    example_data: data,
-    example_output: expected,
-  }) => {
-    test(`${name}: ${description}`, (is) => {
+  specs.forEach(spec => spec.tests.forEach(test => {
+    const original = test.original;
+    const data = test.example_data;
+    const expected = test.example_output;
+
+    tape(`${spec.name}: ${test.description}`, (is) => {
       const inBrowser = typeof window !== 'undefined' && window.DOMParser;
 
-      const htmlMode = mode === 'HTML5 document';
-      const xmlMode = mode === 'XML document';
-      const elementMode = mode === 'Element';
+      const htmlMode = spec.mode === 'HTML5 document';
+      const xmlMode = spec.mode === 'XML document';
+      const elementMode = spec.mode === 'Element';
       if (!htmlMode && !xmlMode && !elementMode) throw new Error(
         'Unknown test mode'
       );
@@ -74,7 +69,7 @@ require.ensure([
 
       const Parser = (inBrowser ?
         window.DOMParser :
-        XmldomParser
+        XmlDomParser
       );
 
       const toString = (
@@ -90,10 +85,10 @@ require.ensure([
       const rootElements = asObject(asArray({
         original,
         expected,
-      }).map(({key, value}) => {
+      }).map((item) => {
         const documentSource = (elementMode ?
-          wrap(value) :
-          value
+          wrap(item.value) :
+          item.value
         );
 
         const document = (!inBrowser && htmlMode ?
@@ -101,7 +96,7 @@ require.ensure([
           (new Parser()).parseFromString(documentSource, contentType)
         ).documentElement;
 
-        return {key, value: (elementMode ?
+        return {key: item.key, value: (elementMode ?
           document.firstChild :
           document
         )};

@@ -2,7 +2,7 @@ const arrayFrom = require('array-from');
 
 const children = (node) => (
   node.children ||
-  arrayFrom(node.childNodes).filter(({nodeType}) => nodeType === 1)
+  arrayFrom(node.childNodes).filter(child => child.nodeType === 1)
 );
 
  /**
@@ -27,18 +27,18 @@ const children = (node) => (
   *     variables: Object
   *   ) => void
   */
-export default (element, ast, variables) => {
+module.exports = (element, ast, variables) => {
   if (ast.type !== 'ParametricSvgAst' || ast.version >= 2) {
     throw new Error('Incompatible AST object');
   }
 
-  arrayFrom(ast.attributes).forEach(({address, name, relation}) => {
-    const node = address.reduce(
+  arrayFrom(ast.attributes).forEach(astNode => {
+    const node = astNode.address.reduce(
       (parent, indexInParent) => children(parent)[indexInParent],
       element
     );
 
-    const result = relation(variables);
-    if (typeof result !== 'undefined') node.setAttribute(name, result);
+    const result = astNode.relation(variables);
+    if (typeof result !== 'undefined') node.setAttribute(astNode.name, result);
   });
 };
