@@ -1,6 +1,6 @@
 {
   "name": "@parametric-svg/element",
-  "version": "1.2.2",
+  "version": "5.0.1",
   "description": "Parametric 2D graphics. As a custom element (aka Web Component).",
   "dependencies": {
     "array-from": "^2.0.2",
