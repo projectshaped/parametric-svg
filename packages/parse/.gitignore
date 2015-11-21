@@ -1,8 +1,1 @@
-# - Built files
-/*.js
-!/*.config.js
-!/module.js
-!/test.js
-/*/
-!/module/
-!/test/
+.webpack/

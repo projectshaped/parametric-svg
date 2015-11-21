@@ -1,26 +1,29 @@
-import {NAMESPACE, PREFIX} from './constants';
+const NAMESPACE = '//parametric-svg.js.org/v1';
+const PREFIX = 'parametric';
 
 const ast = require('@parametric-svg/ast');
 const arrayFrom = require('array-from');
 const startsWith = require('starts-with');
-const {parse: digest} = require('@parametric-svg/expression-to-mathjs');
-const {parse} = require('mathjs');
+const digest = require('@parametric-svg/expression-to-mathjs').parse;
+const parse = require('mathjs').parse;
 const includes = require('array-includes');
-const {keys} = Object;
 
 const ELEMENT_NODE = 1;
 
-const getChildren = ({children, childNodes}) => (children ?
-  arrayFrom(children) :
-  arrayFrom(childNodes).filter(({nodeType}) => nodeType === ELEMENT_NODE)
+const getChildren = (node) => (node.children ?
+  arrayFrom(node.children) :
+  arrayFrom(node.childNodes).filter(child => child.nodeType === ELEMENT_NODE)
 );
 
-const nodeBelongsToNamespace = ({namespace, prefix = null}, node) => (
-  (node.namespaceURI ?
+const nodeBelongsToNamespace = (params, node) => {
+  const namespace = params.namespace;
+  const prefix = params.prefix || null;
+
+  return (node.namespaceURI ?
     node.namespaceURI === namespace :
     (prefix !== null && startsWith(node.name, `${prefix}:`))
-  )
-);
+  );
+};
 
 const getLocalName = (node) => (node.namespaceURI ?
   node.localName :
@@ -43,12 +46,12 @@ const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
       const expressionTree = parse(digest(attribute.value));
 
       const dependencies = [];
-      expressionTree.traverse(({isSymbolNode, name}) => {
+      expressionTree.traverse(node => {
         if (
-          isSymbolNode &&
-          !includes(['true', 'false'], name)
+          node.isSymbolNode &&
+          !includes(['true', 'false'], node.name)
             // https://github.com/josdejong/mathjs/issues/468
-        ) dependencies.push(name);
+        ) dependencies.push(node.name);
       });
 
       return {
@@ -56,7 +59,7 @@ const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
         name: getLocalName(attribute),
         dependencies,
         relation: (scope) => {
-          const availableVariables = keys(scope);
+          const availableVariables = Object.keys(scope);
           if (!dependencies.every(dep => includes(availableVariables, dep))) {
             return undefined;
           }
@@ -72,7 +75,7 @@ const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
   );
 };
 
-export default (root) => {
+module.exports = (root) => {
   const attributes = crawl([])([], root, null);
 
   return ast({attributes, defaults: []});
