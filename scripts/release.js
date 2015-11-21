@@ -6,7 +6,22 @@ const fs = require('fs');
 const exec = require('./utilities/exec');
 const format = require('format-date');
 
-const args = process.argv.slice(2);
+const args = require('minimist')(process.argv.slice(2));
+
+if (args._.length !== 1) {
+  process.stderr.write(
+`Usage:  release.js [<options>] <package name>
+
+OPTIONS
+  --bump=<version keyword>  Valid \`npm version\` keyword (default: patch)
+  --publish                 Publish to npm and push to git
+`
+  );
+  exit(1);
+}
+
+const packageName = args._[0];
+const versionKeyword = args.bump || 'patch';
 
 const versionBundles = {
   'spec': [
@@ -16,14 +31,6 @@ const versionBundles = {
     'spec',
   ],
 };
-
-if (args.length < 2) {
-  process.stderr.write('Usage:  release.js <package name> <version keyword>\n');
-  exit(1);
-}
-
-const packageName = args[0];
-const versionKeyword = args[1];
 const bundle = versionBundles[packageName] || [packageName];
 
 const projectRoot = `${__dirname}/..`;
@@ -89,9 +96,11 @@ exec(`git add packages/*/package.json Changelog.yaml`);
 exec(`git commit --message='${packageName} v${versionNumber}'`);
 console.log('…done!');
 
+if (!args.publish) exit(0);
+
 console.log('Publishing packages…');
 bundle.forEach(name => {
   exec('npm publish', {cwd: `${packagesRoot}/${name}`});
 });
-exec('git push');
+exec('git push --follow-tags');
 console.log('…done!');
