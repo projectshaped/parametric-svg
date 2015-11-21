@@ -63,17 +63,17 @@ tests:
       />
     ast:
       - address: []
-        name: y
-        dependencies: []
-        relation:
-          - input: {}
-            output: '20'
-      - address: []
         name: height
         dependencies: []
         relation:
           - input: {}
             output: '30'
+      - address: []
+        name: y
+        dependencies: []
+        relation:
+          - input: {}
+            output: '20'
 
   - description: A parametric element can live alongside other elements.
     original: |
