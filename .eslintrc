@@ -2,6 +2,7 @@ extends: airbnb/base
 
 ecmaFeatures:
   destructuring: false
+  modules: false
 
 rules:
   curly: 0
