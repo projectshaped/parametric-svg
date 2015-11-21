@@ -1,12 +1,28 @@
-#! /usr/env babel-node
+#! /usr/env node
 
-const {exit} = require('shelljs');
-const {writeFileSync, readFileSync} = require('fs');
-const {assign, keys} = Object;
+const _shelljs = require('shelljs');
+const exit = _shelljs.exit;
+const fs = require('fs');
 const exec = require('./utilities/exec');
 const format = require('format-date');
+const includes = require('array-includes');
 
-const args = process.argv.slice(2);
+const args = require('minimist')(process.argv.slice(2));
+
+if (args._.length !== 1) {
+  process.stderr.write(
+`Usage:  release.js [<options>] <package name>
+
+OPTIONS
+  --bump=<version keyword>  Valid \`npm version\` keyword (default: patch)
+  --publish                 Publish to npm and push to git
+`
+  );
+  exit(1);
+}
+
+const packageName = args._[0];
+const versionKeyword = args.bump || 'patch';
 
 const versionBundles = {
   'spec': [
@@ -16,20 +32,13 @@ const versionBundles = {
     'spec',
   ],
 };
-
-if (args.length < 2) {
-  process.stderr.write('Usage:  release.js <package name> <version keyword>\n');
-  exit(1);
-}
-
-const [packageName, versionKeyword] = args;
 const bundle = versionBundles[packageName] || [packageName];
 
 const projectRoot = `${__dirname}/..`;
 const packagesRoot = `${projectRoot}/packages`;
-const bumpPackage = ({name, version}) => {
-  exec(`npm --no-git-tag-version version ${version}`, {
-    cwd: `${packagesRoot}/${name}`,
+const bumpPackage = (params) => {
+  exec(`npm --no-git-tag-version version ${params.version}`, {
+    cwd: `${packagesRoot}/${params.name}`,
   });
 };
 
@@ -44,51 +53,60 @@ bundle
 console.log('…done!');
 
 console.log('Updating dependency versions…');
-require('./utilities/packages').forEach(({cwd, manifest}) => {
+require('./utilities/packages').forEach(project => {
   // We must require `./utilities/packages` after the bumps.
 
-  const {dependencies} = manifest;
+  const dependencies = project.manifest.dependencies;
 
   if (dependencies) {
-    const newDependencies = keys(dependencies).reduce((target, dep) => assign(
-      {}, target,
-      {[dep]: (bundle.includes(dep) ?
-        versionNumber :
-        dependencies[dep]
-      )}
-    ), {});
+    const newDependencies = Object.keys(dependencies)
+      .reduce((target, dep) => Object.assign(
+        {},
+        target,
+        {[dep]: (includes(bundle, dep) ?
+          versionNumber :
+          dependencies[dep]
+        )}
+      ), {});
 
     const newManifest = `${
       JSON.stringify(
-        assign(manifest, {dependencies: newDependencies}), null, 2
+        Object.assign(project.manifest, {dependencies: newDependencies}), null, 2
       )
     }\n`;
 
-    writeFileSync(`${cwd}/package.json`, newManifest);
+    fs.writeFileSync(`${project.cwd}/package.json`, newManifest);
   }
 });
 console.log('…done!');
 
 console.log('Updating the changelog…');
 const changelogPath = `${projectRoot}/Changelog.yaml`;
-const currentChangelog = readFileSync(changelogPath, 'utf8');
+const currentChangelog = fs.readFileSync(changelogPath, 'utf8');
 const newChangelog = currentChangelog
   .replace(/^master:\n/, `${
     versionNumber
   }:\n  date:         ${
     format('{year}-{month}-{day}', new Date())
   }\n`);
-writeFileSync(changelogPath, newChangelog, 'utf8');
+fs.writeFileSync(changelogPath, newChangelog, 'utf8');
 console.log('…done!');
 
 console.log('Committing changes…');
 exec(`git add packages/*/package.json Changelog.yaml`);
-exec(`git commit --message='${packageName} v${versionNumber}'`);
+exec(`git commit --message='${bundle.join(', ')} v${versionNumber}'`);
+exec('git tag ' +
+  '--annotate ' +
+  "--message='Bump version' " +
+  `${bundle.join('--')}--v${versionNumber}`
+);
 console.log('…done!');
+
+if (!args.publish) exit(0);
 
 console.log('Publishing packages…');
 bundle.forEach(name => {
   exec('npm publish', {cwd: `${packagesRoot}/${name}`});
 });
-exec('git push');
+exec('git push --follow-tags');
 console.log('…done!');

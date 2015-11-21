@@ -1,7 +1,7 @@
-import './module';
+require('.');
   // This registers the <parametric-svg> thing on the actual `document`.
 
-import register from './module/register';
+const register = require('./module/register');
 
 const spec = require('tape-catch');
 const repeat = require('repeat-element');

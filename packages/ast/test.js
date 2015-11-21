@@ -1,10 +1,11 @@
-import ast from './module';
+const ast = require('.');
 
 const test = require('tape-catch');
 const Set = require('es6-set');
 
 test('Returns an object of the right shape', (is) => {
-  const [attributes, defaults] = [[], []];
+  const attributes = [];
+  const defaults = [];
 
   is.equal(
     ast({attributes, defaults}).type,
@@ -43,10 +44,10 @@ test('Returns correct `.attributes`', (is) => {
   );
 
   const attributes = [
-    {address: [0],        name: 'a', dependencies: [], relation: () => {}},
-    {address: [14],       name: 'a', dependencies: [], relation: () => {}},
-    {address: [2, 7, 3],  name: 'a', dependencies: [], relation: () => {}},
-    {address: [3, 4],     name: 'a', dependencies: [], relation: () => {}},
+    {address: [0], name: 'a', dependencies: [], relation: () => {}},
+    {address: [14], name: 'a', dependencies: [], relation: () => {}},
+    {address: [2, 7, 3], name: 'a', dependencies: [], relation: () => {}},
+    {address: [3, 4], name: 'a', dependencies: [], relation: () => {}},
   ];
 
   is.equal(

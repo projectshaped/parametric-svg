@@ -46,11 +46,11 @@ const Set = require('es6-set');
   *   The value of the `default` attribute as a JavaScript
   *   function. The format is the same as in `attributes.relation`.
   */
-export default ({attributes, defaults}) => {
+module.exports = (args) => {
   return {
     type: 'ParametricSvgAst',
     version: 1,
-    attributes: new Set(attributes),
-    defaults: new Set(defaults),
+    attributes: new Set(args.attributes),
+    defaults: new Set(args.defaults),
   };
 };

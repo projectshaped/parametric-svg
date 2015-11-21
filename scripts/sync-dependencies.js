@@ -11,8 +11,8 @@ const originalDependencies = globalManifest.dependencies;
 const serialize = (value) => JSON.stringify(value, null, 2) + '\n';
 
 // Pull local dependencies into global manifest.
-const dependencies = sortKeys(packages.reduce((target, { manifest }) => {
-  return Object.assign({}, manifest.dependencies, target);
+const dependencies = sortKeys(packages.reduce((target, project) => {
+  return Object.assign({}, project.manifest.dependencies, target);
 }, originalDependencies));
 
 const newGlobalManifest = Object.assign({}, globalManifest, { dependencies });
@@ -23,17 +23,17 @@ fs.writeFileSync(
 );
 
 // Push global versions to local manifests.
-packages.forEach(({ cwd, manifest }) => {
-  if (!manifest.dependencies) return;
+packages.forEach((project) => {
+  if (!project.manifest.dependencies) return;
 
-  const newManifest = Object.assign({}, manifest);
+  const newManifest = Object.assign({}, project.manifest);
 
   Object.keys(newManifest.dependencies).forEach(name => {
     newManifest.dependencies[name] = dependencies[name];
   });
 
   fs.writeFileSync(
-    `${cwd}/package.json`,
+    `${project.cwd}/package.json`,
     serialize(newManifest)
   );
 });

@@ -1,5 +1,5 @@
-const {ls} = require('shelljs');
-const {extname} = require('path');
+const ls = require('shelljs').ls;
+const extname = require('path').extname;
 
 module.exports = ls(`${__dirname}/../../packages/*`)
   .filter(file => !extname(file))
