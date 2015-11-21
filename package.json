@@ -20,6 +20,7 @@
     "starts-with": "^1.0.2"
   },
   "devDependencies": {
+    "array-includes": "^3.0.1",
     "as": "^0.4.1",
     "babel": "^6.1.18",
     "babel-cli": "^6.2.0",

@@ -5,6 +5,7 @@ const exit = _shelljs.exit;
 const fs = require('fs');
 const exec = require('./utilities/exec');
 const format = require('format-date');
+const includes = require('array-includes');
 
 const args = require('minimist')(process.argv.slice(2));
 
@@ -62,7 +63,7 @@ require('./utilities/packages').forEach(project => {
       .reduce((target, dep) => Object.assign(
         {},
         target,
-        {[dep]: (bundle.includes(dep) ?
+        {[dep]: (includes(bundle, dep) ?
           versionNumber :
           dependencies[dep]
         )}
