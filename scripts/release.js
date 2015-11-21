@@ -94,7 +94,12 @@ console.log('…done!');
 
 console.log('Committing changes…');
 exec(`git add packages/*/package.json Changelog.yaml`);
-exec(`git commit --message='${packageName} v${versionNumber}'`);
+exec(`git commit --message='${bundle.join(', ')} v${versionNumber}'`);
+exec('git tag ' +
+  '--annotate ' +
+  "--message='Bump version' " +
+  `${bundle.join('--')}--v${versionNumber}`
+);
 console.log('…done!');
 
 if (!args.publish) exit(0);
