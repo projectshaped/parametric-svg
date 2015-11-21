@@ -5,7 +5,6 @@ const exit = _shelljs.exit;
 const fs = require('fs');
 const exec = require('./utilities/exec');
 const format = require('format-date');
-const includes = require('array-includes');
 
 const args = require('minimist')(process.argv.slice(2), {
   boolean: true,
@@ -23,40 +22,25 @@ OPTIONS
   exit(1);
 }
 
-const packageName = args._[0];
+const packageFolder = args._[0];
 const versionKeyword = args.bump || 'patch';
-
-const versionBundles = {
-  'spec': [
-    'element',
-    'parse',
-    'patch',
-    'spec',
-  ],
-};
-const bundle = versionBundles[packageName] || [packageName];
 
 const projectRoot = `${__dirname}/..`;
 const packagesRoot = `${projectRoot}/packages`;
-const bumpPackage = (params) => {
-  exec(`npm --no-git-tag-version version ${params.version}`, {
-    cwd: `${packagesRoot}/${params.name}`,
-  });
-};
 
-console.log('\nBumping package versions…');
-bumpPackage({name: packageName, version: versionKeyword});
-const versionNumber = (
-  require(`${packagesRoot}/${packageName}/package.json`).version
-);
-bundle
-  .filter(name => name !== packageName)
-  .forEach(name => bumpPackage({name, version: versionNumber}));
+console.log('\nBumping package version…');
+exec(`npm --no-git-tag-version version ${versionKeyword}`, {
+  cwd: `${packagesRoot}/${packageFolder}`,
+});
 console.log('…done!');
+
+const manifest = require(`${packagesRoot}/${packageFolder}/package.json`);
+const versionNumber = manifest.version;
+const packageName = manifest.name;
 
 console.log('Updating dependency versions…');
 require('./utilities/packages').forEach(project => {
-  // We must require `./utilities/packages` after the bumps.
+  // We must require `./utilities/packages` after the bump.
 
   const dependencies = project.manifest.dependencies;
 
@@ -65,17 +49,15 @@ require('./utilities/packages').forEach(project => {
       .reduce((target, dep) => Object.assign(
         {},
         target,
-        {[dep]: (includes(bundle, dep) ?
-          versionNumber :
+        {[dep]: (dep === packageName ?
+          `^${versionNumber}` :
           dependencies[dep]
         )}
       ), {});
 
-    const newManifest = `${
-      JSON.stringify(
-        Object.assign(project.manifest, {dependencies: newDependencies}), null, 2
-      )
-    }\n`;
+    const newManifest = JSON.stringify(
+      Object.assign(project.manifest, {dependencies: newDependencies}), null, 2
+    ) + '\n';
 
     fs.writeFileSync(`${project.cwd}/package.json`, newManifest);
   }
@@ -96,19 +78,17 @@ console.log('…done!');
 
 console.log('Committing changes…');
 exec(`git add packages/*/package.json Changelog.yaml`);
-exec(`git commit --message='${bundle.join(', ')} v${versionNumber}'`);
+exec(`git commit --message='${packageName} ${versionNumber}'`);
 exec('git tag ' +
   '--annotate ' +
   "--message='Bump version' " +
-  `${bundle.join('--')}--v${versionNumber}`
+  `${packageFolder}-v${versionNumber}`
 );
 console.log('…done!');
 
 if (!args.publish) exit(0);
 
 console.log('Publishing packages…');
-bundle.forEach(name => {
-  exec('npm publish --access=public', {cwd: `${packagesRoot}/${name}`});
-});
+exec('npm publish --access=public', {cwd: `${packagesRoot}/${packageFolder}`});
 exec('git push --follow-tags');
 console.log('…done!');
