@@ -1,6 +1,6 @@
 {
   "name": "@parametric-svg/patch",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Update a parametric SVG element with new data. A low-level library.",
   "dependencies": {
     "array-from": "^2.0.2",
