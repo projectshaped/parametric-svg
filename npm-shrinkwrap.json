@@ -1456,9 +1456,9 @@
       }
     },
     "escope": {
-      "version": "3.2.1",
+      "version": "3.3.0",
       "from": "escope@>=3.2.0 <4.0.0",
-      "resolved": "https://registry.npmjs.org/escope/-/escope-3.2.1.tgz"
+      "resolved": "https://registry.npmjs.org/escope/-/escope-3.3.0.tgz"
     },
     "eslint": {
       "version": "1.10.1",
@@ -2768,9 +2768,9 @@
       "resolved": "https://registry.npmjs.org/js-tokens/-/js-tokens-1.0.2.tgz"
     },
     "js-yaml": {
-      "version": "3.4.3",
+      "version": "3.4.4",
       "from": "js-yaml@>=3.4.3 <4.0.0",
-      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.4.3.tgz",
+      "resolved": "https://registry.npmjs.org/js-yaml/-/js-yaml-3.4.4.tgz",
       "dependencies": {
         "esprima": {
           "version": "2.7.0",
@@ -6309,9 +6309,9 @@
       }
     },
     "tap-out": {
-      "version": "1.3.2",
+      "version": "1.4.1",
       "from": "tap-out@>=1.3.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/tap-out/-/tap-out-1.3.2.tgz"
+      "resolved": "https://registry.npmjs.org/tap-out/-/tap-out-1.4.1.tgz"
     },
     "tap-parser": {
       "version": "0.7.0",
@@ -6408,16 +6408,8 @@
       "resolved": "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-1.0.1.tgz"
     },
     "tiny-error": {
-      "version": "0.2.2",
-      "from": "tiny-error@>=0.2.1 <0.3.0",
-      "resolved": "https://registry.npmjs.org/tiny-error/-/tiny-error-0.2.2.tgz",
-      "dependencies": {
-        "object-assign": {
-          "version": "3.0.0",
-          "from": "object-assign@>=3.0.0 <4.0.0",
-          "resolved": "https://registry.npmjs.org/object-assign/-/object-assign-3.0.0.tgz"
-        }
-      }
+      "version": "0.2.3",
+      "from": "tiny-error@>=0.2.1 <0.3.0"
     },
     "tiny-lr": {
       "version": "0.1.7",
