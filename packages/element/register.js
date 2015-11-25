@@ -30,19 +30,19 @@ const arrayFrom = require('array-from');
   *     HTMLElement?  : Function,
   *   }) => void
   */
-export default ({logger, document, HTMLElement}) => {
+module.exports = (options) => {
   const doc = (
-    document ||
+    options.document ||
     (typeof window !== 'undefined' && window.document)
   );
 
-  const log = (
-    logger ||
+  const logger = (
+    options.logger ||
     (typeof window !== 'undefined' && window.console)
   );
 
   const basePrototype = (
-    HTMLElement ||
+    options.HTMLElement ||
     (typeof window !== 'undefined' && window.HTMLElement)
   ).prototype;
 
@@ -53,7 +53,7 @@ export default ({logger, document, HTMLElement}) => {
       else setImmediate(() => {
         const asyncSvg = this.querySelector('svg');
         if (asyncSvg) this._init(asyncSvg);
-        else log.warn(
+        else logger.warn(
           '<parametric-svg>:  Couldn’t find an <svg> element in ', this
         );
       });
@@ -69,7 +69,7 @@ export default ({logger, document, HTMLElement}) => {
 
     _update() {
       const variables = asObject(arrayFrom(this.attributes).map(
-        ({name, value}) => ({key: name, value})
+        (attribute) => ({key: attribute.name, value: attribute.value})
       ));
 
       patch(this._svg, this._ast, variables);

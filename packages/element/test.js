@@ -1,7 +1,7 @@
 require('.');
   // This registers the <parametric-svg> thing on the actual `document`.
 
-const register = require('./module/register');
+const register = require('./register');
 
 const spec = require('tape-catch');
 const repeat = require('repeat-element');
@@ -12,8 +12,11 @@ spec('Registers the <parametric-svg> element', (test) => {
   const HTMLElement = () => {};
 
   const registerElement = (
-    name, {prototype, extends: extendsArg = null}
+    name, options
   ) => {
+    const prototype = options.prototype;
+    const extendsArg = options.extends || null;
+
     test.pass(
       'taking a custom implementation of `document`'
     );
@@ -170,7 +173,7 @@ spec('Warns when no <svg> is inside', (test) => {
   }};
 
   const document = {
-    registerElement: (_, {prototype}) => prototype.createdCallback(),
+    registerElement: (_, options) => options.prototype.createdCallback(),
   };
 
   const logger = {warn(message) {
