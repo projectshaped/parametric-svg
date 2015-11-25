@@ -3,7 +3,6 @@
   "scripts": {
     "bootstrap": "node scripts/bootstrap.js",
     "build-all": "node scripts/build-all.js",
-    "postinstall": "npm run bootstrap",
     "release": "node scripts/release.js",
     "reshrinkwrap": "rm -rf node_modules && rm -f npm-shrinkwrap.json packages/*/node_modules && npm install && npm shrinkwrap --dev",
     "sync-dependencies": "node scripts/sync-dependencies.js",
