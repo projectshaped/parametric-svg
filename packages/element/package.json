@@ -5,6 +5,7 @@
   "dependencies": {
     "array-from": "^2.0.2",
     "as": "^0.4.1",
+    "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.2.0",
     "object-assign": "^4.0.1",
     "@parametric-svg/parse": "1.2.2",
@@ -15,11 +16,17 @@
     "develop": "hihat test.js -- --plugin=tap-dev-tool",
     "lint": "eslint .",
     "readme": "dox --raw < module/register.js | doxie --render --inject",
-    "test": "eslint . && npm run test:lite"
+    "test": "eslint . && npm run test:lite",
+    "test:lite": "browserify test.js | testron | tap-spec"
   },
   "browserify": {
     "transform": [
-      "babelify"
+      [
+        "babelify",
+        {
+          "presets": "es2015"
+        }
+      ]
     ]
   },
   "files": [
