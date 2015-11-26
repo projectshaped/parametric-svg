@@ -4,6 +4,7 @@
   "license": "MIT",
   "author": "Tomek Wiszniewski <t.wiszniewski@gmail.com> (https://github.com/tomekwi)",
   "scripts": {
+    "deploy": "firebase deploy",
     "start": "concurrent \"npm run start:serve\" \"npm run start:open\"",
     "start:open": "sleepms 1000 && opn http://localhost:9281",
     "start:serve": "cd app && superstatic --live --port 9281"
