@@ -1,5 +1,5 @@
-<a                                                                    id="/"></a
->[![Stability: experimental
+<a                                                                  id="/"></a>
+[![Stability: experimental
 ](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square
 )](https://nodejs.org/api/documentation.html#documentation_stability_index
 ) [![Code style: airbnb
