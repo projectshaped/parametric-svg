@@ -1,16 +1,4 @@
-<a                                                                  id="/"></a>
-[![Stability: experimental
-](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square
-)](https://nodejs.org/api/documentation.html#documentation_stability_index
-) [![Code style: airbnb
-](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square
-)](https://github.com/airbnb/javascript
-)
-
-
-
-
-<h1 align="center">
+<h1 align="center" id="/">
   <img
     alt="&gt;parametric-svg&lt;"
     src="https://cdn.rawgit.com/parametric-svg/identity/v1.1.0/logo/html.svg"
@@ -18,6 +6,14 @@
     height="190"
   />
 </h1>
+
+[![Stability: experimental
+](https://img.shields.io/badge/stability-experimental-yellow.svg?style=flat-square
+)](https://nodejs.org/api/documentation.html#documentation_stability_index
+) [![Code style: airbnb
+](https://img.shields.io/badge/code%20style-airbnb-777777.svg?style=flat-square
+)](https://github.com/airbnb/javascript
+)
 
 **Parametric 2D graphics. As a custom HTML element.**
 
