@@ -43,7 +43,6 @@
     "eslint-config-airbnb": "^1.0.0",
     "firebase-tools": "^2.1.0",
     "format-date": "^0.0.1",
-    "hihat": "^2.5.0",
     "hostr": "^2.2.10",
     "isomorphic-ensure": "^1.0.1",
     "istanbul": "^0.4.0",
