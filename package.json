@@ -5,7 +5,8 @@
     "build-all": "node scripts/build-all.js",
     "debootstrap": "node scripts/debootstrap.js",
     "release": "node scripts/release.js",
-    "reshrinkwrap": "rm -rf node_modules && rm -f npm-shrinkwrap.json packages/*/node_modules && npm install && npm shrinkwrap --dev",
+    "reshrinkwrap": "rm -f npm-shrinkwrap.json && npm shrinkwrap --dev && git reset && git commit -m \"[npm run reshrinkwrap] Update the shrinkwrap\"",
+    "update-dependencies": "rm -rf node_modules && rm -f npm-shrinkwrap.json && npm install npm@^3.5.2 && npm install && npm run reshrinkwrap",
     "sync-dependencies": "node scripts/sync-dependencies.js",
     "test": "node scripts/test-all.js"
   },
@@ -51,7 +52,7 @@
     "minimist": "^1.2.0",
     "mkdirp": "^0.5.1",
     "nodangel": "^1.3.8",
-    "npm": "^3.5.0",
+    "npm": "^3.5.2",
     "opn-cli": "^1.0.0",
     "ord": "^0.1.1",
     "pegjs": "^0.9.0",
