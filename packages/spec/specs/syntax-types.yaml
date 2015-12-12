@@ -10,6 +10,7 @@ tests:
         parametric:x="2.56"
         parametric:y="0.3802900"
         parametric:z="5.0"
+        parametric:width="100000000"
       />
     example_data: {}
     example_output: |
@@ -17,9 +18,11 @@ tests:
         parametric:x="2.56"
         parametric:y="0.3802900"
         parametric:z="5.0"
+        parametric:width="100000000"
         x="2.56"
         y="0.38029"
         z="5"
+        width="100000000"
       />
     ast:
       - address: []
@@ -40,6 +43,12 @@ tests:
         relation:
           - input: {}
             output: '5'
+      - address: []
+        name: width
+        dependencies: []
+        relation:
+          - input: {}
+            output: '100000000'
 
   - description: Static string values
     original: |
