@@ -5,6 +5,22 @@ const assign = require('object-assign');
 const asObject = require('as/object');
 const arrayFrom = require('array-from');
 
+const quotesTest = /^`.*`$/;
+function parseValue(value) {
+  if (quotesTest.test(value)) {
+    return value.slice(1, -1);
+  }
+
+  if (value === 'true') {
+    return 1;
+  }
+  if (value === 'false') {
+    return 0;
+  }
+
+  return Number(value);
+}
+
  /**
   * Register the `<parametric-svg>` element with custom settings
   *
@@ -69,7 +85,7 @@ module.exports = (options) => {
 
     _update() {
       const variables = asObject(arrayFrom(this.attributes).map(
-        (attribute) => ({key: attribute.name, value: attribute.value})
+        ({name, value}) => ({key: name, value: parseValue(value)})
       ));
 
       patch(this._svg, this._ast, variables);

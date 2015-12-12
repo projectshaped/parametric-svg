@@ -13,7 +13,7 @@
     "set-immediate-shim": "^1.0.1"
   },
   "scripts": {
-    "develop": "hihat test.js -- --plugin=tap-dev-tool",
+    "develop": "nodangel --watch '*.js' --exec 'npm run --silent test:lite'",
     "lint": "eslint .",
     "readme": "dox --raw < module/register.js | doxie --render --inject",
     "test": "eslint . && npm run test:lite",

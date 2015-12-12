@@ -287,3 +287,43 @@ spec('Updates variables dynamically', (test) => {
     'but updates other attributes even so'
   );
 });
+
+spec('Supports different types of values', (test) => {
+  document.body.innerHTML = `
+    <parametric-svg>
+      <svg>
+        <rect
+          parametric:x="left"
+          parametric:y="down ? 10 : -10"
+          parametric:fill="color"
+          />
+      </svg>
+    </parametric-svg>
+  `;
+
+  const rect = document.body.querySelector('rect');
+  const parametricSvg = document.body.querySelector('parametric-svg');
+
+  parametricSvg.setAttribute('left', '5');
+  test.equal(
+    rect.getAttribute('x'),
+    '5',
+    'numbers'
+  );
+
+  parametricSvg.setAttribute('down', 'false');
+  test.equal(
+    rect.getAttribute('y'),
+    '-10',
+    'booleans'
+  );
+
+  parametricSvg.setAttribute('color', '`green`');
+  test.equal(
+    rect.getAttribute('fill'),
+    'green',
+    'strings'
+  );
+
+  test.end();
+});
