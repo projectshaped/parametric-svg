@@ -37,7 +37,9 @@ Once you’ve set the `xmlns:parametric` thing, you can use the namespace on att
 ```
 
 
-###                                                    <a id="/usage/html5"></a> A note about HTML5                                                               ###
+<h3 id="/usage/html5">
+  A note about HTML5
+</h3>
 
 HTML5 is not namespace-aware. Prefixing your parametric attribute or element with `parametric:` is enough – you don’t need to declare the `xmlns:parametric` thing beforehand.
 
@@ -66,7 +68,9 @@ Syntax
 A parametric attribute works like a calculated spreadsheet cell (one with a `=` in front). It can contain any mathematical expression, as long as it keeps to the rules below.
 
 
-###                                               <a id="/syntax/operators"></a> Operators                                                                        ###
+<h3 id="/syntax/operators">
+  Operators
+</h3>
 
 We have operators for all common arithmetic operations such as addition and multiplication. We use conventional infix notation for operators: an operator is placed between its arguments.
 
@@ -115,7 +119,9 @@ Operator    | Name                    | Syntax      | Associativity | Example   
 `>=`        | Largereq                | `x >= y`    | Left to right | `2 + 4 >= 6      ? 1 : 0`  | `1`
 
 
-###                                               <a id="/syntax/variables"></a> Variables                                                                        ###
+<h3 id="/syntax/variables">
+  Variables
+</h3>
 
 A variable is like a spreadsheet cell with a static value (without a `=` in front). You can set your own variables and reference them from parametric attributes – much like you reference a value from a spreadsheet cell.
 
@@ -142,7 +148,9 @@ How you assign values to your variables depends on the implementation you’re u
 [\<parametric-svg\>]:  https://www.npmjs.com/package/@parametric-svg/element
 
 
-###                                                   <a id="/syntax/types"></a> Data types                                                                       ###
+<h3 id="/syntax/types">
+  Data types
+</h3>
 
 A parametric attributes can result in two types of values:
 
@@ -163,7 +171,9 @@ In addition, you can use one more type of value internally in your variables and
 [Template strings]:   #/syntax/template-strings
 
 
-###                                        <a id="/syntax/template-strings"></a> Template strings                                                                 ###
+<h3 id="/syntax/template-strings">
+  Template strings
+</h3>
 
 You can embed any expression in your string. Just put it between a `${` and a `}` – we’ll evaluate it and insert the result into your string. You may know this syntax [from ES 2015][].
 
@@ -174,7 +184,9 @@ If you ever need to display the raw sequence of characters `${` in your string a
 [from ES 2015]:   https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
 
 
-###                                                 <a id="/syntax/credits"></a> Credits                                                                          ###
+<h3 id="/syntax/credits">
+  Credits
+</h3>
 
 The original parametric.svg parser uses [mathjs][] under the hood. We’ve ripped a lot of this specification off their specs. All credits go to the fine [developers of mathjs][].
 
