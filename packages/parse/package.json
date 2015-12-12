@@ -17,7 +17,7 @@
     "browser-test:open": "opn http://localhost:9036",
     "browser-test:watch": "webpack --watch",
     "coverage": "rm -rf coverage && istanbul cover test.js",
-    "develop": "nodangel --ignore node_modules --ignore coverage --watch ../spec/specs --ext js,yaml --exec 'npm run --silent test:lite'",
+    "develop": "nodangel --ignore node_modules --ignore coverage --watch ../spec/specs --watch . --ext js,yaml --exec 'npm run --silent test:lite'",
     "test": "eslint . && npm run test:lite",
     "test:lite": "node test.js | tap-spec",
     "view-coverage": "echo 'Generating coverage reports...'; npm run coverage >/dev/null && echo '...done.' && opn ./coverage/lcov-report/index.html >/dev/null"
