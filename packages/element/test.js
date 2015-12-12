@@ -289,8 +289,6 @@ spec('Updates variables dynamically', (test) => {
 });
 
 spec('Supports different types of values', (test) => {
-  test.plan(4);
-
   document.body.innerHTML = `
     <parametric-svg>
       <svg>
@@ -326,4 +324,6 @@ spec('Supports different types of values', (test) => {
     'green',
     'strings'
   );
+
+  test.end();
 });
