@@ -6,17 +6,17 @@ const asArray = require('as/array');
 const asObject = require('as/object');
 const includes = require('array-includes');
 
-const packages = require('./utilities/packages');
+const projects = require('./utilities/packages');
 
 const globalManifest = require('../package.json');
 const originalDependencies = globalManifest.dependencies;
 
 const serialize = (value) => JSON.stringify(value, null, 2) + '\n';
 
-// Pull local dependencies into global manifest.
-const ourPackageNames = packages.map(project => project.manifest.name);
+const ourPackageNames = projects.map(project => project.manifest.name);
 
-const dependencies = sortKeys(packages.reduce((target, project) => {
+// Pull local dependencies into global manifest.
+const dependencies = sortKeys(projects.reduce((target, project) => {
   const externalDependencies = asObject(
     asArray(project.manifest.dependencies)
       .filter(dependency => !includes(ourPackageNames, dependency.key))
@@ -33,7 +33,7 @@ fs.writeFileSync(
 );
 
 // Push global versions to local manifests.
-packages.forEach((project) => {
+projects.forEach((project) => {
   if (!project.manifest.dependencies) return;
 
   const newManifest = Object.assign({}, project.manifest);
