@@ -46,9 +46,7 @@ require('./utilities/packages').forEach(project => {
 
   if (dependencies) {
     const newDependencies = Object.keys(dependencies)
-      .reduce((target, dep) => Object.assign(
-        {},
-        target,
+      .reduce((target, dep) => Object.assign({}, target,
         {[dep]: (dep === packageName ?
           `^${versionNumber}` :
           dependencies[dep]
