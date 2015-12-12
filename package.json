@@ -38,7 +38,7 @@
     "doxie": "^0.2.3",
     "doxie.inject": "^0.1.1",
     "doxie.render": "^0.3.2",
-    "electron-prebuilt": "^0.35.1",
+    "electron-prebuilt": "^0.36.0",
     "eslint": "^1.6.0",
     "eslint-config-airbnb": "^1.0.0",
     "firebase-tools": "^2.1.0",
