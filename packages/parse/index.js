@@ -4,9 +4,12 @@ const PREFIX = 'parametric';
 const ast = require('@parametric-svg/ast');
 const arrayFrom = require('array-from');
 const startsWith = require('starts-with');
-const digest = require('@parametric-svg/expression-to-mathjs').parse;
-const parse = require('mathjs').parse;
+const parse = require('@parametric-svg/expression-to-mathjs').parse;
+const math = require('mathjs');
 const includes = require('array-includes');
+
+math.import({output: String});
+  // https://github.com/josdejong/mathjs/issues/483
 
 const ELEMENT_NODE = 1;
 
@@ -43,7 +46,7 @@ const crawl = (parentAddress) => (allAttributes, element, indexInParent) => {
     }, node))
 
     .map((attribute) => {
-      const expressionTree = parse(digest(attribute.value));
+      const expressionTree = math.parse(parse(attribute.value));
 
       const dependencies = [];
       expressionTree.traverse(node => {
