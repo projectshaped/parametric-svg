@@ -69,10 +69,10 @@ require('@parametric-svg/element');
 Otherwise you can drop our `<script>` from the fantastic *[wzrd.in][]* CDN anywhere in your HTML document:
 
 ```html
-<script src="https://wzrd.in/standalone/@parametric-svg/element@latest"></script>
+<script src="https://wzrd.in/standalone/@parametric-svg%2Felement@latest"></script>
 ```
 
-If you’re going the `<script>` way, remember to swap `latest` with a concrete version number in production. You can also download the script from https://wzrd.in/standalone/@parametric-svg/element@latest and serve it yourself.
+If you’re going the `<script>` way, remember to swap `latest` with a concrete version number in production. You can also download the script from https://wzrd.in/standalone/@parametric-svg%2Felement@latest and serve it yourself.
 
 If it still doesn’t work, have a look at our [note about browser support](#/browser-support).
 
