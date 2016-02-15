@@ -64,6 +64,18 @@
     transform="translate(40,170)"
     >
     <path
+      inkscape:label="Force A"
+      parametric:d="`
+        M 0,0
+          0,${f * (1 - a / 480)}
+      `"
+      d="
+        M 0,0
+          0,64.58333333333333
+      "
+      class="force"
+    />
+    <path
       inkscape:label="Force B"
       parametric:d="`
         m ${a},0
@@ -76,18 +88,6 @@
       class="force"
     />
     <path
-      inkscape:label="Force A"
-      parametric:d="`
-        M 0,0
-          0,${f * (1 - a / 480)}
-      `"
-      d="
-        M 0,0
-          0,40
-      "
-      class="force"
-    />
-    <path
       inkscape:label="Force C"
       parametric:d="`
         M 480,0
@@ -95,7 +95,7 @@
       `"
       d="
         M 480,0
-          480,60
+          480,35.416666666666664
       "
       class="force"
     />
@@ -126,10 +126,10 @@
       `"
       d="
         M 0,0
-          0,-140
-          170,-140
-          170,60
-          480,60
+          0,-64.58333333333333
+          170,-64.58333333333333
+          170,35.416666666666664
+          480,35.416666666666664
           480,0
       "
     />
@@ -143,7 +143,7 @@
     transform="translate(40,670)"
     >
     <path
-      inkscape:label="Graph"
+      inkscape:label="Momentum graph"
       parametric:d="`
         M 0,0
           ${a},${(f * (1 - a / 480) * a) / 100}
@@ -151,8 +151,7 @@
       `"
       d="
         M 0,0
-          170,107.2
-          480,33.3
+          170,109.79166666666666
           480,0
       "
       class="graph"
