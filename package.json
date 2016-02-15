@@ -41,6 +41,7 @@
     "electron-prebuilt": "^0.36.0",
     "eslint": "^1.6.0",
     "eslint-config-airbnb": "^1.0.0",
+    "firebase": "^2.4.0",
     "firebase-tools": "^2.1.0",
     "format-date": "^0.0.1",
     "hostr": "^2.2.10",
