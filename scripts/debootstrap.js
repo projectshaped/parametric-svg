@@ -7,10 +7,7 @@ const packages = require('./utilities/packages');
 const projectRoot = `${__dirname}/..`;
 
 console.log('\nUnlinking our packages…');
-packages.forEach(project => {
-  const target = `${projectRoot}/node_modules/${project.manifest.name}`;
-  rm('-f', target);
-});
+rm('-f', `${projectRoot}/node_modules/@parametric-svg`);
 console.log('…done.');
 
 console.log(`\nUnlinking node_modules folders…`);
