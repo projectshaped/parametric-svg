@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "bootstrap": "node scripts/bootstrap.js",
+    "bootstrap": "bash -e scripts/bootstrap.sh",
     "build-all": "node scripts/build-all.js",
-    "debootstrap": "node scripts/debootstrap.js",
+    "debootstrap": "bash -e scripts/debootstrap.sh",
     "release": "node scripts/release.js",
     "reshrinkwrap": "rm -f npm-shrinkwrap.json && npm shrinkwrap --dev && git commit -m \"[npm run reshrinkwrap] Update the shrinkwrap\" npm-shrinkwrap.json package.json",
     "update-dependencies": "rm -rf node_modules && rm -f npm-shrinkwrap.json && npm install npm@^3.5.2 && npm install && npm run reshrinkwrap",
