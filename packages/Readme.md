@@ -1,4 +1,4 @@
-#  😒&ensp;A monorepo, you say?
+# A monorepo, you say?
 
 All our official npm packages are in this repo.
 
