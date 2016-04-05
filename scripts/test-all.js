@@ -1,4 +1,4 @@
-#! /usr/env babel-node
+#! /usr/bin/env babel-node
 
 const basename = require('path').basename;
 const exec = require('./utilities/exec');

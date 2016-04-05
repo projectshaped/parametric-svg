@@ -1,4 +1,4 @@
-#! /usr/env node
+#! /usr/bin/env node
 
 const packages = require('./utilities/packages');
 const exec = require('./utilities/exec');

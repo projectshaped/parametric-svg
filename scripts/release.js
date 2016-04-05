@@ -1,4 +1,4 @@
-#! /usr/env node
+#! /usr/bin/env node
 
 const _shelljs = require('shelljs');
 const exit = _shelljs.exit;
