@@ -1,6 +1,6 @@
 {
   "name": "@parametric-svg/parse",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "A JS-based parser for parametric.svg graphics",
   "dependencies": {
     "@parametric-svg/ast": "^1.0.1",

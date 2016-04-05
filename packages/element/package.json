@@ -3,7 +3,7 @@
   "version": "1.2.4",
   "description": "Parametric 2D graphics. As a custom element (aka Web Component).",
   "dependencies": {
-    "@parametric-svg/parse": "^1.2.4",
+    "@parametric-svg/parse": "^1.2.5",
     "@parametric-svg/patch": "^1.2.3",
     "array-from": "^2.0.2",
     "as": "^0.4.1",

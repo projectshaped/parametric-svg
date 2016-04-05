@@ -3,7 +3,7 @@
   "version": "1.2.3",
   "description": "Update a parametric SVG element with new data. A low-level library.",
   "dependencies": {
-    "@parametric-svg/parse": "^1.2.4",
+    "@parametric-svg/parse": "^1.2.5",
     "array-from": "^2.0.2"
   },
   "scripts": {
