@@ -1,6 +1,6 @@
 {
   "name": "@parametric-svg/expression-to-mathjs",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Convert a parametric.svg expression to a mathjs expression",
   "dependencies": {
     "flatten": "^0.0.1"
