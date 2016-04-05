@@ -28,7 +28,10 @@ compoundExpression
     }
 
 string
-  = '`'
+  = '``'
+    { return '""';
+    }
+  / '`'
     parts: ( rawString? ( templateStringExpression rawString? )* )
     '`'
     { var flatParts = squash(parts);

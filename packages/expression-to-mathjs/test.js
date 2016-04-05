@@ -133,6 +133,12 @@ spec('Mathematical expressions', (test) => {
 
 spec('Simple strings', (test) => {
   test.equal(
+    parse('``'),
+    '""',
+    'empty string'
+  );
+
+  test.equal(
     parse('`green`'),
     '"green"',
     'very simple'
