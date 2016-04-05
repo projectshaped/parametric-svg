@@ -4,6 +4,25 @@ link: ../Readme.md#/syntax/template-strings
 mode: Element
 
 tests:
+  - description: An empty string
+    original: |
+      <path
+        parametric:d="``"
+      />
+    example_data: {}
+    example_output: |
+      <path
+        parametric:d="``"
+        d=""
+      />
+    ast:
+      - address: []
+        name: d
+        dependencies: []
+        relation:
+          - input: {}
+            output: ""
+
   - description: A static value
     original: |
       <path
