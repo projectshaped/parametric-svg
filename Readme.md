@@ -14,6 +14,16 @@
 
 
 
+<a id="/in-the-wild"></a>&nbsp;
+
+## In the wild
+
+* The fabulous folks at [flone.cc](http://flone.cc) have used the idea to build an open source drone!
+* A bunch of educational engineering charts are available at [parametric-svg-demo.firebaseapp.com](https://parametric-svg-demo.firebaseapp.com/).
+
+
+
+
 <a id="/goals"></a>&nbsp;
 
 ## Goals
