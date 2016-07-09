@@ -9,6 +9,7 @@
     "as": "^0.4.1",
     "babel-preset-es2015": "^6.1.18",
     "babelify": "^7.2.0",
+    "global": "^4.3.0",
     "object-assign": "^4.0.1",
     "set-immediate-shim": "^1.0.1"
   },
