@@ -71,6 +71,7 @@
     "tape": "^4.2.1",
     "tape-catch": "^1.0.4",
     "tape-run": "^2.1.4",
+    "timeout-as-promise": "^1.0.0",
     "tosource": "^1.0.0",
     "webpack": "^1.12.2",
     "xmldom": "^0.1.19"

@@ -6941,6 +6941,11 @@
       "from": "timed-out@>=2.0.0 <3.0.0",
       "resolved": "https://registry.npmjs.org/timed-out/-/timed-out-2.0.0.tgz"
     },
+    "timeout-as-promise": {
+      "version": "1.0.0",
+      "from": "timeout-as-promise@latest",
+      "resolved": "https://registry.npmjs.org/timeout-as-promise/-/timeout-as-promise-1.0.0.tgz"
+    },
     "timers-browserify": {
       "version": "1.4.2",
       "from": "timers-browserify@>=1.0.1 <2.0.0",
