@@ -1,0 +1,43 @@
+#! /bin/bash -e
+
+if test "$1" = '--help'; then echo "\
+Usage:
+  $0 [...<npm args>]
+  $0 --help
+
+  This is a proxy to npm. We’ll take care of bootstrapping and debootstrapping
+  the project, so that npm doesn’t get confused about it. We’ll also call
+  \`npm shrinkwrap\` afterwards.
+"; exit; fi
+
+
+scripts="$(dirname "$0")"
+project_root="$(dirname "$scripts")"
+npm="node_modules/.bin/npm"
+
+symlink='node_modules/@parametric-svg'
+symlink_cache='node_modules~/@parametric-svg'
+
+set -x
+  mkdir -p node_modules~
+  if test -L "$symlink"; then mv "$symlink" "$symlink_cache"; fi
+  "$project_root/$npm" $@
+
+  "$scripts/sync-dependencies"
+
+  cd "$project_root"
+  "$npm" shrinkwrap --dev
+  if test -L "$symlink_cache"; then mv "$symlink_cache" "$symlink"; fi
+set +x
+
+read \
+  -p 'Would you like us to commit the result? [y/n] ' \
+  -n 1 \
+  reply
+echo
+if test "$reply" = 'y'; then
+  git commit -m '[scripts/npm] Update dependencies' \
+    package.json \
+    packages/*/package.json \
+    npm-shrinkwrap.json
+fi
