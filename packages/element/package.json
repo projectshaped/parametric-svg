@@ -18,7 +18,7 @@
     "lint": "eslint .",
     "readme": "dox --raw < module/register.js | doxie --render --inject",
     "test": "eslint . && npm run test:lite",
-    "test:lite": "browserify test.js | testron | tap-spec"
+    "test:lite": "browserify test.js | tape-run | tap-spec"
   },
   "browserify": {
     "transform": [
