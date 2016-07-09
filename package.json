@@ -21,6 +21,7 @@
     "global": "^4.3.0",
     "mathjs": "^2.2.0",
     "object-assign": "^4.0.1",
+    "private-parts": "^0.4.1",
     "set-immediate-shim": "^1.0.1",
     "starts-with": "^1.0.2"
   },
