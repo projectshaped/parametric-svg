@@ -7,9 +7,16 @@ const spec = require('tape-catch');
 const repeat = require('repeat-element');
 
 spec('Registers the <parametric-svg> element', (test) => {
-  test.plan(6);
+  test.plan(7);
 
   const HTMLElement = () => {};
+  const MutationObserver = () => {
+    test.pass(
+      'with a custom implementation of `MutationObserver`'
+    );
+
+    return {observe: () => {}};
+  };
 
   const registerElement = (
     name, options
@@ -54,9 +61,13 @@ spec('Registers the <parametric-svg> element', (test) => {
       repeat(undefined, 3),
       '…and to no other lifecycle callback'
     );
+
+    options.prototype.createdCallback.apply({
+      querySelector: () => {},
+    });
   };
 
-  register({document: {registerElement}, HTMLElement});
+  register({document: {registerElement}, HTMLElement, MutationObserver});
 });
 
 spec('Works in a DOM structure created in one go', (test) => {
@@ -176,6 +187,8 @@ spec('Warns when no <svg> is inside', (test) => {
     registerElement: (_, options) => options.prototype.createdCallback(),
   };
 
+  const MutationObserver = () => ({observe: () => {}});
+
   const logger = {warn(message) {
     test.ok(
       /couldn’t find/i.test(message),
@@ -183,7 +196,7 @@ spec('Warns when no <svg> is inside', (test) => {
     );
   }};
 
-  register({document, HTMLElement, logger});
+  register({document, HTMLElement, logger, MutationObserver});
 });
 
 spec('Supports variables', (test) => {

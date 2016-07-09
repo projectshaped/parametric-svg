@@ -32,52 +32,53 @@ function parseValue(value) {
   *
   * - `logger` – A custom logger. Default: `window.console`.
   *
-  * - `document` – A custom implementation of `document` – for headless tests
-  *   or something. Default: `window.document`
+  * - `document` – A custom implementation of `document` – for running this
+  *   headlessly. Default: `window.document`.
   *
   * - `HTMLElement` – A custom HTMLElement constructor. If you’re passing
   *   a `document`, you’ll probably want to pass this as well. Default:
   *   `window.HTMLElement`.
   *
+  * - `MutationObserver` – Same story here. Default: `window.MutationObserver`.
+  *
   * @jsig
   *   register(options: {
-  *     logger?       : {warn: Function},
-  *     document?     : Document,
-  *     HTMLElement?  : Function,
+  *     logger?             : {warn: Function},
+  *     document?           : Document,
+  *     HTMLElement?        : Function,
+  *     MutationObserver?   : Function,
   *   }) => void
   */
 module.exports = (options) => {
-  const doc = (
-    options.document ||
-    (typeof window !== 'undefined' && window.document)
-  );
+  const document = options.document || window.document;
+  const logger = options.logger || window.console;
+  const HTMLElement = options.HTMLElement || window.HTMLElement;
+  const MutationObserver = options.MutationObserver || window.MutationObserver;
 
-  const logger = (
-    options.logger ||
-    (typeof window !== 'undefined' && window.console)
-  );
-
-  const basePrototype = (
-    options.HTMLElement ||
-    (typeof window !== 'undefined' && window.HTMLElement)
-  ).prototype;
-
-  const prototype = assign(Object.create(basePrototype), {
+  const prototype = assign(Object.create(HTMLElement.prototype), {
     createdCallback() {
       const syncSvg = this.querySelector('svg');
-      if (syncSvg) this._init(syncSvg);
+      if (syncSvg) this._parseSvg(syncSvg);
       else setImmediate(() => {
         const asyncSvg = this.querySelector('svg');
-        if (asyncSvg) this._init(asyncSvg);
+        if (asyncSvg) this._parseSvg(asyncSvg);
         else logger.warn(
           '<parametric-svg>:  Couldn’t find an <svg> element in ', this
         );
+      });
+
+      const observer = new MutationObserver(() => {
+        this._parseSvg(this.querySelector('svg'));
+      });
+      observer.observe(this, {
+        childList: true,
+        subtree: true,
       });
     },
 
     attributeChangedCallback() { this._update(); },
 
-    _init(svg) {
+    _parseSvg(svg) {
       this._svg = svg;
       this._ast = parse(this._svg);
       this._update();
@@ -92,5 +93,5 @@ module.exports = (options) => {
     },
   });
 
-  doc.registerElement('parametric-svg', {prototype});
+  document.registerElement('parametric-svg', {prototype});
 };

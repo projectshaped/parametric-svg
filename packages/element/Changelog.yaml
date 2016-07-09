@@ -1,2 +1,7 @@
+master:
+  new features:
+    - We now allow to change the contents of the `<parametric-svg>` dynamically
+      after it had been initialized.
+
 1.2.5:
   note: Hello yankee!
