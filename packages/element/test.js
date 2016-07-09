@@ -90,6 +90,29 @@ spec('Works in a DOM structure created in one go', (test) => {
   );
 });
 
+spec('Allows dynamic changes to attributes', (test) => {
+  test.plan(1);
+
+  document.body.innerHTML = `
+    <parametric-svg l="50">
+      <svg>
+        <rect parametric:x="l" />
+      </svg>
+    </parametric-svg>
+  `;
+  const rect = document.querySelector('rect');
+
+  delay(100).then(() => {
+    rect.setAttribute('parametric:x', '2 * l');
+  }).then(() => {
+    test.equal(
+      rect.getAttribute('x'),
+      '100',
+      'changing attributes'
+    );
+  });
+});
+
 spec('Allows dynamic changes to DOM tree', (test) => {
   test.plan(1);
 
@@ -110,12 +133,6 @@ spec('Allows dynamic changes to DOM tree', (test) => {
 
     return delay(100, {circle});
   }).then(({circle}) => {
-    test.equal(
-      rect.getAttribute('x'),
-      '100',
-      'changing attributes'
-    );
-
     test.equal(
       circle.getAttribute('r'),
       '50',

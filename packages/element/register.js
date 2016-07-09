@@ -77,11 +77,16 @@ module.exports = (options) => {
 
       parseContents();
 
+      let parsedInThisFrame = false;
       const observer = new MutationObserver(() => {
+        if (parsedInThisFrame) return;
         parseContents();
+        parsedInThisFrame = true;
+        requestAnimationFrame(() => {parsedInThisFrame = false;});
       });
       observer.observe(this, {
         childList: true,
+        attributes: true,
         subtree: true,
       });
     },
