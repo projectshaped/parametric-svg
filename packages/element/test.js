@@ -5,6 +5,7 @@ const register = require('./register');
 
 const spec = require('tape-catch');
 const repeat = require('repeat-element');
+const delay = require('timeout-as-promise');
 
 spec('Registers the <parametric-svg> element', (test) => {
   test.plan(7);
@@ -87,6 +88,40 @@ spec('Works in a DOM structure created in one go', (test) => {
     '50',
     'synchronously'
   );
+});
+
+spec('Allows dynamic changes to DOM tree', (test) => {
+  test.plan(1);
+
+  document.body.innerHTML = `
+    <parametric-svg l="50">
+      <svg>
+        <rect parametric:x="l" />
+      </svg>
+    </parametric-svg>
+  `;
+  const svg = document.querySelector('svg');
+
+  delay(100).then(() => {
+    const circle =
+      document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+    circle.setAttribute('parametric:r', 'l');
+    svg.appendChild(circle);
+
+    return delay(100, {circle});
+  }).then(({circle}) => {
+    test.equal(
+      rect.getAttribute('x'),
+      '100',
+      'changing attributes'
+    );
+
+    test.equal(
+      circle.getAttribute('r'),
+      '50',
+      'adding elements'
+    );
+  });
 });
 
 spec('Works in a DOM structure built up programatically', (test) => {
