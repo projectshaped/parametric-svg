@@ -176,29 +176,6 @@ spec('Works with a nested SVG', (test) => {
   );
 });
 
-spec('Warns when no <svg> is inside', (test) => {
-  test.plan(1);
-
-  const HTMLElement = {prototype: {
-    querySelector: (selector) => (selector === 'svg' ? null : {}),
-  }};
-
-  const document = {
-    registerElement: (_, options) => options.prototype.createdCallback(),
-  };
-
-  const MutationObserver = () => ({observe: () => {}});
-
-  const logger = {warn(message) {
-    test.ok(
-      /couldn’t find/i.test(message),
-      'prints a helpful warning'
-    );
-  }};
-
-  register({document, HTMLElement, logger, MutationObserver});
-});
-
 spec('Supports variables', (test) => {
   test.plan(1);
 

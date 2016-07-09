@@ -1,9 +1,11 @@
 const parse = require('@parametric-svg/parse');
 const patch = require('@parametric-svg/patch');
-const setImmediate = require('set-immediate-shim');
 const assign = require('object-assign');
 const asObject = require('as/object');
 const arrayFrom = require('array-from');
+const privateParts = require('private-parts');
+
+const _ = privateParts.createKey();
 
 const quotesTest = /^`.*`$/;
 function parseValue(value) {
@@ -43,7 +45,6 @@ function parseValue(value) {
   *
   * @jsig
   *   register(options: {
-  *     logger?             : {warn: Function},
   *     document?           : Document,
   *     HTMLElement?        : Function,
   *     MutationObserver?   : Function,
@@ -51,24 +52,33 @@ function parseValue(value) {
   */
 module.exports = (options) => {
   const document = options.document || window.document;
-  const logger = options.logger || window.console;
   const HTMLElement = options.HTMLElement || window.HTMLElement;
   const MutationObserver = options.MutationObserver || window.MutationObserver;
 
   const prototype = assign(Object.create(HTMLElement.prototype), {
     createdCallback() {
-      const syncSvg = this.querySelector('svg');
-      if (syncSvg) this._parseSvg(syncSvg);
-      else setImmediate(() => {
-        const asyncSvg = this.querySelector('svg');
-        if (asyncSvg) this._parseSvg(asyncSvg);
-        else logger.warn(
-          '<parametric-svg>:  Couldn’t find an <svg> element in ', this
-        );
-      });
+      let svg;
+      let ast;
+
+      _(this).update = () => {
+        const variables = asObject(arrayFrom(this.attributes).map(
+          ({name, value}) => ({key: name, value: parseValue(value)})
+        ));
+
+        patch(svg, ast, variables);
+      };
+
+      const parseContents = () => {
+        svg = this.querySelector('svg');
+        if (!svg) return;
+        ast = parse(svg);
+        _(this).update();
+      };
+
+      parseContents();
 
       const observer = new MutationObserver(() => {
-        this._parseSvg(this.querySelector('svg'));
+        parseContents();
       });
       observer.observe(this, {
         childList: true,
@@ -76,21 +86,7 @@ module.exports = (options) => {
       });
     },
 
-    attributeChangedCallback() { this._update(); },
-
-    _parseSvg(svg) {
-      this._svg = svg;
-      this._ast = parse(this._svg);
-      this._update();
-    },
-
-    _update() {
-      const variables = asObject(arrayFrom(this.attributes).map(
-        ({name, value}) => ({key: name, value: parseValue(value)})
-      ));
-
-      patch(this._svg, this._ast, variables);
-    },
+    attributeChangedCallback() { _(this).update(); },
   });
 
   document.registerElement('parametric-svg', {prototype});
