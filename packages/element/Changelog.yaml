@@ -1,6 +1,8 @@
-master:
+1.3.0:
+  date: 2016-07-09
   new features:
-    - We now allow to change the contents of the `<parametric-svg>` dynamically
+    - >-
+      We now allow to change the contents of the `<parametric-svg>` dynamically
       after it had been initialized.
 
 1.2.5:
