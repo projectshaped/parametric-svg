@@ -61,6 +61,8 @@ module.exports = (options) => {
       let ast;
 
       _(this).update = () => {
+        if (!svg) return;
+
         const variables = asObject(arrayFrom(this.attributes).map(
           ({name, value}) => ({key: name, value: parseValue(value)})
         ));

@@ -369,3 +369,14 @@ spec('Supports different types of values', (test) => {
 
   test.end();
 });
+
+spec((
+  'Doesn’t crash when setting an attribute when no <svg> is inside'
+), (test) => {
+  const parametricSvg = document.createElement('parametric-svg');
+  parametricSvg.setAttribute('class', 'whatever');
+  test.pass(
+    'doesn’t throw an error'
+  );
+  test.end();
+});
