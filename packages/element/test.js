@@ -151,7 +151,7 @@ spec('Allows dynamic changes to DOM tree', (test) => {
 });
 
 spec('Works in a DOM structure built up programatically', (test) => {
-  test.plan(4);
+  test.plan(3);
 
   setTimeout(() => {
     // For reliable, consistent results this spec must fire after the initial
@@ -183,18 +183,12 @@ spec('Works in a DOM structure built up programatically', (test) => {
         'within a single animation frame'
       );
 
-      test.equal(
-        circle.getAttribute('cx'),
-        '0',
-        'throttles other updates'
-      );
-
       return waitForNextFrame();
     }).then(() => {
       test.equal(
         circle.getAttribute('cx'),
         String(3 * 3),
-        'and applies them in the next animation frame'
+        'throttles other updates until the next animation frame at the latest'
       );
     });
   });
