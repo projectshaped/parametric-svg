@@ -1,14 +1,20 @@
-require('.');
-  // This registers the <parametric-svg> thing on the actual `document`.
-
 require('setimmediate');
   // This shims `setImmediate`
-
-const register = require('./register');
 
 const spec = require('tape-catch');
 const repeat = require('repeat-element');
 const delay = require('timeout-as-promise');
+const sinon = require('sinon');
+
+const register = require('./register');
+
+const waitForNextFrame = () => new Promise((resolve) => {
+  requestAnimationFrame(resolve);
+});
+
+const recalculateCallback = sinon.spy();
+register({ recalculateCallback });
+  // This registers the <parametric-svg> thing on the actual `document`.
 
 spec('Registers the <parametric-svg> element', (test) => {
   test.plan(7);
@@ -170,7 +176,7 @@ spec('Works in a DOM structure built up programatically', (test) => {
       'updates asynchronously'
     );
 
-    requestAnimationFrame(() => {
+    waitForNextFrame().then(() => {
       test.equal(
         circle.getAttribute('r'),
         String(2 * (3 + 5)),
@@ -183,13 +189,13 @@ spec('Works in a DOM structure built up programatically', (test) => {
         'throttles other updates'
       );
 
-      requestAnimationFrame(() => {
-        test.equal(
-          circle.getAttribute('cx'),
-          String(3 * 3),
-          'and applies them in the next animation frame'
-        );
-      });
+      return waitForNextFrame();
+    }).then(() => {
+      test.equal(
+        circle.getAttribute('cx'),
+        String(3 * 3),
+        'and applies them in the next animation frame'
+      );
     });
   });
 });
@@ -207,7 +213,7 @@ spec('Only affects the first child SVG', (test) => {
       </svg>
 
       <div><svg>
-          <circle parametric:r="70" r="5" />
+        <circle parametric:r="70" r="5" />
       </svg></div>
     </parametric-svg>
   `;
@@ -309,7 +315,7 @@ spec('Only updates a parameter when all variables are defined', (test) => {
 });
 
 spec('Updates variables dynamically', (test) => {
-  test.plan(4);
+  test.plan(5);
 
   document.body.innerHTML = `
     <parametric-svg>
@@ -319,36 +325,50 @@ spec('Updates variables dynamically', (test) => {
     </parametric-svg>
   `;
 
+  recalculateCallback.reset();
+
   const rect = document.body.querySelector('rect');
   const parametricSvg = document.body.querySelector('parametric-svg');
 
-  parametricSvg.setAttribute('a', '5');
-  test.equal(
-    rect.getAttribute('x'),
-    '5',
-    'updates parametric attributes synchronously'
-  );
+  waitForNextFrame().then(() => {
+    parametricSvg.setAttribute('a', '5');
+    test.equal(
+      rect.getAttribute('x'),
+      '5',
+      'updates parametric attributes synchronously'
+    );
 
-  parametricSvg.setAttribute('a', '15');
-  test.equal(
-    rect.getAttribute('x'),
-    '15',
-    'does it repeatedly'
-  );
+    return waitForNextFrame();
+  }).then(() => {
+    parametricSvg.setAttribute('a', '15');
+    test.equal(
+      rect.getAttribute('x'),
+      '15',
+      'does it repeatedly'
+    );
 
-  parametricSvg.removeAttribute('a');
-  parametricSvg.setAttribute('b', '8');
-  test.equal(
-    rect.getAttribute('x'),
-    '15',
-    'leaves an attribute as it when a dependency is removed'
-  );
+    parametricSvg.removeAttribute('a');
+    parametricSvg.setAttribute('b', '8');
+    test.equal(
+      rect.getAttribute('x'),
+      '15',
+      'leaves an attribute as it when a dependency is removed'
+    );
 
-  test.equal(
-    rect.getAttribute('y'),
-    '8',
-    'but updates other attributes even so'
-  );
+    test.equal(
+      rect.getAttribute('y'),
+      '8',
+      'but updates other attributes even so'
+    );
+
+    return waitForNextFrame();
+  }).then(() => {
+    test.equal(
+      recalculateCallback.callCount,
+      0,
+      'does it efficiently, without reparsing the DOM tree'
+    );
+  });
 });
 
 spec('Supports different types of values', (test) => {
@@ -359,7 +379,7 @@ spec('Supports different types of values', (test) => {
           parametric:x="left"
           parametric:y="down ? 10 : -10"
           parametric:fill="color"
-          />
+        />
       </svg>
     </parametric-svg>
   `;

@@ -45,21 +45,24 @@ function parseValue(value) {
   *
   * @jsig
   *   register(options: {
-  *     document?           : Document,
-  *     HTMLElement?        : Function,
-  *     MutationObserver?   : Function,
+  *     document? : Document,
+  *     HTMLElement? : Function,
+  *     MutationObserver? : Function,
+  *     recalculateCallback? : Function,
   *   }) => void
   */
 module.exports = (options) => {
   const document = options.document || window.document;
   const HTMLElement = options.HTMLElement || window.HTMLElement;
   const MutationObserver = options.MutationObserver || window.MutationObserver;
+  const recalculateCallback = options.recalculateCallback || (() => {});
 
   const prototype = assign(Object.create(HTMLElement.prototype), {
     createdCallback() {
       let svg;
       let ast;
 
+      let justUpdated = false;
       _(this).update = () => {
         if (!svg) return;
 
@@ -68,22 +71,22 @@ module.exports = (options) => {
         ));
 
         patch(svg, ast, variables);
+        justUpdated = true;
       };
 
-      let justParsedContents = false;
       const parseContents = () => {
+        recalculateCallback();
         svg = this.querySelector('svg');
         if (!svg) return;
         ast = parse(svg);
         _(this).update();
-        justParsedContents = true;
       };
 
       let parsedInThisFrame = false;
       let changedAfterParsing = false;
       const observer = new MutationObserver(() => {
-        if (justParsedContents) {
-          justParsedContents = false;
+        if (justUpdated) {
+          justUpdated = false;
           return;
         }
 

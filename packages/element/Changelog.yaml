@@ -3,6 +3,8 @@ master:
     - >
       Fixed problem where subsequent updates to the DOM tree
       in the same animation frame were ignored.
+    - >
+      Improved performance of changing variables.
 
 1.3.1:
   date: 2016-07-09
