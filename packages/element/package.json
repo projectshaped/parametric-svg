@@ -12,7 +12,8 @@
     "global": "^4.3.0",
     "object-assign": "^4.0.1",
     "private-parts": "^0.4.1",
-    "set-immediate-shim": "^1.0.1"
+    "set-immediate-shim": "^1.0.1",
+    "setimmediate": "^1.0.4"
   },
   "scripts": {
     "develop": "nodangel --watch '*.js' --exec 'npm run --silent test:lite'",

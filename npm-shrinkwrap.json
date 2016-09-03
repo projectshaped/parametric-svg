@@ -6449,6 +6449,11 @@
       "from": "set-immediate-shim@>=1.0.1 <2.0.0",
       "resolved": "https://registry.npmjs.org/set-immediate-shim/-/set-immediate-shim-1.0.1.tgz"
     },
+    "setimmediate": {
+      "version": "1.0.4",
+      "from": "setimmediate@latest",
+      "resolved": "https://registry.npmjs.org/setimmediate/-/setimmediate-1.0.4.tgz"
+    },
     "setprototypeof": {
       "version": "1.0.0",
       "from": "setprototypeof@1.0.0",
