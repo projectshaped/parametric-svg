@@ -23,7 +23,6 @@
     "object-assign": "^4.0.1",
     "private-parts": "^0.4.1",
     "set-immediate-shim": "^1.0.1",
-    "setimmediate": "^1.0.4",
     "starts-with": "^1.0.2"
   },
   "devDependencies": {
@@ -63,6 +62,7 @@
     "raw-loader": "^0.5.1",
     "repeat-element": "^1.1.2",
     "rimraf": "^2.4.3",
+    "setimmediate": "^1.0.4",
     "shelljs": "^0.5.3",
     "sinon": "^1.17.5",
     "sleep-ms": "^2.0.0",
