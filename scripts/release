@@ -62,20 +62,8 @@ require('./utilities/packages').forEach(project => {
 });
 console.log('…done!');
 
-console.log('Updating the changelog…');
-const changelogPath = `${projectRoot}/Changelog.yaml`;
-const currentChangelog = fs.readFileSync(changelogPath, 'utf8');
-const newChangelog = currentChangelog
-  .replace(/^master:\n/, `${
-    versionNumber
-  }:\n  date:         ${
-    format('{year}-{month}-{day}', new Date())
-  }\n`);
-fs.writeFileSync(changelogPath, newChangelog, 'utf8');
-console.log('…done!');
-
 console.log('Committing changes…');
-exec(`git add packages/*/package.json Changelog.yaml`);
+exec(`git add packages/*/package.json packages/*/Changelog.yaml`);
 exec(`git commit --message='${packageName} ${versionNumber}'`);
 exec('git tag ' +
   '--annotate ' +
