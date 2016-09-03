@@ -64,6 +64,7 @@
     "repeat-element": "^1.1.2",
     "rimraf": "^2.4.3",
     "shelljs": "^0.5.3",
+    "sinon": "^1.17.5",
     "sleep-ms": "^2.0.0",
     "sort-keys": "^1.1.1",
     "superstatic": "^3.0.0",
