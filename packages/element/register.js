@@ -70,27 +70,45 @@ module.exports = (options) => {
         patch(svg, ast, variables);
       };
 
+      let justParsedContents = false;
       const parseContents = () => {
         svg = this.querySelector('svg');
         if (!svg) return;
         ast = parse(svg);
         _(this).update();
+        justParsedContents = true;
       };
 
-      parseContents();
-
       let parsedInThisFrame = false;
+      let changedAfterParsing = false;
       const observer = new MutationObserver(() => {
-        if (parsedInThisFrame) return;
+        if (justParsedContents) {
+          justParsedContents = false;
+          return;
+        }
+
+        if (parsedInThisFrame) {
+          changedAfterParsing = true;
+          return;
+        }
+
         parseContents();
         parsedInThisFrame = true;
-        requestAnimationFrame(() => {parsedInThisFrame = false;});
+
+        requestAnimationFrame(() => {
+          if (changedAfterParsing) parseContents();
+          changedAfterParsing = false;
+          parsedInThisFrame = false;
+        });
       });
+
       observer.observe(this, {
         childList: true,
         attributes: true,
         subtree: true,
       });
+
+      parseContents();
     },
 
     attributeChangedCallback() { _(this).update(); },

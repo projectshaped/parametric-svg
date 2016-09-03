@@ -1,6 +1,9 @@
 require('.');
   // This registers the <parametric-svg> thing on the actual `document`.
 
+require('setimmediate');
+  // This shims `setImmediate`
+
 const register = require('./register');
 
 const spec = require('tape-catch');
@@ -142,7 +145,7 @@ spec('Allows dynamic changes to DOM tree', (test) => {
 });
 
 spec('Works in a DOM structure built up programatically', (test) => {
-  test.plan(2);
+  test.plan(4);
 
   setTimeout(() => {
     // For reliable, consistent results this spec must fire after the initial
@@ -155,7 +158,11 @@ spec('Works in a DOM structure built up programatically', (test) => {
     parametricSvg.appendChild(svg);
 
     circle.setAttribute('r', '5');
+    circle.setAttribute('cx', '0');
     circle.setAttribute('parametric:r', '2 * (3 + 5)');
+    setImmediate(() => {
+      circle.setAttribute('parametric:cx', '3 * 3');
+    });
 
     test.equal(
       circle.getAttribute('r'),
@@ -169,6 +176,20 @@ spec('Works in a DOM structure built up programatically', (test) => {
         String(2 * (3 + 5)),
         'within a single animation frame'
       );
+
+      test.equal(
+        circle.getAttribute('cx'),
+        '0',
+        'throttles other updates'
+      );
+
+      requestAnimationFrame(() => {
+        test.equal(
+          circle.getAttribute('cx'),
+          String(3 * 3),
+          'and applies them in the next animation frame'
+        );
+      });
     });
   });
 });
