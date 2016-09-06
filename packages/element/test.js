@@ -8,8 +8,8 @@ const sinon = require('sinon');
 
 const register = require('./register');
 
-const waitForNextFrame = () => new Promise((resolve) => {
-  requestAnimationFrame(resolve);
+const waitForNextFrame = (value) => new Promise((resolve) => {
+  requestAnimationFrame(() => resolve(value));
 });
 
 const recalculateCallback = sinon.spy();
@@ -127,9 +127,7 @@ spec('Allows dynamic changes to DOM tree', (test) => {
 
   document.body.innerHTML = `
     <parametric-svg l="50">
-      <svg>
-        <rect parametric:x="l" />
-      </svg>
+      <svg></svg>
     </parametric-svg>
   `;
   const svg = document.querySelector('svg');
@@ -146,6 +144,36 @@ spec('Allows dynamic changes to DOM tree', (test) => {
       circle.getAttribute('r'),
       '50',
       'adding elements'
+    );
+  });
+});
+
+spec('Doesn’t break when two updates happen one after another', (test) => {
+  test.plan(1);
+
+  document.body.innerHTML = `
+    <parametric-svg></parametric-svg>
+  `;
+  const container = document.querySelector('parametric-svg');
+
+  (
+    waitForNextFrame()
+  ).then(() => {
+    container.innerHTML = `
+      <svg></svg>
+    `;
+    const svg = container.querySelector('svg');
+    return waitForNextFrame(svg);
+  }).then((svg) => {
+    svg.innerHTML = `
+      <rect parametric:x="2 + 2" />
+    `;
+    const rect = svg.querySelector('rect');
+    return waitForNextFrame(rect);
+  }).then((rect) => {
+    test.equal(
+      rect.getAttribute('x'),
+      '4'
     );
   });
 });

@@ -32,8 +32,6 @@ function parseValue(value) {
   * function you get back takes a single argument `options` with the following
   * properties:
   *
-  * - `logger` – A custom logger. Default: `window.console`.
-  *
   * - `document` – A custom implementation of `document` – for running this
   *   headlessly. Default: `window.document`.
   *
@@ -62,18 +60,6 @@ module.exports = (options) => {
       let svg;
       let ast;
 
-      let justUpdated = false;
-      _(this).update = () => {
-        if (!svg) return;
-
-        const variables = asObject(arrayFrom(this.attributes).map(
-          ({name, value}) => ({key: name, value: parseValue(value)})
-        ));
-
-        patch(svg, ast, variables);
-        justUpdated = true;
-      };
-
       const parseContents = () => {
         recalculateCallback();
         svg = this.querySelector('svg');
@@ -85,11 +71,6 @@ module.exports = (options) => {
       let parsedInThisFrame = false;
       let changedAfterParsing = false;
       const observer = new MutationObserver(() => {
-        if (justUpdated) {
-          justUpdated = false;
-          return;
-        }
-
         if (parsedInThisFrame) {
           changedAfterParsing = true;
           return;
@@ -105,13 +86,32 @@ module.exports = (options) => {
         });
       });
 
-      observer.observe(this, {
-        childList: true,
-        attributes: true,
-        subtree: true,
-      });
+      const observe = () => {
+        observer.observe(this, {
+          childList: true,
+          attributes: true,
+          subtree: true,
+        });
+      };
+
+      const stopObservation = () => {
+        observer.disconnect();
+      };
+
+      _(this).update = () => {
+        if (!svg) return;
+
+        const variables = asObject(arrayFrom(this.attributes).map(
+          ({ name, value }) => ({ key: name, value: parseValue(value) })
+        ));
+
+        stopObservation();
+        patch(svg, ast, variables);
+        observe();
+      };
 
       parseContents();
+      observe();
     },
 
     attributeChangedCallback() { _(this).update(); },
