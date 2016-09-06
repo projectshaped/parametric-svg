@@ -1,8 +1,9 @@
-master:
+1.3.4:
+  date: 2016-09-06
   fixed bugs:
     - >
-      Fixed problem where an update before the `<svg>` kicked in would
-      cause dropping one rerender.
+      Fixed problem where an update before the `<svg>` kicked in would cause
+      dropping one rerender.
 
 1.3.3:
   date: 2016-09-03
