@@ -18,7 +18,7 @@
 
 ## In the wild
 
-* The fabulous folks at [flone.cc](http://flone.cc) have used the idea to build an open source drone!
+* The fabulous folks at [flone.cc](http://flone.cc) have used the idea to build an [open source drone](https://tomekwi.github.io/flone-frame)!
 * A bunch of educational engineering charts are available at [parametric-svg-demo.firebaseapp.com](https://parametric-svg-demo.firebaseapp.com/).
 
 
