@@ -2,6 +2,8 @@
   <img alt="parametric.svg" src="https://cdn.rawgit.com/parametric-svg/identity/v1.0.0/logo/basic.svg" />
 </h1>
 
+This project is [now live on Subspace](https://app.dev.subspace.net/gitlab/subspace-open-development/parametric-svg)! Subspace is the open-development platform where projects are maintained collectively through voting.
+
 [![Implementations: 3
 ](https://img.shields.io/badge/implementations-3-9eab05.svg?style=flat-square)
 ](#/implementations)
